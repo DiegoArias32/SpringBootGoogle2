@@ -14,8 +14,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.security.web.header.writers.XXssProtectionHeaderWriter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -29,11 +27,10 @@ import com.sena.crud_basic.security.oauth2.OAuth2AuthenticationFailureHandler;
 import com.sena.crud_basic.security.oauth2.HttpCookieOAuth2AuthorizationRequestRepository;
 
 import java.util.Arrays;
-import java.util.List;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
     @Autowired
@@ -88,7 +85,11 @@ public class WebSecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) // Cambiar para OAuth2
+                .maximumSessions(1)
+                .maxSessionsPreventsLogin(false)
+            )
             .headers(headers -> headers
                 .frameOptions(frameOptions -> frameOptions.deny())
                 .xssProtection(xss -> xss.headerValue(XXssProtectionHeaderWriter.HeaderValue.ENABLED_MODE_BLOCK))
@@ -103,28 +104,44 @@ public class WebSecurityConfig {
                 ))
             )
             .authorizeHttpRequests(auth -> auth
+                // Permitir endpoints públicos
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/public/**").permitAll()
+                .requestMatchers("/error").permitAll()
+                
+                // IMPORTANTE: Permitir todas las rutas OAuth2
                 .requestMatchers("/oauth2/**").permitAll()
                 .requestMatchers("/login/oauth2/**").permitAll()
-                .requestMatchers("/api/employees/**").hasRole("ADMIN")
+                
+                // Recursos estáticos
                 .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/", "/index.html", "/login", "/register").permitAll()
-                .anyRequest().authenticated())
+                
+                // Endpoints específicos
+                .requestMatchers("/api/employees/**").hasRole("ADMIN")
+                .requestMatchers("/api/menu/**").permitAll() // Permitir acceso al menú para pruebas
+                
+                // Cualquier otra request necesita autenticación
+                .anyRequest().authenticated()
+            )
+            // Configuración OAuth2 - SIMPLIFICADA
             .oauth2Login(oauth2 -> oauth2
                 .authorizationEndpoint(authorization -> authorization
                     .baseUri("/oauth2/authorize")
-                    .authorizationRequestRepository(cookieAuthorizationRequestRepository()))
+                )
                 .redirectionEndpoint(redirection -> redirection
-                    .baseUri("/oauth2/callback/*"))
+                    .baseUri("/login/oauth2/code/*")
+                )
                 .userInfoEndpoint(userInfo -> userInfo
-                    .userService(customOAuth2UserService))
-                .successHandler(oAuth2AuthenticationSuccessHandler)
-                .failureHandler(oAuth2AuthenticationFailureHandler)
+                    .userService(customOAuth2UserService)
+                )
+                .defaultSuccessUrl("/oauth2/success", true)
+                .failureUrl("/oauth2/failure")
             );
 
         http.authenticationProvider(authenticationProvider());
         
+        // Orden importante de los filtros
         http.addFilterBefore(rateLimitFilter(), UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
@@ -135,17 +152,17 @@ public class WebSecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
+        // Permitir orígenes específicos
         configuration.setAllowedOriginPatterns(Arrays.asList(
             "http://localhost:*", 
-            "http://172.30.7.71:5501",
             "http://127.0.0.1:*", 
+            "http://172.30.7.71:*",
             "http://192.168.*.*:*",
-            "http://10.*.*.*:*",
-            "https://accounts.google.com"
+            "http://10.*.*.*:*"
         ));
 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-CSRF-TOKEN"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
         configuration.setMaxAge(3600L);
         

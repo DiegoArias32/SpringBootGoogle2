@@ -1,12 +1,14 @@
 package com.sena.crud_basic.security.oauth2;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -17,7 +19,6 @@ import com.sena.crud_basic.repository.RoleRepository;
 import com.sena.crud_basic.repository.UserRepository;
 import com.sena.crud_basic.security.oauth2.user.OAuth2UserInfo;
 import com.sena.crud_basic.security.oauth2.user.OAuth2UserInfoFactory;
-import com.sena.crud_basic.security.services.UserDetailsImpl;
 
 import java.util.Optional;
 import java.util.Set;
@@ -30,6 +31,10 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
     @Autowired
     private RoleRepository roleRepository;
+    
+    @Lazy
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest oAuth2UserRequest) throws OAuth2AuthenticationException {
@@ -60,9 +65,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         
         if (userOptional.isPresent()) {
             user = userOptional.get();
-            if (!user.getEmail().equals(oAuth2UserInfo.getEmail())) {
-                throw new OAuth2AuthenticationProcessingException("Email already exists");
-            }
             user = updateExistingUser(user, oAuth2UserInfo);
         } else {
             user = registerNewUser(oAuth2UserRequest, oAuth2UserInfo);
@@ -74,16 +76,19 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     private UserDTO registerNewUser(OAuth2UserRequest oAuth2UserRequest, OAuth2UserInfo oAuth2UserInfo) {
         UserDTO user = new UserDTO();
 
-        user.setFirstName(oAuth2UserInfo.getName().split(" ")[0]);
-        if (oAuth2UserInfo.getName().split(" ").length > 1) {
-            user.setLastName(oAuth2UserInfo.getName().substring(oAuth2UserInfo.getName().indexOf(" ") + 1));
-        } else {
-            user.setLastName("");
-        }
+        // Procesar nombre completo
+        String fullName = oAuth2UserInfo.getName();
+        String[] nameParts = fullName != null ? fullName.split(" ", 2) : new String[]{"Usuario", ""};
         
+        user.setFirstName(nameParts[0]);
+        user.setLastName(nameParts.length > 1 ? nameParts[1] : "");
         user.setEmail(oAuth2UserInfo.getEmail());
         user.setUsername(generateUniqueUsername(oAuth2UserInfo.getEmail()));
-        user.setPassword(""); // OAuth2 users don't have password
+        
+        // IMPORTANTE: Para usuarios OAuth2, generar un password placeholder
+        user.setPassword(passwordEncoder.encode("OAuth2User_" + System.nanoTime()));
+        user.setOAuth2User(true); // Marcar como usuario OAuth2
+        
         user.setEnabled(true);
         user.setAccountNonLocked(true);
 
@@ -96,15 +101,23 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     }
 
     private UserDTO updateExistingUser(UserDTO existingUser, OAuth2UserInfo oAuth2UserInfo) {
-        existingUser.setFirstName(oAuth2UserInfo.getName().split(" ")[0]);
-        if (oAuth2UserInfo.getName().split(" ").length > 1) {
-            existingUser.setLastName(oAuth2UserInfo.getName().substring(oAuth2UserInfo.getName().indexOf(" ") + 1));
+        // Actualizar información si es necesario
+        String fullName = oAuth2UserInfo.getName();
+        if (fullName != null) {
+            String[] nameParts = fullName.split(" ", 2);
+            existingUser.setFirstName(nameParts[0]);
+            if (nameParts.length > 1) {
+                existingUser.setLastName(nameParts[1]);
+            }
         }
         return userRepository.save(existingUser);
     }
 
     private String generateUniqueUsername(String email) {
         String baseUsername = email.substring(0, email.indexOf("@"));
+        // Limpiar caracteres especiales
+        baseUsername = baseUsername.replaceAll("[^a-zA-Z0-9]", "");
+        
         String username = baseUsername;
         int counter = 1;
         

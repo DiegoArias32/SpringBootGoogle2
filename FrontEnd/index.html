@@ -3,551 +3,1322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wild Flavor - Restaurante de Sabores Naturales</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <title>Restaurant Management System</title>
     <style>
-        :root {
-            --primary-color: #2C5E1E;
-            --secondary-color: #8B4513;
-            --bg-light: #F4F4F4;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            overflow: hidden;
+            width: min(90vw, 450px);
+            min-height: 600px;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Navigation Pills */
+        .nav-pills {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 2rem;
+        }
+
+        .nav-pill {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .nav-pill.active {
+            background: white;
+            color: #4facfe;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Form Styles */
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes slideInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
-        @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
         }
 
-        .hero-section {
-            background-image: url('https://i.ytimg.com/vi/yzGqaW-IhrE/maxresdefault.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out;
-        }
-
-        .animate-slide-up {
-            animation: slideInUp 0.8s ease-out forwards;
-        }
-
-        .animate-slide-right {
-            animation: slideInRight 0.8s ease-out forwards;
-        }
-
-        .feature-card {
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 3px solid var(--primary-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .btn-wild {
-            background-color: var(--primary-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-wild:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(44, 94, 30, 0.3);
-        }
-
-        .btn-wild::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .form-group input {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.6s;
-        }
-
-        .btn-wild:hover::before {
-            left: 100%;
-        }
-
-        .btn-outline {
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            border: 2px solid var(--primary-color);
+            background: #fff;
         }
 
-        .btn-outline:hover {
-            background-color: var(--primary-color);
+        .form-group input:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+        }
+
+        .form-group input.error {
+            border-color: #e74c3c;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+        }
+
+        .btn-google {
+            background: #fff;
+            color: #333;
+            border: 2px solid #e9ecef;
+            margin-bottom: 1rem;
+        }
+
+        .btn-google:hover {
+            border-color: #4285f4;
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+        }
+
+        .google-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
             color: white;
         }
 
-        .login-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            z-index: 50;
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        /* Divider */
+        .divider {
             display: flex;
-            justify-content: center;
             align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
+            margin: 1.5rem 0;
+            color: #6c757d;
         }
 
-        .login-container.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .login-form {
-            transform: translateY(50px);
-            transition: all 0.5s ease;
-        }
-
-        .login-container.active .login-form {
-            transform: translateY(0);
-        }
-
-        /* Menú de navegación */
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
+        .divider::before,
+        .divider::after {
             content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
+            flex: 1;
+            height: 1px;
+            background: #e9ecef;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
+        .divider span {
+            padding: 0 1rem;
+            font-size: 0.9rem;
         }
 
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
+        /* User Info Section */
+        .user-info {
+            display: none;
         }
 
-        .mobile-menu.active {
-            transform: translateX(0);
+        .user-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .user-details h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .user-details p {
+            color: #666;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-sm {
+            padding: 10px 16px;
+            font-size: 0.9rem;
+        }
+
+        .token-info {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .token-info h4 {
+            color: #2d5a2d;
+            margin-bottom: 0.5rem;
+        }
+
+        .token-display {
+            background: white;
+            border-radius: 8px;
+            padding: 0.5rem;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: #666;
+            border: 1px solid #ddd;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+
+        /* Loading and Messages */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4facfe;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .message.error {
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+        }
+
+        .message.success {
+            background: #efe;
+            border: 1px solid #cfc;
+            color: #3c3;
+        }
+
+        /* API Test Section */
+        .api-test {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .api-test h4 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .api-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .api-btn {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+
+        .api-btn:hover {
+            background: #f8f9fa;
+            border-color: #4facfe;
+        }
+
+        .api-response {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #333;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .api-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Form validation */
+        .form-group.error input {
+            border-color: #e74c3c;
+        }
+
+        .form-group .error-message {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
         }
     </style>
 </head>
-<body class="font-sans bg-gray-100">
-    <!-- Navegación -->
-    <nav class="bg-white shadow-md fixed w-full z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <i class="fas fa-leaf text-2xl text-green-800 mr-2"></i>
-                        <span class="font-bold text-xl text-gray-800">Wild Flavor</span>
-                    </div>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#inicio" class="nav-link text-gray-700 hover:text-green-800 font-medium">Inicio</a>
-                    <a href="#menu" class="nav-link text-gray-700 hover:text-green-800 font-medium">Menú</a>
-                    <a href="#testimonios" class="nav-link text-gray-700 hover:text-green-800 font-medium">Testimonios</a>
-                    <a href="#contacto" class="nav-link text-gray-700 hover:text-green-800 font-medium">Contacto</a>
-                    <button id="login-button" class="btn-outline text-green-800 font-medium py-2 px-4 rounded-lg hover:text-white">Iniciar sesión</button>
-                    <button id="register-button" class="btn-wild text-white font-medium py-2 px-4 rounded-lg">Reservar</button>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-button" class="text-gray-700 hover:text-green-800 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Restaurant System</h1>
+            <p>Gestión de Restaurante Moderna</p>
         </div>
 
-        <!-- Menú móvil -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-20 p-5">
-            <div class="flex justify-between items-center mb-8">
-                <div class="flex items-center">
-                    <i class="fas fa-leaf text-2xl text-green-800 mr-2"></i>
-                    <span class="font-bold text-xl text-gray-800">Wild Flavor</span>
+        <div class="content">
+            <!-- Navigation Pills -->
+            <div class="nav-pills" id="navPills">
+                <div class="nav-pill active" data-section="login">Iniciar Sesión</div>
+                <div class="nav-pill" data-section="register">Registrarse</div>
+            </div>
+
+            <!-- Loading Section -->
+            <div class="loading" id="loadingSection">
+                <div class="spinner"></div>
+                <p>Procesando...</p>
+            </div>
+
+            <!-- Messages -->
+            <div class="message error" id="errorMessage"></div>
+            <div class="message success" id="successMessage"></div>
+
+            <!-- Login Section -->
+            <div class="form-section active" id="loginSection">
+                <!-- Error específico de login -->
+                <div class="message error" id="loginErrorMessage" style="margin-bottom: 1rem;"></div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Correo Electrónico</label>
+                        <input type="email" id="loginEmail" name="email" required>
+                        <div class="error-message">Ingresa un correo válido</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Contraseña</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                        <div class="error-message">La contraseña es obligatoria</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="loginSubmitBtn">
+                        <span id="loginBtnText">Iniciar Sesión</span>
+                        <div class="spinner" id="loginSpinner" style="display: none; width: 20px; height: 20px; margin-left: 10px;"></div>
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>o continúa con</span>
                 </div>
-                <button id="close-menu" class="text-gray-700 hover:text-green-800 focus:outline-none">
-                    <i class="fas fa-times text-xl"></i>
+
+                <button class="btn btn-google" id="googleLoginBtn">
+                    <div class="google-icon">G</div>
+                    <span>Continuar con Google</span>
                 </button>
             </div>
-            <div class="flex flex-col space-y-6">
-                <a href="#inicio" class="text-gray-700 hover:text-green-800 font-medium">Inicio</a>
-                <a href="#menu" class="text-gray-700 hover:text-green-800 font-medium">Menú</a>
-                <a href="#testimonios" class="text-gray-700 hover:text-green-800 font-medium">Testimonios</a>
-                <a href="#contacto" class="text-gray-700 hover:text-green-800 font-medium">Contacto</a>
-                <button id="mobile-login-button" class="btn-outline text-green-800 font-medium py-2 px-4 rounded-lg hover:text-white text-center">Iniciar sesión</button>
-                <button id="mobile-register-button" class="btn-wild text-white font-medium py-2 px-4 rounded-lg text-center">Reservar</button>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-section min-h-screen flex items-center pt-16">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-3xl animate-fade-in">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Sabores auténticos y naturales</h1>
-                <p class="text-xl text-gray-200 mb-8">En Wild Flavor te ofrecemos una experiencia gastronómica única con ingredientes frescos y sabores auténticos que deleitarán tus sentidos.</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button id="hero-register-button" class="btn-wild text-white font-medium py-3 px-8 rounded-lg text-lg">
-                        <i class="fas fa-utensils mr-2"></i>Ver menú
+            <!-- Register Section -->
+            <div class="form-section" id="registerSection">
+                <!-- Error específico de registro -->
+                <div class="message error" id="registerErrorMessage" style="margin-bottom: 1rem;"></div>
+                
+                <form id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="registerFirstName">Nombre</label>
+                            <input type="text" id="registerFirstName" name="firstName" required>
+                            <div class="error-message">El nombre es obligatorio</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="registerLastName">Apellido</label>
+                            <input type="text" id="registerLastName" name="lastName" required>
+                            <div class="error-message">El apellido es obligatorio</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerUsername">Nombre de Usuario</label>
+                        <input type="text" id="registerUsername" name="username" required>
+                        <div class="error-message">El nombre de usuario es obligatorio</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerEmail">Correo Electrónico</label>
+                        <input type="email" id="registerEmail" name="email" required>
+                        <div class="error-message">Ingresa un correo válido</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPhone">Teléfono (Opcional)</label>
+                        <input type="tel" id="registerPhone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPassword">Contraseña</label>
+                        <input type="password" id="registerPassword" name="password" required>
+                        <div class="error-message">Mínimo 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirmar Contraseña</label>
+                        <input type="password" id="registerConfirmPassword" name="confirmPassword" required>
+                        <div class="error-message">Las contraseñas no coinciden</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="registerSubmitBtn">
+                        <span id="registerBtnText">Crear Cuenta</span>
+                        <div class="spinner" id="registerSpinner" style="display: none; width: 20px; height: 20px; margin-left: 10px;"></div>
                     </button>
-                    <button class="bg-white text-green-800 font-medium py-3 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors">
-                        <i class="fas fa-calendar-alt mr-2"></i>Reservar mesa
-                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>o regístrate con</span>
+                </div>
+
+                <button class="btn btn-google" id="googleRegisterBtn">
+                    <div class="google-icon">G</div>
+                    <span>Registrarse con Google</span>
+                </button>
+            </div>
+
+            <!-- User Info Section -->
+            <div class="user-info" id="userInfoSection">
+                <div class="user-card">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div class="user-details">
+                        <h3 id="userName">Usuario</h3>
+                        <p><strong>Email:</strong> <span id="userEmail">-</span></p>
+                        <p><strong>Username:</strong> <span id="userUsername">-</span></p>
+                        <p><strong>Roles:</strong> <span id="userRoles">-</span></p>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary btn-sm" id="testApiBtn">Probar API</button>
+                    <button class="btn btn-secondary btn-sm" id="logoutBtn">Cerrar Sesión</button>
+                </div>
+
+                <!-- Token Info -->
+                <div class="token-info">
+                    <h4>Token JWT:</h4>
+                    <div class="token-display" id="tokenDisplay">No hay token</div>
+                </div>
+
+                <!-- API Test Section -->
+                <div class="api-test" id="apiTestSection" style="display: none;">
+                    <h4>Probar Endpoints de la API</h4>
+                    <div class="api-buttons">
+                        <button class="api-btn" onclick="testApi('/api/menu')">Obtener Menú</button>
+                        <button class="api-btn" onclick="testApi('/api/clients')">Obtener Clientes</button>
+                        <button class="api-btn" onclick="testApi('/api/orders')">Obtener Órdenes</button>
+                        <button class="api-btn" onclick="testApi('/api/employees')">Obtener Empleados</button>
+                    </div>
+                    <div class="api-response" id="apiResponse"></div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Menú -->
-    <section id="menu" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nuestro Menú</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Descubre nuestra selección de platos preparados con ingredientes frescos y técnicas culinarias que resaltan los sabores naturales.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 0.2s;">
-                    <div class="text-green-800 text-4xl mb-4">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Entradas</h3>
-                    <p class="text-gray-600">Prueba nuestras deliciosas opciones para comenzar tu experiencia gastronómica, desde ensaladas frescas hasta sopas caseras.</p>
-                </div>
-                
-                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 0.4s;">
-                    <div class="text-green-800 text-4xl mb-4">
-                        <i class="fas fa-drumstick-bite"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Platos Principales</h3>
-                    <p class="text-gray-600">Descubre el corazón de nuestra cocina con platos elaborados que combinan tradición e innovación con los mejores ingredientes.</p>
-                </div>
-                
-                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 0.6s;">
-                    <div class="text-green-800 text-4xl mb-4">
-                        <i class="fas fa-fish"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Mariscos</h3>
-                    <p class="text-gray-600">Saborea lo mejor del mar con nuestras opciones de pescados y mariscos frescos preparados con técnicas que realzan su sabor natural.</p>
-                </div>
-                
-                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 0.8s;">
-                    <div class="text-green-800 text-4xl mb-4">
-                        <i class="fas fa-cheese"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Quesos y Embutidos</h3>
-                    <p class="text-gray-600">Una selección cuidadosa de quesos artesanales y embutidos premium para disfrutar solos o compartir en buena compañía.</p>
-                </div>
-                
-                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 1.0s;">
-                    <div class="text-green-800 text-4xl mb-4">
-                        <i class="fas fa-wine-glass-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vinos y Bebidas</h3>
-                    <p class="text-gray-600">Complementa tu comida con nuestra extensa carta de vinos seleccionados y bebidas preparadas por nuestros expertos mixólogos.</p>
-                </div>
-                
-                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 1.2s;">
-                    <div class="text-green-800 text-4xl mb-4">
-                        <i class="fas fa-birthday-cake"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Postres</h3>
-                    <p class="text-gray-600">Culmina tu experiencia con nuestros postres de autor que combinan dulzura, texturas y presentaciones sorprendentes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonios -->
-    <section id="testimonios" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Lo que dicen nuestros clientes</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Descubre por qué nuestros comensales vuelven una y otra vez a Wild Flavor.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg p-6 shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-green-800"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">María García</h4>
-                            <p class="text-gray-600 text-sm">Cliente frecuente</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-500 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700">"Los sabores son increíblemente auténticos. Cada vez que visito Wild Flavor, descubro algo nuevo. El servicio es impecable y el ambiente es perfecto para cualquier ocasión."</p>
-                </div>
-                
-                <div class="bg-white rounded-lg p-6 shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-green-800"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Carlos Mendoza</h4>
-                            <p class="text-gray-600 text-sm">Crítico gastronómico</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-500 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="text-gray-700">"Wild Flavor eleva la experiencia gastronómica con ingredientes de primera calidad y una presentación impecable. Su respeto por el producto y la creatividad en cada plato son impresionantes."</p>
-                </div>
-                
-                <div class="bg-white rounded-lg p-6 shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-green-800"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Alejandra Ramírez</h4>
-                            <p class="text-gray-600 text-sm">Empresaria</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-500 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700">"Mi lugar favorito para reuniones de negocios. El menú de mariscos es excepcional y el servicio discreto y atento. La selección de vinos complementa perfectamente cada plato."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="py-16 bg-green-800 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Reserva tu experiencia Wild Flavor</h2>
-            <p class="text-xl text-green-200 mb-8 max-w-3xl mx-auto">Disfruta de una experiencia gastronómica incomparable en un ambiente acogedor y con un servicio de primera.</p>
-            <button id="cta-register-button" class="bg-white text-green-800 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors">
-                Reservar ahora
-            </button>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contacto" class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-leaf text-2xl text-green-400 mr-2"></i>
-                        <span class="font-bold text-xl">Wild Flavor</span>
-                    </div>
-                    <p class="text-gray-400">Creando experiencias gastronómicas inolvidables con ingredientes naturales y sabores auténticos.</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
-                        <li><a href="#menu" class="text-gray-400 hover:text-white transition-colors">Menú</a></li>
-                        <li><a href="#testimonios" class="text-gray-400 hover:text-white transition-colors">Testimonios</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Eventos privados</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog culinario</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            <span>Av. Principal 123, Ciudad</span>
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-phone mr-2"></i>
-                            <span>+123 456 7890</span>
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-envelope mr-2"></i>
-                            <span>reservas@wildflavor.com</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Síguenos</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                    <div class="mt-6">
-                        <h4 class="text-lg font-bold mb-4">Boletín informativo</h4>
-                        <div class="flex">
-                            <input type="email" placeholder="Tu correo electrónico" class="py-2 px-4 rounded-l-lg w-full focus:outline-none text-gray-800">
-                            <button class="bg-green-600 px-4 rounded-r-lg hover:bg-green-700 transition-colors">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Wild Flavor. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Contenedor de Login que aparecerá como modal -->
-    <div id="login-container" class="login-container">
-        <iframe id="login-iframe" class="login-form w-full max-w-4xl h-4/5 rounded-lg bg-white" src="html/login y register/loginAndRegister.html" frameborder="0"></iframe>
-        <button id="close-login" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
-            <i class="fas fa-times text-2xl"></i>
-        </button>
     </div>
 
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lcy8x4rAAAAAKSfqVFXEkhNz_IsFIb_iCn5qOwy"></script>
     <script>
-       // Activar animaciones de características al hacer scroll
-const featureCards = document.querySelectorAll('.feature-card');
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-slide-up');
-            entry.target.style.opacity = 1;
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-featureCards.forEach(card => {
-    observer.observe(card);
-});
-
-// Manejar apertura y cierre del menú móvil
-document.getElementById('menu-button').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.add('active');
-});
-
-document.getElementById('close-menu').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.remove('active');
-});
-
-// Función para mostrar el modal con la opción correcta (login o registro)
-function showModal(mode) {
-    const loginIframe = document.getElementById('login-iframe');
-    // Actualizar el src del iframe con el parámetro correspondiente
-    loginIframe.src = `html/login y register/loginAndRegister.html?mode=${mode}`;
-    document.getElementById('login-container').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-// Función para cerrar el modal
-function closeLoginModal() {
-    document.getElementById('login-container').classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-// Asignar eventos a los botones de login
-document.getElementById('login-button').addEventListener('click', function() {
-    window.location.href = "html/login y register/loginAndRegister.html?mode=login";
-});
-document.getElementById('mobile-login-button').addEventListener('click', function() {
-    window.location.href = "html/login y register/loginAndRegister.html?mode=login";
-});
-
-// Asignar eventos a los botones de registro
-document.getElementById('register-button').addEventListener('click', function() {
-    window.location.href = "html/login y register/loginAndRegister.html?mode=register";
-});
-document.getElementById('mobile-register-button').addEventListener('click', function() {
-    window.location.href = "html/login y register/loginAndRegister.html?mode=register";
-});
-document.getElementById('hero-register-button').addEventListener('click', function() {
-    window.location.href = "html/login y register/loginAndRegister.html?mode=register";
-});
-document.getElementById('cta-register-button').addEventListener('click', function() {
-    window.location.href = "html/login y register/loginAndRegister.html?mode=register";
-});
-
-document.getElementById('close-login').addEventListener('click', closeLoginModal);
-
-// Cerrar menú móvil al hacer clic en un enlace
-const mobileLinks = document.querySelectorAll('#mobile-menu a');
-mobileLinks.forEach(link => {
-    link.addEventListener('click', function() {
-        document.getElementById('mobile-menu').classList.remove('active');
-    });
-});
-
-// Navegación suave
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        // Configuración
+        const API_BASE_URL = 'http://localhost:8080';
+        const OAUTH2_URL = `${API_BASE_URL}/oauth2/authorize/google`;
         
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+        // Variables globales
+        let currentToken = null;
+        let currentUser = null;
+
+        // Elementos DOM
+        const navPills = document.querySelectorAll('.nav-pill');
+        const formSections = document.querySelectorAll('.form-section');
+        const loginSection = document.getElementById('loginSection');
+        const registerSection = document.getElementById('registerSection');
+        const userInfoSection = document.getElementById('userInfoSection');
+        const loadingSection = document.getElementById('loadingSection');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        
+        // Mensajes específicos de cada formulario
+        const loginErrorMessage = document.getElementById('loginErrorMessage');
+        const registerErrorMessage = document.getElementById('registerErrorMessage');
+        const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+        const registerSubmitBtn = document.getElementById('registerSubmitBtn');
+        const loginBtnText = document.getElementById('loginBtnText');
+        const registerBtnText = document.getElementById('registerBtnText');
+        const loginSpinner = document.getElementById('loginSpinner');
+        const registerSpinner = document.getElementById('registerSpinner');
+
+        // Forms
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        
+        // Buttons
+        const googleLoginBtn = document.getElementById('googleLoginBtn');
+        const googleRegisterBtn = document.getElementById('googleRegisterBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const testApiBtn = document.getElementById('testApiBtn');
+        const apiTestSection = document.getElementById('apiTestSection');
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Aplicación iniciada');
+            
+            // Verificar si el usuario ya está autenticado
+            checkExistingAuth();
+            
+            // Configurar navegación
+            setupNavigation();
+            
+            // Configurar eventos de formularios
+            setupForms();
+            
+            // Configurar botones OAuth2
+            googleLoginBtn.addEventListener('click', handleGoogleAuth);
+            googleRegisterBtn.addEventListener('click', handleGoogleAuth);
+            logoutBtn.addEventListener('click', handleLogout);
+            testApiBtn.addEventListener('click', toggleApiTest);
+
+            // Verificar si hay un token en la URL (después de OAuth2)
+            checkForTokenInUrl();
         });
-    });
-});
+
+        // Verificar si el usuario ya está autenticado
+        function checkExistingAuth() {
+            const existingToken = localStorage.getItem('authToken');
+            const existingUser = localStorage.getItem('currentUser');
+            
+            if (existingToken && existingUser) {
+                try {
+                    // Verificar si el token aún es válido (no expirado)
+                    const payload = existingToken.split('.')[1];
+                    const decoded = JSON.parse(atob(payload));
+                    const currentTime = Date.now() / 1000;
+                    
+                    if (decoded.exp > currentTime) {
+                        // Token válido, redirigir al dashboard
+                        console.log('Usuario ya autenticado, redirigiendo al dashboard...');
+                        showSuccess('Ya tienes una sesión activa. Redirigiendo...');
+                        setTimeout(() => {
+                            window.location.href = 'html/sistema de gestion/dashboard.html';
+                        }, 1000);
+                        return;
+                    } else {
+                        // Token expirado, limpiar localStorage
+                        localStorage.removeItem('authToken');
+                        localStorage.removeItem('currentUser');
+                        console.log('Token expirado, se requiere nueva autenticación');
+                    }
+                } catch (error) {
+                    // Token inválido, limpiar localStorage
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('currentUser');
+                    console.error('Token inválido en localStorage:', error);
+                }
+            }
+        }
+
+        // Navegación entre secciones
+        function setupNavigation() {
+            navPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    const section = pill.dataset.section;
+                    switchSection(section);
+                });
+            });
+        }
+
+        function switchSection(section) {
+            // Limpiar errores de ambas secciones
+            hideLoginError();
+            hideRegisterError();
+
+            // Actualizar pills
+            navPills.forEach(pill => {
+                pill.classList.toggle('active', pill.dataset.section === section);
+            });
+
+            // Mostrar sección correspondiente
+            formSections.forEach(form => {
+                form.classList.remove('active');
+            });
+
+            if (section === 'login') {
+                loginSection.classList.add('active');
+            } else if (section === 'register') {
+                registerSection.classList.add('active');
+            }
+        }
+
+        // Configurar formularios
+        function setupForms() {
+            loginForm.addEventListener('submit', handleLogin);
+            registerForm.addEventListener('submit', handleRegister);
+        }
+
+        // Manejo de login manual
+        async function handleLogin(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Limpiar errores previos
+            hideLoginError();
+
+            if (!validateLoginForm(email, password)) {
+                return;
+            }
+
+            // Mostrar loading en el botón
+            setLoginLoading(true);
+
+            try {
+                // Obtener token reCAPTCHA
+                const recaptchaToken = await getRecaptchaToken('login');
+                
+                const response = await fetch(`${API_BASE_URL}/api/auth/signin`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        usernameOrEmail: email,
+                        password: password,
+                        recaptchaToken: recaptchaToken
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    handleAuthSuccess(data);
+                } else {
+                    // Mostrar error específico en el formulario de login
+                    showLoginError(data.message || 'Usuario o contraseña incorrectos');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showLoginError('Error de conexión. Verifica que el servidor esté funcionando.');
+            } finally {
+                setLoginLoading(false);
+            }
+        }
+
+        // Manejo de registro manual
+        async function handleRegister(e) {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: document.getElementById('registerFirstName').value,
+                lastName: document.getElementById('registerLastName').value,
+                username: document.getElementById('registerUsername').value,
+                email: document.getElementById('registerEmail').value,
+                phone: document.getElementById('registerPhone').value,
+                password: document.getElementById('registerPassword').value,
+                confirmPassword: document.getElementById('registerConfirmPassword').value
+            };
+
+            // Limpiar errores previos
+            hideRegisterError();
+
+            if (!validateRegisterForm(formData)) {
+                return;
+            }
+
+            // Mostrar loading en el botón
+            setRegisterLoading(true);
+
+            try {
+                // Obtener token reCAPTCHA
+                const recaptchaToken = await getRecaptchaToken('register');
+                
+                const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        firstName: formData.firstName,
+                        lastName: formData.lastName,
+                        username: formData.username,
+                        email: formData.email,
+                        phone: formData.phone,
+                        password: formData.password,
+                        recaptchaToken: recaptchaToken
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showSuccess('¡Cuenta creada exitosamente! Ahora puedes iniciar sesión.');
+                    switchSection('login');
+                    registerForm.reset();
+                } else {
+                    // Mostrar error específico en el formulario de registro
+                    showRegisterError(data.message || 'Error al crear la cuenta');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showRegisterError('Error de conexión. Verifica que el servidor esté funcionando.');
+            } finally {
+                setRegisterLoading(false);
+            }
+        }
+
+        // Función para obtener token reCAPTCHA con fallback
+        async function getRecaptchaToken(action) {
+            try {
+                // Verificar si grecaptcha está disponible
+                if (typeof grecaptcha === 'undefined') {
+                    console.warn('reCAPTCHA no está disponible, usando modo de desarrollo');
+                    return 'dev_mode_token';
+                }
+
+                // Usar la site key pública correcta
+                const token = await grecaptcha.execute('6Lcy8x4rAAAAAKSfqVFXEkhNz_IsFIb_iCn5qOwy', {
+                    action: action
+                });
+                console.log('✅ Token reCAPTCHA obtenido:', token.substring(0, 20) + '...');
+                return token;
+            } catch (error) {
+                console.error('❌ Error obteniendo token reCAPTCHA:', error);
+                
+                // Fallback: retornar un token de desarrollo
+                console.warn('🔧 Usando modo de desarrollo sin reCAPTCHA');
+                return 'dev_mode_token';
+            }
+        }
+
+        // Función para obtener token reCAPTCHA
+        async function getRecaptchaToken(action) {
+            try {
+                // Usar la site key de tu configuración
+                const token = await grecaptcha.execute('6Lcy8x4rAAAAAKSfqVFXEkhNz_IsFIb_iCn5qOwy', {
+                    action: action
+                });
+                console.log('Token reCAPTCHA obtenido:', token.substring(0, 20) + '...');
+                return token;
+            } catch (error) {
+                console.error('Error obteniendo token reCAPTCHA:', error);
+                throw new Error('Error de verificación de seguridad');
+            }
+        }
+        function validateLoginForm(email, password) {
+            let isValid = true;
+
+            // Validar email
+            const emailField = document.getElementById('loginEmail').parentElement;
+            if (!email || !isValidEmail(email)) {
+                emailField.classList.add('error');
+                isValid = false;
+            } else {
+                emailField.classList.remove('error');
+            }
+
+            // Validar password
+            const passwordField = document.getElementById('loginPassword').parentElement;
+            if (!password) {
+                passwordField.classList.add('error');
+                isValid = false;
+            } else {
+                passwordField.classList.remove('error');
+            }
+
+            return isValid;
+        }
+
+        function validateRegisterForm(formData) {
+            let isValid = true;
+
+            // Validar nombre
+            const firstNameField = document.getElementById('registerFirstName').parentElement;
+            if (!formData.firstName || formData.firstName.length < 2) {
+                firstNameField.classList.add('error');
+                isValid = false;
+            } else {
+                firstNameField.classList.remove('error');
+            }
+
+            // Validar apellido
+            const lastNameField = document.getElementById('registerLastName').parentElement;
+            if (!formData.lastName || formData.lastName.length < 2) {
+                lastNameField.classList.add('error');
+                isValid = false;
+            } else {
+                lastNameField.classList.remove('error');
+            }
+
+            // Validar username
+            const usernameField = document.getElementById('registerUsername').parentElement;
+            if (!formData.username || formData.username.length < 3) {
+                usernameField.classList.add('error');
+                isValid = false;
+            } else {
+                usernameField.classList.remove('error');
+            }
+
+            // Validar email
+            const emailField = document.getElementById('registerEmail').parentElement;
+            if (!formData.email || !isValidEmail(formData.email)) {
+                emailField.classList.add('error');
+                isValid = false;
+            } else {
+                emailField.classList.remove('error');
+            }
+
+            // Validar password
+            const passwordField = document.getElementById('registerPassword').parentElement;
+            if (!formData.password || !isValidPassword(formData.password)) {
+                passwordField.classList.add('error');
+                isValid = false;
+            } else {
+                passwordField.classList.remove('error');
+            }
+
+            // Validar confirmación de password
+            const confirmPasswordField = document.getElementById('registerConfirmPassword').parentElement;
+            if (formData.password !== formData.confirmPassword) {
+                confirmPasswordField.classList.add('error');
+                isValid = false;
+            } else {
+                confirmPasswordField.classList.remove('error');
+            }
+
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function isValidPassword(password) {
+            // Mínimo 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial
+            return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$/.test(password);
+        }
+
+        // OAuth2 con Google
+        function handleGoogleAuth(e) {
+            e.preventDefault();
+            console.log('Iniciando autenticación con Google...');
+            
+            showLoading();
+            
+            // Redirigir a Google OAuth2
+            window.location.href = OAUTH2_URL;
+        }
+
+        // Verificar token en URL (después de OAuth2)
+        function checkForTokenInUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            const auth = urlParams.get('auth');
+            const error = urlParams.get('error');
+
+            if (error) {
+                console.error('Error en OAuth2:', error);
+                showError('Error en la autenticación: ' + decodeURIComponent(error));
+                return;
+            }
+
+            if (token && auth === 'success') {
+                console.log('Token encontrado en URL:', token.substring(0, 20) + '...');
+                handleTokenReceived(token);
+                
+                // Limpiar la URL sin recargar la página
+                const cleanUrl = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, cleanUrl);
+            }
+        }
+
+        // Manejar token recibido (OAuth2 o login manual)
+        async function handleTokenReceived(token) {
+            try {
+                console.log('Procesando token recibido...');
+                currentToken = token;
+                
+                // Decodificar JWT para obtener información básica
+                let userInfo = decodeJWT(token);
+                
+                // Si la información del JWT está incompleta, obtener del backend
+                if (!userInfo || userInfo.email === 'No disponible' || userInfo.firstName === 'Usuario') {
+                    console.log('Información incompleta en JWT, obteniendo del backend...');
+                    try {
+                        const additionalInfo = await fetchUserInfoFromBackend(token);
+                        if (additionalInfo) {
+                            // Combinar información del JWT con la del backend
+                            userInfo = {
+                                ...userInfo,
+                                ...additionalInfo
+                            };
+                        }
+                    } catch (error) {
+                        console.warn('No se pudo obtener información adicional del backend:', error);
+                    }
+                }
+                
+                if (userInfo) {
+                    currentUser = userInfo;
+                    
+                    // Guardar token y usuario en localStorage para el dashboard
+                    localStorage.setItem('authToken', token);
+                    localStorage.setItem('currentUser', JSON.stringify(userInfo));
+                    
+                    // Mostrar mensaje de éxito
+                    showSuccess('¡Autenticación exitosa! Redirigiendo al dashboard...');
+                    
+                    // Redirigir al dashboard después de un breve delay
+                    setTimeout(() => {
+                        window.location.href = 'html/sistema de gestion/dashboard.html';
+                    }, 1500);
+                } else {
+                    throw new Error('No se pudo obtener la información del usuario');
+                }
+                
+            } catch (error) {
+                console.error('Error al procesar el token:', error);
+                showError('Error al procesar la autenticación: ' + error.message);
+            }
+        }
+
+        // Obtener información adicional del usuario desde el backend
+        async function fetchUserInfoFromBackend(token) {
+            try {
+                // Intentar obtener el perfil del usuario actual
+                const response = await fetch(`${API_BASE_URL}/api/user/profile`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const userData = await response.json();
+                    console.log('Información del usuario obtenida del backend:', userData);
+                    return {
+                        username: userData.username,
+                        email: userData.email,
+                        firstName: userData.firstName,
+                        lastName: userData.lastName,
+                        roles: userData.roles || ['ROLE_CLIENT']
+                    };
+                }
+            } catch (error) {
+                console.warn('Error al obtener información del backend:', error);
+            }
+            return null;
+        }
+
+        // Manejar respuesta de autenticación exitosa
+        function handleAuthSuccess(response) {
+            if (response.token) {
+                handleTokenReceived(response.token);
+            } else {
+                showError('No se recibió token de autenticación');
+            }
+        }
+
+        // Decodificar JWT - Versión mejorada
+        function decodeJWT(token) {
+            try {
+                const payload = token.split('.')[1];
+                const decoded = JSON.parse(atob(payload));
+                
+                console.log('JWT decodificado:', decoded); // Para debug
+                
+                // El JWT puede tener diferentes estructuras según el tipo de login
+                let email = decoded.email || decoded.sub || 'No disponible';
+                let username = decoded.username || decoded.preferred_username || decoded.sub || 'Usuario';
+                let firstName = decoded.given_name || decoded.firstName || 'Usuario';
+                let lastName = decoded.family_name || decoded.lastName || '';
+                
+                // Si el subject parece ser un email (contiene @), entonces es OAuth2
+                if (decoded.sub && decoded.sub.includes('@')) {
+                    email = decoded.sub;
+                    username = decoded.sub.split('@')[0];
+                    
+                    // Para OAuth2, extraer nombre del email
+                    const emailPart = email.split('@')[0];
+                    if (emailPart.includes('.')) {
+                        const parts = emailPart.split('.');
+                        firstName = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+                        lastName = parts[1] ? parts[1].charAt(0).toUpperCase() + parts[1].slice(1) : '';
+                    } else {
+                        firstName = emailPart.charAt(0).toUpperCase() + emailPart.slice(1);
+                    }
+                }
+                // Si el subject NO es un email, entonces es login manual
+                else {
+                    // Para login manual, el subject es el username
+                    username = decoded.sub;
+                    // Buscar el email en otros campos
+                    email = decoded.email || decoded.mail || 'No disponible';
+                    
+                    // Para login manual, usar datos del registro si están disponibles
+                    firstName = decoded.firstName || decoded.given_name || username;
+                    lastName = decoded.lastName || decoded.family_name || '';
+                }
+                
+                return {
+                    username: username,
+                    email: email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    roles: decoded.roles || decoded.authorities || ['ROLE_CLIENT']
+                };
+            } catch (error) {
+                console.error('Error al decodificar JWT:', error);
+                return {
+                    username: 'Usuario',
+                    email: 'No disponible',
+                    firstName: 'Usuario',
+                    lastName: '',
+                    roles: ['ROLE_CLIENT']
+                };
+            }
+        }
+
+        // Mostrar información del usuario
+        function displayUserInfo(userInfo) {
+            console.log('Mostrando información del usuario:', userInfo);
+            
+            document.getElementById('userName').textContent = 
+                `${userInfo.firstName || 'Usuario'} ${userInfo.lastName || ''}`.trim();
+            document.getElementById('userEmail').textContent = userInfo.email || 'No disponible';
+            document.getElementById('userUsername').textContent = userInfo.username || 'No disponible';
+            document.getElementById('userRoles').textContent = 
+                Array.isArray(userInfo.roles) ? userInfo.roles.join(', ') : (userInfo.roles || 'ROLE_CLIENT');
+            
+            // Actualizar avatar
+            const avatar = document.getElementById('userAvatar');
+            avatar.textContent = (userInfo.firstName || 'U')[0].toUpperCase();
+            
+            // Mostrar token
+            document.getElementById('tokenDisplay').textContent = currentToken;
+            
+            // Cambiar a vista de usuario
+            showUserInfo();
+        }
+
+        // Cerrar sesión
+        function handleLogout() {
+            console.log('Cerrando sesión...');
+            
+            // Limpiar datos de memoria
+            currentToken = null;
+            currentUser = null;
+            
+            // Limpiar localStorage
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('currentUser');
+            
+            // Ocultar sección de API test
+            apiTestSection.style.display = 'none';
+            
+            // Volver a login
+            showForms();
+            showSuccess('Sesión cerrada correctamente');
+        }
+
+        // Probar API
+        function toggleApiTest() {
+            const isVisible = apiTestSection.style.display !== 'none';
+            apiTestSection.style.display = isVisible ? 'none' : 'block';
+        }
+
+        async function testApi(endpoint) {
+            if (!currentToken) {
+                showError('No hay token disponible para la prueba');
+                return;
+            }
+
+            const responseDiv = document.getElementById('apiResponse');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = 'Cargando...';
+
+            try {
+                console.log(`Probando endpoint: ${endpoint}`);
+                
+                const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${currentToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.text();
+                
+                if (response.ok) {
+                    try {
+                        const jsonData = JSON.parse(data);
+                        responseDiv.textContent = `Status: ${response.status}\nResponse:\n${JSON.stringify(jsonData, null, 2)}`;
+                    } catch {
+                        responseDiv.textContent = `Status: ${response.status}\nResponse:\n${data}`;
+                    }
+                } else {
+                    responseDiv.textContent = `Error ${response.status}:\n${data}`;
+                }
+                
+            } catch (error) {
+                console.error('Error en prueba de API:', error);
+                responseDiv.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        // Funciones de UI específicas para login
+        function showLoginError(message) {
+            loginErrorMessage.textContent = message;
+            loginErrorMessage.style.display = 'block';
+        }
+
+        function hideLoginError() {
+            loginErrorMessage.style.display = 'none';
+        }
+
+        function setLoginLoading(loading) {
+            if (loading) {
+                loginBtnText.textContent = 'Iniciando sesión...';
+                loginSpinner.style.display = 'inline-block';
+                loginSubmitBtn.disabled = true;
+            } else {
+                loginBtnText.textContent = 'Iniciar Sesión';
+                loginSpinner.style.display = 'none';
+                loginSubmitBtn.disabled = false;
+            }
+        }
+
+        // Funciones de UI específicas para registro
+        function showRegisterError(message) {
+            registerErrorMessage.textContent = message;
+            registerErrorMessage.style.display = 'block';
+        }
+
+        function hideRegisterError() {
+            registerErrorMessage.style.display = 'none';
+        }
+
+        function setRegisterLoading(loading) {
+            if (loading) {
+                registerBtnText.textContent = 'Creando cuenta...';
+                registerSpinner.style.display = 'inline-block';
+                registerSubmitBtn.disabled = true;
+            } else {
+                registerBtnText.textContent = 'Crear Cuenta';
+                registerSpinner.style.display = 'none';
+                registerSubmitBtn.disabled = false;
+            }
+        }
+
+        // Funciones de UI
+        function showForms() {
+            hideAll();
+            document.getElementById('navPills').style.display = 'flex';
+            switchSection('login');
+        }
+
+        function showLoading() {
+            hideAll();
+            loadingSection.style.display = 'block';
+        }
+
+        function hideLoading() {
+            loadingSection.style.display = 'none';
+        }
+
+        function showUserInfo() {
+            hideAll();
+            userInfoSection.style.display = 'block';
+        }
+
+        function hideAll() {
+            document.getElementById('navPills').style.display = 'none';
+            formSections.forEach(section => section.style.display = 'none');
+            loadingSection.style.display = 'none';
+            userInfoSection.style.display = 'none';
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        // Manejar errores globales
+        window.addEventListener('error', function(e) {
+            console.error('Error global:', e.error);
+            showError('Ha ocurrido un error inesperado');
+        });
     </script>
 </body>
 </html>

@@ -42,9 +42,9 @@ public class UserDTO {
     @Email
     private String email;
 
-    @NotBlank
-    @Size(max = 120)
-    private String password;
+    // CAMBIADO: Hacer el password menos restrictivo para OAuth2
+    @Size(min = 1, max = 120, message = "La contraseña debe tener entre 1 y 120 caracteres")
+    private String password = ""; // Valor por defecto
     
     @Size(max = 15)
     private String phone;
@@ -58,6 +58,10 @@ public class UserDTO {
     private boolean accountNonLocked = true;
     
     private int failedAttempt = 0;
+    
+    // Indicador para usuarios OAuth2
+    @Column(name = "is_oauth2_user")
+    private boolean isOAuth2User = false;
     
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", 

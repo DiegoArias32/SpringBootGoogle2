@@ -26,7 +26,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
     private HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository;
 
-    @Value("${app.oauth2.authorizedRedirectUris:http://localhost:3000/oauth2/redirect}")
+    @Value("${app.oauth2.authorizedRedirectUris:http://localhost:5501}")
     private String[] authorizedRedirectUris;
 
     @Autowired
@@ -48,24 +48,47 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         getRedirectStrategy().sendRedirect(request, response, targetUrl);
     }
 
-@Override
-protected String determineTargetUrl(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
-    Optional<String> redirectUri = CookieUtils.getCookie(request, REDIRECT_URI_PARAM_COOKIE_NAME)
-            .map(Cookie::getValue);
+    @Override
+    protected String determineTargetUrl(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+        Optional<String> redirectUri = CookieUtils.getCookie(request, REDIRECT_URI_PARAM_COOKIE_NAME)
+                .map(Cookie::getValue);
 
-    if(redirectUri.isPresent() && !isAuthorizedRedirectUri(redirectUri.get())) {
-        throw new OAuth2AuthenticationProcessingException("URI de redirección no autorizada");
+        if(redirectUri.isPresent() && !isAuthorizedRedirectUri(redirectUri.get())) {
+            throw new OAuth2AuthenticationProcessingException("URI de redirección no autorizada");
+        }
+
+        // URL por defecto para tu frontend - CORREGIDO
+        String targetUrl = redirectUri.orElse("http://localhost:5501");
+        
+        // Limpiar la URL base de caracteres problemáticos
+        targetUrl = targetUrl.replaceAll("[\r\n\t]", "").trim();
+
+        String token = tokenProvider.generateTokenFromUsername(authentication.getName());
+        
+        // Validar que el token no contenga caracteres problemáticos
+        if (token.contains("\r") || token.contains("\n")) {
+            throw new OAuth2AuthenticationProcessingException("Token inválido generado");
+        }
+
+        try {
+            // IMPORTANTE: Agregar parámetros necesarios para el frontend
+            String finalUrl = UriComponentsBuilder.fromUriString(targetUrl)
+                    .queryParam("token", token)
+                    .queryParam("auth", "success")
+                    .build()
+                    .toUriString();
+                    
+            // Validación final
+            if (finalUrl.contains("\r") || finalUrl.contains("\n")) {
+                return "http://localhost:5501?error=Invalid_redirect&auth=failure";
+            }
+            
+            return finalUrl;
+        } catch (Exception e) {
+            // Fallback en caso de error
+            return "http://localhost:5501?error=URL_construction_failed&auth=failure";
+        }
     }
-
-    // URL por defecto para tu frontend
-    String targetUrl = redirectUri.orElse("http://localhost:5501");
-
-    String token = tokenProvider.generateTokenFromUsername(authentication.getName());
-
-    return UriComponentsBuilder.fromUriString(targetUrl)
-            .queryParam("token", token)
-            .build().toUriString();
-}
 
     protected void clearAuthenticationAttributes(HttpServletRequest request, HttpServletResponse response) {
         super.clearAuthenticationAttributes(request);
@@ -84,4 +107,4 @@ protected String determineTargetUrl(HttpServletRequest request, HttpServletRespo
         }
         return false;
     }
-} 
+}
