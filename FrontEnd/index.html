@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Flavor - Restaurante de Sabores Naturales</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C5E1E;
+            --secondary-color: #8B4513;
+            --bg-light: #F4F4F4;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .hero-section {
+            background-image: url('https://i.ytimg.com/vi/yzGqaW-IhrE/maxresdefault.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .animate-slide-up {
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .btn-wild {
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-wild:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(44, 94, 30, 0.3);
+        }
+
+        .btn-wild::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.6s;
+        }
+
+        .btn-wild:hover::before {
+            left: 100%;
+        }
+
+        .btn-outline {
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .login-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .login-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .login-form {
+            transform: translateY(50px);
+            transition: all 0.5s ease;
+        }
+
+        .login-container.active .login-form {
+            transform: translateY(0);
+        }
+
+        /* Menú de navegación */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <!-- Navegación -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-leaf text-2xl text-green-800 mr-2"></i>
+                        <span class="font-bold text-xl text-gray-800">Wild Flavor</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="nav-link text-gray-700 hover:text-green-800 font-medium">Inicio</a>
+                    <a href="#menu" class="nav-link text-gray-700 hover:text-green-800 font-medium">Menú</a>
+                    <a href="#testimonios" class="nav-link text-gray-700 hover:text-green-800 font-medium">Testimonios</a>
+                    <a href="#contacto" class="nav-link text-gray-700 hover:text-green-800 font-medium">Contacto</a>
+                    <button id="login-button" class="btn-outline text-green-800 font-medium py-2 px-4 rounded-lg hover:text-white">Iniciar sesión</button>
+                    <button id="register-button" class="btn-wild text-white font-medium py-2 px-4 rounded-lg">Reservar</button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-button" class="text-gray-700 hover:text-green-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-20 p-5">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center">
+                    <i class="fas fa-leaf text-2xl text-green-800 mr-2"></i>
+                    <span class="font-bold text-xl text-gray-800">Wild Flavor</span>
+                </div>
+                <button id="close-menu" class="text-gray-700 hover:text-green-800 focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6">
+                <a href="#inicio" class="text-gray-700 hover:text-green-800 font-medium">Inicio</a>
+                <a href="#menu" class="text-gray-700 hover:text-green-800 font-medium">Menú</a>
+                <a href="#testimonios" class="text-gray-700 hover:text-green-800 font-medium">Testimonios</a>
+                <a href="#contacto" class="text-gray-700 hover:text-green-800 font-medium">Contacto</a>
+                <button id="mobile-login-button" class="btn-outline text-green-800 font-medium py-2 px-4 rounded-lg hover:text-white text-center">Iniciar sesión</button>
+                <button id="mobile-register-button" class="btn-wild text-white font-medium py-2 px-4 rounded-lg text-center">Reservar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Sabores auténticos y naturales</h1>
+                <p class="text-xl text-gray-200 mb-8">En Wild Flavor te ofrecemos una experiencia gastronómica única con ingredientes frescos y sabores auténticos que deleitarán tus sentidos.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button id="hero-register-button" class="btn-wild text-white font-medium py-3 px-8 rounded-lg text-lg">
+                        <i class="fas fa-utensils mr-2"></i>Ver menú
+                    </button>
+                    <button class="bg-white text-green-800 font-medium py-3 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-calendar-alt mr-2"></i>Reservar mesa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menú -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nuestro Menú</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Descubre nuestra selección de platos preparados con ingredientes frescos y técnicas culinarias que resaltan los sabores naturales.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 0.2s;">
+                    <div class="text-green-800 text-4xl mb-4">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Entradas</h3>
+                    <p class="text-gray-600">Prueba nuestras deliciosas opciones para comenzar tu experiencia gastronómica, desde ensaladas frescas hasta sopas caseras.</p>
+                </div>
+                
+                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 0.4s;">
+                    <div class="text-green-800 text-4xl mb-4">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Platos Principales</h3>
+                    <p class="text-gray-600">Descubre el corazón de nuestra cocina con platos elaborados que combinan tradición e innovación con los mejores ingredientes.</p>
+                </div>
+                
+                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 0.6s;">
+                    <div class="text-green-800 text-4xl mb-4">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Mariscos</h3>
+                    <p class="text-gray-600">Saborea lo mejor del mar con nuestras opciones de pescados y mariscos frescos preparados con técnicas que realzan su sabor natural.</p>
+                </div>
+                
+                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 0.8s;">
+                    <div class="text-green-800 text-4xl mb-4">
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Quesos y Embutidos</h3>
+                    <p class="text-gray-600">Una selección cuidadosa de quesos artesanales y embutidos premium para disfrutar solos o compartir en buena compañía.</p>
+                </div>
+                
+                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 1.0s;">
+                    <div class="text-green-800 text-4xl mb-4">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vinos y Bebidas</h3>
+                    <p class="text-gray-600">Complementa tu comida con nuestra extensa carta de vinos seleccionados y bebidas preparadas por nuestros expertos mixólogos.</p>
+                </div>
+                
+                <div class="feature-card bg-white rounded-lg p-6 shadow-md opacity-0" style="animation-delay: 1.2s;">
+                    <div class="text-green-800 text-4xl mb-4">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Postres</h3>
+                    <p class="text-gray-600">Culmina tu experiencia con nuestros postres de autor que combinan dulzura, texturas y presentaciones sorprendentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Lo que dicen nuestros clientes</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Descubre por qué nuestros comensales vuelven una y otra vez a Wild Flavor.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-green-800"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">María García</h4>
+                            <p class="text-gray-600 text-sm">Cliente frecuente</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700">"Los sabores son increíblemente auténticos. Cada vez que visito Wild Flavor, descubro algo nuevo. El servicio es impecable y el ambiente es perfecto para cualquier ocasión."</p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-green-800"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Carlos Mendoza</h4>
+                            <p class="text-gray-600 text-sm">Crítico gastronómico</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-700">"Wild Flavor eleva la experiencia gastronómica con ingredientes de primera calidad y una presentación impecable. Su respeto por el producto y la creatividad en cada plato son impresionantes."</p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-green-800"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Alejandra Ramírez</h4>
+                            <p class="text-gray-600 text-sm">Empresaria</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700">"Mi lugar favorito para reuniones de negocios. El menú de mariscos es excepcional y el servicio discreto y atento. La selección de vinos complementa perfectamente cada plato."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-green-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Reserva tu experiencia Wild Flavor</h2>
+            <p class="text-xl text-green-200 mb-8 max-w-3xl mx-auto">Disfruta de una experiencia gastronómica incomparable en un ambiente acogedor y con un servicio de primera.</p>
+            <button id="cta-register-button" class="bg-white text-green-800 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors">
+                Reservar ahora
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-leaf text-2xl text-green-400 mr-2"></i>
+                        <span class="font-bold text-xl">Wild Flavor</span>
+                    </div>
+                    <p class="text-gray-400">Creando experiencias gastronómicas inolvidables con ingredientes naturales y sabores auténticos.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-white transition-colors">Menú</a></li>
+                        <li><a href="#testimonios" class="text-gray-400 hover:text-white transition-colors">Testimonios</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Eventos privados</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog culinario</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Av. Principal 123, Ciudad</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+123 456 7890</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>reservas@wildflavor.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Síguenos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="text-lg font-bold mb-4">Boletín informativo</h4>
+                        <div class="flex">
+                            <input type="email" placeholder="Tu correo electrónico" class="py-2 px-4 rounded-l-lg w-full focus:outline-none text-gray-800">
+                            <button class="bg-green-600 px-4 rounded-r-lg hover:bg-green-700 transition-colors">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Wild Flavor. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contenedor de Login que aparecerá como modal -->
+    <div id="login-container" class="login-container">
+        <iframe id="login-iframe" class="login-form w-full max-w-4xl h-4/5 rounded-lg bg-white" src="html/login y register/loginAndRegister.html" frameborder="0"></iframe>
+        <button id="close-login" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+
+    <script>
+       // Activar animaciones de características al hacer scroll
+const featureCards = document.querySelectorAll('.feature-card');
+
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-up');
+            entry.target.style.opacity = 1;
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+featureCards.forEach(card => {
+    observer.observe(card);
+});
+
+// Manejar apertura y cierre del menú móvil
+document.getElementById('menu-button').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.add('active');
+});
+
+document.getElementById('close-menu').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.remove('active');
+});
+
+// Función para mostrar el modal con la opción correcta (login o registro)
+function showModal(mode) {
+    const loginIframe = document.getElementById('login-iframe');
+    // Actualizar el src del iframe con el parámetro correspondiente
+    loginIframe.src = `html/login y register/loginAndRegister.html?mode=${mode}`;
+    document.getElementById('login-container').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Función para cerrar el modal
+function closeLoginModal() {
+    document.getElementById('login-container').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Asignar eventos a los botones de login
+document.getElementById('login-button').addEventListener('click', function() {
+    window.location.href = "html/login y register/loginAndRegister.html?mode=login";
+});
+document.getElementById('mobile-login-button').addEventListener('click', function() {
+    window.location.href = "html/login y register/loginAndRegister.html?mode=login";
+});
+
+// Asignar eventos a los botones de registro
+document.getElementById('register-button').addEventListener('click', function() {
+    window.location.href = "html/login y register/loginAndRegister.html?mode=register";
+});
+document.getElementById('mobile-register-button').addEventListener('click', function() {
+    window.location.href = "html/login y register/loginAndRegister.html?mode=register";
+});
+document.getElementById('hero-register-button').addEventListener('click', function() {
+    window.location.href = "html/login y register/loginAndRegister.html?mode=register";
+});
+document.getElementById('cta-register-button').addEventListener('click', function() {
+    window.location.href = "html/login y register/loginAndRegister.html?mode=register";
+});
+
+document.getElementById('close-login').addEventListener('click', closeLoginModal);
+
+// Cerrar menú móvil al hacer clic en un enlace
+const mobileLinks = document.querySelectorAll('#mobile-menu a');
+mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.remove('active');
+    });
+});
+
+// Navegación suave
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+    </script>
+</body>
+</html>

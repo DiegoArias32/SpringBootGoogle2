@@ -1,0 +1,48 @@
+
+CREATE DATABASE restaurant;
+
+USE restaurant;
+
+
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    telefono VARCHAR(15),
+    email VARCHAR(100)
+);
+
+CREATE TABLE empleados (
+    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    puesto VARCHAR(50),
+    salario DECIMAL(10, 2)
+);
+
+CREATE TABLE menu (
+    id_plato INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL
+);
+
+
+CREATE TABLE pedidos (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    estado VARCHAR(50) DEFAULT 'Pendiente',
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+
+CREATE TABLE detalle_pedido (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT,
+    id_plato INT,
+    cantidad INT NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido),
+    FOREIGN KEY (id_plato) REFERENCES menu(id_plato)
+);
