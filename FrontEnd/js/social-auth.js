@@ -2,7 +2,7 @@
 'use strict';
 
 // Configuración inicial
-const API_BASE_URL = "http://192.168.0.3:8080/api";
+const API_BASE_URL = "http://172.30.7.71:8080/api";
 const RECAPTCHA_SITE_KEY = "6Lcy8x4rAAAAAKSfqVFXEkhNz_IsFIb_iCn5qOwy";
 let loginAttempts = 0;
 const MAX_LOGIN_ATTEMPTS = 5;
@@ -564,7 +564,7 @@ async function logout() {
     } finally {
         sessionStorage.removeItem('userData');
         sessionStorage.removeItem('userRoles');
-        window.location.href = '../index.html';
+        window.location.href = '../login y register/loginAndRegister.html';
     }
 }
 
