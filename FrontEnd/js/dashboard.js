@@ -1,1 +1,287 @@
-function _0x2ebc(_0x257542,_0x273f98){const _0x470796=_0x4707();return _0x2ebc=function(_0x2ebc82,_0x44956b){_0x2ebc82=_0x2ebc82-0x1ec;let _0x23d08c=_0x470796[_0x2ebc82];return _0x23d08c;},_0x2ebc(_0x257542,_0x273f98);}const _0x37dfc0=_0x2ebc;(function(_0x4df05b,_0x569c9c){const _0x314257=_0x2ebc,_0x393fbe=_0x4df05b();while(!![]){try{const _0x2d9059=parseInt(_0x314257(0x1ed))/0x1+parseInt(_0x314257(0x23c))/0x2+-parseInt(_0x314257(0x211))/0x3*(parseInt(_0x314257(0x22d))/0x4)+parseInt(_0x314257(0x200))/0x5+-parseInt(_0x314257(0x219))/0x6+parseInt(_0x314257(0x204))/0x7+-parseInt(_0x314257(0x20c))/0x8;if(_0x2d9059===_0x569c9c)break;else _0x393fbe['push'](_0x393fbe['shift']());}catch(_0x5cf3b0){_0x393fbe['push'](_0x393fbe['shift']());}}}(_0x4707,0x53345));const clientCount=document['getElementById'](_0x37dfc0(0x21b)),dishCount=document[_0x37dfc0(0x1fe)](_0x37dfc0(0x20b)),employeeCount=document[_0x37dfc0(0x1fe)](_0x37dfc0(0x215)),orderCount=document[_0x37dfc0(0x1fe)](_0x37dfc0(0x1f2)),recentOrdersTableBody=document[_0x37dfc0(0x1fe)](_0x37dfc0(0x20e)),orderDetailModal=document['getElementById']('orderDetailModal');function _0x4707(){const _0x1c9299=['toLowerCase','orderDetailItems','isArray','textContent','appendChild','length','slice','\x20x\x20','firstName','then','/orders/','756934vDUiLS','closeOrderDetailModal','5px','Dashboard\x20data\x20error:','84043gIqKee','innerHTML','order-item-total','idOrder','Order\x20#','orderCount','active','order-item-name','application/json','order-item','orderDetailSummary','toLocaleDateString','include','/orders','status','span','status-label\x20status-','getElementById','pending','1706135UxqleD','toFixed','div','idCustomer','2553404HeztHA','price','15px','idDish','/menu','Failed\x20to\x20load\x20dashboard\x20data:\x20','forEach','dishCount','365616ZkzMUs','Pending','recentOrdersTableBody','No\x20orders\x20found','No\x20orders\x20found\x20or\x20invalid\x20data\x20format','131853ThOnJp','classList','lastName','map','employeeCount','add','Failed\x20to\x20fetch\x20order\x20items','click','1000128FwXkWs','Failed\x20to\x20fetch\x20order\x20details','clientCount','strong','toLocaleTimeString','idClient','name','DOMContentLoaded','btn\x20btn-sm\x20btn-primary\x20view-order-btn','/clients','/menu/','closeOrderDetailBtn','all','Status:\x20','quantity','table-actions','order-item-details','addEventListener','message','date','56WkmNHw','remove','/order-details/order/','json'];_0x4707=function(){return _0x1c9299;};return _0x4707();}document[_0x37dfc0(0x22a)](_0x37dfc0(0x220),()=>{const _0x333a11=_0x37dfc0;fetchDashboardData(),document[_0x333a11(0x1fe)](_0x333a11(0x23d))[_0x333a11(0x22a)]('click',closeOrderDetailModal),document[_0x333a11(0x1fe)](_0x333a11(0x224))[_0x333a11(0x22a)](_0x333a11(0x218),closeOrderDetailModal);});async function fetchDashboardData(){const _0x26b243=_0x37dfc0;showLoading();try{const [_0x31dfba,_0x5dc019,_0xe5cbd5,_0x18b82d]=await Promise[_0x26b243(0x225)]([fetch(API_BASE_URL+_0x26b243(0x222),{'credentials':_0x26b243(0x1f9),'headers':{'Content-Type':_0x26b243(0x1f5)}}),fetch(API_BASE_URL+_0x26b243(0x208),{'credentials':_0x26b243(0x1f9),'headers':{'Content-Type':_0x26b243(0x1f5)}}),fetch(API_BASE_URL+'/employees',{'credentials':_0x26b243(0x1f9),'headers':{'Content-Type':'application/json'}}),fetch(API_BASE_URL+_0x26b243(0x1fa),{'credentials':_0x26b243(0x1f9),'headers':{'Content-Type':'application/json'}})]),_0x4a49b0=await _0x31dfba[_0x26b243(0x230)](),_0x23fc4b=await _0x5dc019[_0x26b243(0x230)](),_0x53fa62=await _0xe5cbd5['json'](),_0x345184=await _0x18b82d[_0x26b243(0x230)]();clientCount[_0x26b243(0x234)]=Array[_0x26b243(0x233)](_0x4a49b0)?_0x4a49b0[_0x26b243(0x236)]:0x0,dishCount[_0x26b243(0x234)]=Array[_0x26b243(0x233)](_0x23fc4b)?_0x23fc4b['length']:0x0,employeeCount[_0x26b243(0x234)]=Array[_0x26b243(0x233)](_0x53fa62)?_0x53fa62[_0x26b243(0x236)]:0x0,orderCount[_0x26b243(0x234)]=Array['isArray'](_0x345184)?_0x345184['length']:0x0;if(!Array['isArray'](_0x345184)){console['error']('Orders\x20data\x20is\x20not\x20an\x20array:',_0x345184),recentOrdersTableBody[_0x26b243(0x1ee)]='',recentOrdersTableBody[_0x26b243(0x235)](createNoDataRow(_0x26b243(0x210),0x6));return;}const _0x529690=_0x345184[_0x26b243(0x237)](0x0,0x5),_0x48b0c9=_0x529690[_0x26b243(0x214)](_0x560d56=>_0x560d56[_0x26b243(0x203)]),_0x216a7d={};Array['isArray'](_0x4a49b0)&&_0x4a49b0[_0x26b243(0x20a)](_0x570ed8=>{const _0x22c95a=_0x26b243;_0x216a7d[_0x570ed8[_0x22c95a(0x21e)]]=_0x570ed8[_0x22c95a(0x239)]+'\x20'+_0x570ed8[_0x22c95a(0x213)];});recentOrdersTableBody[_0x26b243(0x1ee)]='';if(_0x529690[_0x26b243(0x236)]===0x0){recentOrdersTableBody['appendChild'](createNoDataRow(_0x26b243(0x20f),0x6));return;}_0x529690[_0x26b243(0x20a)](_0x5ae586=>{const _0x4e8050=_0x26b243,_0x4c21df=createRecentOrderRow(_0x5ae586,_0x216a7d);recentOrdersTableBody[_0x4e8050(0x235)](_0x4c21df);});}catch(_0x40d9dc){console['error'](_0x26b243(0x1ec),_0x40d9dc),showError(_0x26b243(0x209)+_0x40d9dc[_0x26b243(0x22b)]);}finally{hideLoading();}}function createRecentOrderRow(_0x57c443,_0x2c1345){const _0x3221e7=_0x37dfc0,_0x3b325d=document['createElement']('tr'),_0x37dddc=_0x57c443['date']?new Date(_0x57c443[_0x3221e7(0x22c)]):new Date();_0x3b325d[_0x3221e7(0x235)](createTableCell('#'+_0x57c443[_0x3221e7(0x1f0)])),_0x3b325d[_0x3221e7(0x235)](createTableCell(_0x2c1345[_0x57c443['idCustomer']]||'Unknown')),_0x3b325d[_0x3221e7(0x235)](createTableCell(_0x37dddc[_0x3221e7(0x1f8)]()));const _0x2084f4=createTableCell('',''),_0x1db768=createElement(_0x3221e7(0x1fc),{'className':_0x3221e7(0x1fd)+(_0x57c443[_0x3221e7(0x1fb)]||_0x3221e7(0x1ff))[_0x3221e7(0x231)](),'textContent':_0x57c443[_0x3221e7(0x1fb)]||_0x3221e7(0x20d)});_0x2084f4[_0x3221e7(0x235)](_0x1db768),_0x3b325d[_0x3221e7(0x235)](_0x2084f4),_0x3b325d['appendChild'](createTableCell('$120.00'));const _0x34731d=createTableCell('',_0x3221e7(0x228)),_0x273df1=createButton('fas\x20fa-eye',_0x3221e7(0x221),()=>showOrderDetails(_0x57c443[_0x3221e7(0x1f0)]),{'id':_0x57c443[_0x3221e7(0x1f0)]});return _0x34731d[_0x3221e7(0x235)](_0x273df1),_0x3b325d[_0x3221e7(0x235)](_0x34731d),_0x3b325d;}async function showOrderDetails(_0x3e61aa){const _0x1efc1b=_0x37dfc0;showLoading();try{const _0x4d49ac=await fetch(API_BASE_URL+_0x1efc1b(0x23b)+_0x3e61aa);if(!_0x4d49ac['ok'])throw new Error(_0x1efc1b(0x21a));const _0x41bc4a=await _0x4d49ac[_0x1efc1b(0x230)](),_0x4cf981=await fetch(API_BASE_URL+_0x1efc1b(0x22f)+_0x3e61aa);if(!_0x4cf981['ok'])throw new Error(_0x1efc1b(0x217));const _0x5b08b0=await _0x4cf981[_0x1efc1b(0x230)](),_0x28207f=await Promise[_0x1efc1b(0x225)](_0x5b08b0[_0x1efc1b(0x214)](_0x322f27=>fetch(API_BASE_URL+_0x1efc1b(0x223)+_0x322f27[_0x1efc1b(0x207)])[_0x1efc1b(0x23a)](_0x1403fa=>_0x1403fa[_0x1efc1b(0x230)]()))),_0x30cad7=await fetch(API_BASE_URL+'/clients/'+_0x41bc4a[_0x1efc1b(0x203)]),_0x48384a=await _0x30cad7[_0x1efc1b(0x230)]();createOrderDetailsContent(_0x41bc4a,_0x5b08b0,_0x28207f,_0x48384a),orderDetailModal[_0x1efc1b(0x212)][_0x1efc1b(0x216)](_0x1efc1b(0x1f3));}catch(_0x1ca8f7){showError(_0x1ca8f7[_0x1efc1b(0x22b)]);}finally{hideLoading();}}function createOrderDetailsContent(_0xdda943,_0x4dc06c,_0x4bc05f,_0x21e812){const _0x38e2a7=_0x37dfc0,_0x1c0671=document[_0x38e2a7(0x1fe)](_0x38e2a7(0x232));_0x1c0671[_0x38e2a7(0x1ee)]='';let _0x399bf2=0x0;_0x4dc06c[_0x38e2a7(0x20a)]((_0x53ed6b,_0xaab8c4)=>{const _0x258de7=_0x38e2a7,_0x44e591=_0x4bc05f[_0xaab8c4],_0x130d40=_0x53ed6b[_0x258de7(0x227)]*_0x53ed6b['price'];_0x399bf2+=_0x130d40;const _0x1696bb=createElement('div',{'className':_0x258de7(0x1f6)}),_0xe3f6fb=createElement('div',{'className':_0x258de7(0x229)}),_0x435384=createElement('div',{'className':_0x258de7(0x1f4),'textContent':_0x44e591[_0x258de7(0x21f)]}),_0x311de6=createElement(_0x258de7(0x202),{'className':'order-item-price','textContent':_0x53ed6b[_0x258de7(0x205)]['toFixed'](0x2)+_0x258de7(0x238)+_0x53ed6b['quantity']}),_0x9e7979=createElement('div',{'className':_0x258de7(0x1ef),'textContent':_0x130d40[_0x258de7(0x201)](0x2)});_0xe3f6fb[_0x258de7(0x235)](_0x435384),_0xe3f6fb[_0x258de7(0x235)](_0x311de6),_0x1696bb[_0x258de7(0x235)](_0xe3f6fb),_0x1696bb[_0x258de7(0x235)](_0x9e7979),_0x1c0671['appendChild'](_0x1696bb);});const _0x5e0654=document['getElementById'](_0x38e2a7(0x1f7)),_0x27eb20=new Date(_0xdda943[_0x38e2a7(0x22c)]),_0x565f46=createElement(_0x38e2a7(0x202),{'style':{'marginBottom':_0x38e2a7(0x206)}}),_0x58265e=createElement('div',{'style':{'marginBottom':_0x38e2a7(0x23e)}}),_0x3516a3=createElement(_0x38e2a7(0x21c),{'textContent':_0x38e2a7(0x1f1)+_0xdda943[_0x38e2a7(0x1f0)]});_0x58265e['appendChild'](_0x3516a3);const _0x5a9d67=createElement(_0x38e2a7(0x202),{'style':{'marginBottom':'5px'},'textContent':'Date:\x20'+_0x27eb20[_0x38e2a7(0x1f8)]()+'\x20'+_0x27eb20[_0x38e2a7(0x21d)]()}),_0x34182f=createElement(_0x38e2a7(0x202),{'style':{'marginBottom':'5px'},'textContent':'Customer:\x20'+_0x21e812['firstName']+'\x20'+_0x21e812[_0x38e2a7(0x213)]}),_0x270ab7=createElement(_0x38e2a7(0x202),{'style':{'marginBottom':_0x38e2a7(0x23e)}});_0x270ab7[_0x38e2a7(0x234)]=_0x38e2a7(0x226);const _0x4678a1=createElement('span',{'className':_0x38e2a7(0x1fd)+_0xdda943[_0x38e2a7(0x1fb)][_0x38e2a7(0x231)](),'textContent':_0xdda943[_0x38e2a7(0x1fb)]});_0x270ab7['appendChild'](_0x4678a1);const _0x109506=createElement(_0x38e2a7(0x202),{'className':'order-total','textContent':'Total:\x20'+_0x399bf2[_0x38e2a7(0x201)](0x2)});_0x565f46[_0x38e2a7(0x235)](_0x58265e),_0x565f46[_0x38e2a7(0x235)](_0x5a9d67),_0x565f46['appendChild'](_0x34182f),_0x565f46[_0x38e2a7(0x235)](_0x270ab7),_0x5e0654[_0x38e2a7(0x1ee)]='',_0x5e0654[_0x38e2a7(0x235)](_0x565f46),_0x5e0654['appendChild'](_0x109506);}function closeOrderDetailModal(){const _0x2129f3=_0x37dfc0;orderDetailModal[_0x2129f3(0x212)][_0x2129f3(0x22e)]('active');}
+// DOM Elements - Stats
+const clientCount = document.getElementById('clientCount');
+const dishCount = document.getElementById('dishCount');
+const employeeCount = document.getElementById('employeeCount');
+const orderCount = document.getElementById('orderCount');
+const recentOrdersTableBody = document.getElementById('recentOrdersTableBody');
+const orderDetailModal = document.getElementById('orderDetailModal');
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', () => {
+    // Load dashboard data
+    fetchDashboardData();
+    
+    // Event listeners for order details modal
+    document.getElementById('closeOrderDetailModal').addEventListener('click', closeOrderDetailModal);
+    document.getElementById('closeOrderDetailBtn').addEventListener('click', closeOrderDetailModal);
+});
+
+// Fetch dashboard data
+async function fetchDashboardData() {
+    showLoading();
+    try {
+        // Fetch counts for each entity
+        const [clientsResponse, dishesResponse, employeesResponse, ordersResponse] = await Promise.all([
+            fetch(`${API_BASE_URL}/clients`, {
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }),
+            fetch(`${API_BASE_URL}/menu`, {
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }),
+            fetch(`${API_BASE_URL}/employees`, {
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }),
+            fetch(`${API_BASE_URL}/orders`, {
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+        ]);
+        
+        const clients = await clientsResponse.json();
+        const dishes = await dishesResponse.json();
+        const employees = await employeesResponse.json();
+        const orders = await ordersResponse.json();
+        
+        // Update dashboard counts
+        clientCount.textContent = Array.isArray(clients) ? clients.length : 0;
+        dishCount.textContent = Array.isArray(dishes) ? dishes.length : 0;
+        employeeCount.textContent = Array.isArray(employees) ? employees.length : 0;
+        orderCount.textContent = Array.isArray(orders) ? orders.length : 0;
+        
+        // Make sure orders is an array before using slice
+        if (!Array.isArray(orders)) {
+            console.error('Orders data is not an array:', orders);
+            recentOrdersTableBody.innerHTML = '';
+            recentOrdersTableBody.appendChild(createNoDataRow('No orders found or invalid data format', 6));
+            return;
+        }
+        
+        // Display recent orders (limit to 5)
+        const recentOrders = orders.slice(0, 5);
+        
+        // Get customer names for each order
+        const customerIds = recentOrders.map(order => order.idCustomer);
+        const clientsById = {};
+        
+        if (Array.isArray(clients)) {
+            clients.forEach(client => {
+                clientsById[client.idClient] = `${client.firstName} ${client.lastName}`;
+            });
+        }
+        
+        // Populate recent orders table
+        recentOrdersTableBody.innerHTML = '';
+        
+        if (recentOrders.length === 0) {
+            recentOrdersTableBody.appendChild(createNoDataRow('No orders found', 6));
+            return;
+        }
+        
+        recentOrders.forEach(order => {
+            const row = createRecentOrderRow(order, clientsById);
+            recentOrdersTableBody.appendChild(row);
+        });
+        
+    } catch (error) {
+        console.error('Dashboard data error:', error);
+        showError('Failed to load dashboard data: ' + error.message);
+    } finally {
+        hideLoading();
+    }
+}
+
+// Create recent order table row
+function createRecentOrderRow(order, clientsById) {
+    const row = document.createElement('tr');
+    const orderDate = order.date ? new Date(order.date) : new Date();
+    
+    // Order ID column
+    row.appendChild(createTableCell(`#${order.idOrder}`));
+    
+    // Customer column
+    row.appendChild(createTableCell(clientsById[order.idCustomer] || 'Unknown'));
+    
+    // Date column
+    row.appendChild(createTableCell(orderDate.toLocaleDateString()));
+    
+    // Status column
+    const statusCell = createTableCell('', '');
+    const statusSpan = createElement('span', {
+        className: `status-label status-${(order.status || 'pending').toLowerCase()}`,
+        textContent: order.status || 'Pending'
+    });
+    statusCell.appendChild(statusSpan);
+    row.appendChild(statusCell);
+    
+    // Total column (placeholder value)
+    row.appendChild(createTableCell('$120.00'));
+    
+    // Actions column
+    const actionsCell = createTableCell('', 'table-actions');
+    const viewButton = createButton('fas fa-eye', 'btn btn-sm btn-primary view-order-btn', 
+        () => showOrderDetails(order.idOrder), { id: order.idOrder });
+    actionsCell.appendChild(viewButton);
+    row.appendChild(actionsCell);
+    
+    return row;
+}
+
+// Show order details
+// Show order details
+async function showOrderDetails(id) {
+    showLoading();
+    try {
+        // Fetch order details
+        const orderResponse = await fetch(`${API_BASE_URL}/orders/${id}`);
+        if (!orderResponse.ok) {
+            throw new Error('Failed to fetch order details');
+        }
+        const order = await orderResponse.json();
+        
+        // Fetch order items
+        const orderItemsResponse = await fetch(`${API_BASE_URL}/order-details/order/${id}`);
+        if (!orderItemsResponse.ok) {
+            throw new Error('Failed to fetch order items');
+        }
+        const orderItems = await orderItemsResponse.json();
+        
+        // Fetch dish details for each item
+        const dishes = await Promise.all(
+            orderItems.map(item => 
+                fetch(`${API_BASE_URL}/menu/${item.idDish}`)
+                .then(response => response.json())
+            )
+        );
+        
+        // Fetch customer details
+        const customerResponse = await fetch(`${API_BASE_URL}/clients/${order.idCustomer}`);
+        const customer = await customerResponse.json();
+        
+        // Create and populate order items
+        createOrderDetailsContent(order, orderItems, dishes, customer);
+        
+        orderDetailModal.classList.add('active');
+    } catch (error) {
+        showError(error.message);
+    } finally {
+        hideLoading();
+    }
+}
+
+function createOrderDetailsContent(order, orderItems, dishes, customer) {
+    // Populate order items
+    const orderDetailItems = document.getElementById('orderDetailItems');
+    orderDetailItems.innerHTML = '';
+    
+    let total = 0;
+    
+    orderItems.forEach((item, index) => {
+        const dish = dishes[index];
+        const itemTotal = item.quantity * item.price;
+        total += itemTotal;
+        
+        const itemElement = createElement('div', {
+            className: 'order-item'
+        });
+        
+        const detailsDiv = createElement('div', {
+            className: 'order-item-details'
+        });
+        
+        const nameDiv = createElement('div', {
+            className: 'order-item-name',
+            textContent: dish.name
+        });
+        
+        const priceDiv = createElement('div', {
+            className: 'order-item-price',
+            textContent: `${item.price.toFixed(2)} x ${item.quantity}`
+        });
+        
+        const totalDiv = createElement('div', {
+            className: 'order-item-total',
+            textContent: itemTotal.toFixed(2)
+        });
+        
+        detailsDiv.appendChild(nameDiv);
+        detailsDiv.appendChild(priceDiv);
+        
+        itemElement.appendChild(detailsDiv);
+        itemElement.appendChild(totalDiv);
+        
+        orderDetailItems.appendChild(itemElement);
+    });
+    
+    // Populate order summary
+    const orderDetailSummary = document.getElementById('orderDetailSummary');
+    const orderDate = new Date(order.date);
+    
+    // Create summary container
+    const summaryContainer = createElement('div', {
+        style: { marginBottom: '15px' }
+    });
+    
+    // Create order ID line
+    const orderIdLine = createElement('div', {
+        style: { marginBottom: '5px' }
+    });
+    const orderIdStrong = createElement('strong', {
+        textContent: `Order #${order.idOrder}`
+    });
+    orderIdLine.appendChild(orderIdStrong);
+    
+    // Create date line
+    const dateLine = createElement('div', {
+        style: { marginBottom: '5px' },
+        textContent: `Date: ${orderDate.toLocaleDateString()} ${orderDate.toLocaleTimeString()}`
+    });
+    
+    // Create customer line
+    const customerLine = createElement('div', {
+        style: { marginBottom: '5px' },
+        textContent: `Customer: ${customer.firstName} ${customer.lastName}`
+    });
+    
+    // Create status line
+    const statusLine = createElement('div', {
+        style: { marginBottom: '5px' }
+    });
+    statusLine.textContent = 'Status: ';
+    const statusSpan = createElement('span', {
+        className: `status-label status-${order.status.toLowerCase()}`,
+        textContent: order.status
+    });
+    statusLine.appendChild(statusSpan);
+    
+    // Create order total
+    const totalDiv = createElement('div', {
+        className: 'order-total',
+        textContent: `Total: ${total.toFixed(2)}`
+    });
+    
+    // Add all elements to summary container
+    summaryContainer.appendChild(orderIdLine);
+    summaryContainer.appendChild(dateLine);
+    summaryContainer.appendChild(customerLine);
+    summaryContainer.appendChild(statusLine);
+    
+    // Clear previous content and add new content
+    orderDetailSummary.innerHTML = '';
+    orderDetailSummary.appendChild(summaryContainer);
+    orderDetailSummary.appendChild(totalDiv);
+}
+
+function closeOrderDetailModal() {
+    orderDetailModal.classList.remove('active');
+}

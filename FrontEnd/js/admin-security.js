@@ -1,1 +1,306 @@
-function _0x3863(_0x423b5c,_0x176209){const _0x40a129=_0x40a1();return _0x3863=function(_0x38631c,_0x35a8de){_0x38631c=_0x38631c-0x183;let _0x435fb3=_0x40a129[_0x38631c];return _0x435fb3;},_0x3863(_0x423b5c,_0x176209);}(function(_0x146b35,_0x89a6b){const _0x1176c1=_0x3863,_0x162f2b=_0x146b35();while(!![]){try{const _0x33c06c=-parseInt(_0x1176c1(0x189))/0x1+parseInt(_0x1176c1(0x1b9))/0x2*(-parseInt(_0x1176c1(0x185))/0x3)+-parseInt(_0x1176c1(0x19b))/0x4*(-parseInt(_0x1176c1(0x183))/0x5)+-parseInt(_0x1176c1(0x187))/0x6+-parseInt(_0x1176c1(0x1a7))/0x7+parseInt(_0x1176c1(0x18e))/0x8*(-parseInt(_0x1176c1(0x193))/0x9)+parseInt(_0x1176c1(0x191))/0xa;if(_0x33c06c===_0x89a6b)break;else _0x162f2b['push'](_0x162f2b['shift']());}catch(_0xb8b659){_0x162f2b['push'](_0x162f2b['shift']());}}}(_0x40a1,0x1be0f),(function(){'use strict';const _0x38b655=_0x3863;const _0x499d77=_0x38b655(0x1d0);let _0x2fa01f='',_0x1a64e3=0x0;const _0x2eb28b=0x64;let _0x5953da=Date[_0x38b655(0x1c2)](),_0x938e2=[];setInterval(()=>{const _0x4488f4=_0x38b655,_0x2513a7=Date[_0x4488f4(0x1c2)]()-0xea60;_0x938e2=_0x938e2[_0x4488f4(0x199)](_0x15a362=>_0x15a362>_0x2513a7);},0xea60);function _0x1369eb(){const _0x28c536=_0x38b655;let _0xdb17c2=sessionStorage[_0x28c536(0x1a8)](_0x28c536(0x1be));if(!_0xdb17c2){const _0x39cf87=document[_0x28c536(0x188)][_0x28c536(0x1b2)](';\x20')[_0x28c536(0x1c8)](_0x4a7450=>_0x4a7450[_0x28c536(0x1d4)](_0x28c536(0x197)))?.[_0x28c536(0x1b2)]('=')[0x1];if(_0x39cf87){_0xdb17c2=decodeURIComponent(_0x39cf87),sessionStorage[_0x28c536(0x18a)](_0x28c536(0x1be),_0xdb17c2);const _0x2f3e91=JSON['parse'](_0xdb17c2);sessionStorage[_0x28c536(0x18a)](_0x28c536(0x19d),JSON[_0x28c536(0x1a1)](_0x2f3e91[_0x28c536(0x1af)]));}}if(!_0xdb17c2)return _0x2286d5(),![];try{const _0x4a4f77=JSON[_0x28c536(0x18f)](_0xdb17c2),_0x207dcc=_0x4a4f77[_0x28c536(0x1af)]||[];if(!_0x207dcc[_0x28c536(0x18b)](_0x28c536(0x1a5))&&!_0x207dcc[_0x28c536(0x18b)](_0x28c536(0x1d5)))return console['log']('Acceso\x20no\x20autorizado\x20-\x20rol\x20incorrecto'),_0x2286d5(),![];}catch(_0x511705){return console['error']('Error\x20al\x20analizar\x20datos\x20de\x20usuario',_0x511705),_0x2286d5(),![];}return!![];}function _0x2286d5(){const _0x2328de=_0x38b655;sessionStorage[_0x2328de(0x186)](_0x2328de(0x1be)),sessionStorage[_0x2328de(0x186)](_0x2328de(0x19d)),window[_0x2328de(0x1c7)][_0x2328de(0x1ba)]=_0x2328de(0x1b7);}function _0x59564c(){const _0x1029f5=_0x38b655,_0x1169ed=document[_0x1029f5(0x188)]['split'](';\x20')[_0x1029f5(0x1c8)](_0x28d983=>_0x28d983[_0x1029f5(0x1d4)](_0x1029f5(0x1a4)))?.[_0x1029f5(0x1b2)]('=')[0x1];return _0x1169ed||'';}function _0x32160b(){const _0x2d96b=_0x38b655,_0x3dc80f=Date[_0x2d96b(0x1c2)]();_0x938e2[_0x2d96b(0x1bf)](_0x3dc80f);const _0x24118b=_0x3dc80f-0xea60;_0x938e2=_0x938e2[_0x2d96b(0x199)](_0x5202be=>_0x5202be>_0x24118b);if(_0x938e2['length']>_0x2eb28b)return console[_0x2d96b(0x198)](_0x2d96b(0x1c1)),showError(_0x2d96b(0x1c4)),![];return!![];}function _0x5a5cdc(_0x26b027){const _0x4acccc=_0x38b655;if(typeof _0x26b027===_0x4acccc(0x1d1))return _0x26b027[_0x4acccc(0x1c9)](/[<>]/g,'')['replace'](/javascript:/gi,'')[_0x4acccc(0x1c9)](/on\w+\s*=/gi,'')[_0x4acccc(0x1c9)](/(\b)(alert|confirm|prompt|console|window|document|eval|setTimeout|setInterval)(\s*\()/gi,'$1x$2$3');else{if(typeof _0x26b027===_0x4acccc(0x19f)&&_0x26b027!==null){if(Array[_0x4acccc(0x1ad)](_0x26b027))return _0x26b027[_0x4acccc(0x1a2)](_0x5a1221=>_0x5a5cdc(_0x5a1221));else{const _0x560c3f={};for(const _0x7bd374 in _0x26b027){Object[_0x4acccc(0x1cc)][_0x4acccc(0x1ac)][_0x4acccc(0x1b8)](_0x26b027,_0x7bd374)&&(_0x560c3f[_0x7bd374]=_0x5a5cdc(_0x26b027[_0x7bd374]));}return _0x560c3f;}}}return _0x26b027;}async function _0x25fe1f(_0x517ad3,_0x22900c,_0x5e605f=null){const _0x460d3f=_0x38b655;if(!_0x1369eb())return;if(!_0x32160b())throw new Error(_0x460d3f(0x195));try{_0x5e605f&&(_0x5e605f=_0x5a5cdc(_0x5e605f));_0x2fa01f=_0x59564c();const _0x28fbb3={'Content-Type':_0x460d3f(0x1cd),'X-CSRF-TOKEN':_0x2fa01f},_0x59ead4={'method':_0x22900c,'headers':_0x28fbb3,'credentials':'include'};_0x5e605f&&(_0x22900c===_0x460d3f(0x1ae)||_0x22900c===_0x460d3f(0x1b4))&&(_0x59ead4[_0x460d3f(0x1c0)]=JSON[_0x460d3f(0x1a1)](_0x5e605f));typeof showLoading==='function'&&showLoading();const _0x451b3b=await fetch(''+_0x499d77+_0x517ad3,_0x59ead4);typeof hideLoading===_0x460d3f(0x1c5)&&hideLoading();if(!_0x451b3b['ok']){if(_0x451b3b[_0x460d3f(0x1d3)]===0x191||_0x451b3b[_0x460d3f(0x1d3)]===0x193){_0x2286d5();throw new Error('Sesión\x20expirada\x20o\x20no\x20autorizada.\x20Por\x20favor,\x20inicie\x20sesión\x20nuevamente.');}const _0x76b31e=await _0x451b3b[_0x460d3f(0x1b5)]()[_0x460d3f(0x1c6)](()=>({}));throw new Error(_0x76b31e[_0x460d3f(0x1d2)]||_0x460d3f(0x1b0)+_0x451b3b[_0x460d3f(0x1d3)]+'\x20'+_0x451b3b[_0x460d3f(0x19e)]);}if(_0x451b3b[_0x460d3f(0x1d3)]===0xcc)return null;return await _0x451b3b[_0x460d3f(0x1b5)]();}catch(_0x114a5b){typeof hideLoading===_0x460d3f(0x1c5)&&hideLoading();console[_0x460d3f(0x198)](_0x460d3f(0x1a3),_0x114a5b);typeof showError==='function'&&showError(_0x114a5b[_0x460d3f(0x1d2)]||_0x460d3f(0x1ab));throw _0x114a5b;}}window[_0x38b655(0x1b6)]=_0x25fe1f,window[_0x38b655(0x1a6)]=function(){const _0x12de1d=_0x38b655;typeof showLoading===_0x12de1d(0x1c5)&&showLoading();},window[_0x38b655(0x1bd)]=function(){const _0x5aa425=_0x38b655;typeof hideLoading===_0x5aa425(0x1c5)&&hideLoading();},window[_0x38b655(0x1bc)]=function(_0x1c192e){const _0x3ca2f2=_0x38b655;typeof showSuccess===_0x3ca2f2(0x1c5)&&showSuccess(_0x1c192e);},window[_0x38b655(0x18d)]=function(_0x68f140){const _0x32df59=_0x38b655;typeof showError===_0x32df59(0x1c5)&&showError(_0x68f140);},window['logout']=async function(){const _0xfa61b3=_0x38b655;try{await _0x25fe1f(_0xfa61b3(0x190),'POST');}catch(_0x514c61){console[_0xfa61b3(0x198)](_0xfa61b3(0x1a9),_0x514c61);}finally{sessionStorage[_0xfa61b3(0x186)]('userData'),sessionStorage['removeItem']('userRoles'),window['location']['href']=_0xfa61b3(0x1b7);}},document[_0x38b655(0x196)](_0x38b655(0x1ce),function(){const _0x42e2d6=_0x38b655;if(!_0x1369eb())return;_0x2fa01f=_0x59564c();const _0x575177=document[_0x42e2d6(0x19c)]('.header-content');if(_0x575177){const _0x1b5972=document[_0x42e2d6(0x1ca)](_0x42e2d6(0x194));_0x1b5972[_0x42e2d6(0x19a)]=_0x42e2d6(0x1bb),_0x1b5972[_0x42e2d6(0x1b3)]=_0x42e2d6(0x18c),_0x1b5972[_0x42e2d6(0x196)](_0x42e2d6(0x1aa),logout),_0x575177[_0x42e2d6(0x1a0)](_0x1b5972);}const _0x49313e=document['querySelectorAll']('input,\x20textarea,\x20select');_0x49313e[_0x42e2d6(0x1c3)](_0x7030df=>{const _0x3430b8=_0x42e2d6;_0x7030df[_0x3430b8(0x196)]('blur',function(){const _0x1eafdc=_0x3430b8;this[_0x1eafdc(0x1cf)]!=='password'&&this[_0x1eafdc(0x1cf)]!=='number'&&(this['value']=_0x5a5cdc(this[_0x1eafdc(0x1cb)]));});});}),window[_0x38b655(0x196)](_0x38b655(0x198),function(_0x3d8e0c){const _0x3bc6f1=_0x38b655;console[_0x3bc6f1(0x198)](_0x3bc6f1(0x1d6),_0x3d8e0c[_0x3bc6f1(0x1d2)]),typeof showError===_0x3bc6f1(0x1c5)&&showError(_0x3bc6f1(0x1b1));}),window['self']!==window[_0x38b655(0x192)]&&(window[_0x38b655(0x192)][_0x38b655(0x1c7)]=window[_0x38b655(0x184)]['location']);}()));function _0x40a1(){const _0x47f89a=['parse','/auth/signout','5201130BVIIlk','top','445176hyIAkW','button','Demasiadas\x20peticiones.\x20Por\x20favor,\x20espere\x20un\x20momento.','addEventListener','userData=','error','filter','className','829988meIlxV','querySelector','userRoles','statusText','object','appendChild','stringify','map','Error\x20en\x20la\x20petición\x20API:','XSRF-TOKEN=','ROLE_ADMIN','secureShowLoading','50246gEZISw','getItem','Error\x20al\x20cerrar\x20sesión:','click','Error\x20en\x20la\x20comunicación\x20con\x20el\x20servidor','hasOwnProperty','isArray','POST','roles','Error:\x20','Se\x20ha\x20producido\x20un\x20error\x20en\x20la\x20aplicación.\x20Por\x20favor,\x20recargue\x20la\x20página\x20o\x20contacte\x20al\x20administrador.','split','innerHTML','PUT','json','secureApiRequest','../login\x20y\x20register/loginAndRegister.html','call','29350XTgVJz','href','btn\x20btn-danger\x20logout-btn','secureShowSuccess','secureHideLoading','userData','push','body','Límite\x20de\x20tasa\x20excedido.\x20Espere\x20un\x20momento.','now','forEach','Demasiadas\x20peticiones.\x20Por\x20favor,\x20espere\x20un\x20momento\x20antes\x20de\x20intentar\x20nuevamente.','function','catch','location','find','replace','createElement','value','prototype','application/json','DOMContentLoaded','type','http://172.30.7.71:8080/api','string','message','status','startsWith','ROLE_STAFF','Error\x20global:','5JpIqWP','self','27SBbknC','removeItem','1120002OVKFcz','cookie','139107UxpXMH','setItem','includes','<i\x20class=\x22fas\x20fa-sign-out-alt\x22></i>\x20Cerrar\x20Sesión','secureShowError','24ergLPD'];_0x40a1=function(){return _0x47f89a;};return _0x40a1();}
+// Script de seguridad para el panel administrativo
+(function() {
+    'use strict';
+    
+    // Constantes de configuración
+    const API_BASE_URL = 'http://localhost:8080/api';
+    
+    // Variables globales
+    let csrfToken = '';
+    let requestCount = 0;
+    const MAX_REQUESTS_PER_MINUTE = 100;
+    let lastRequestTime = Date.now();
+    let requestTimestamps = [];
+    
+    // Intervalo de limpieza de timestamps de solicitudes (cada minuto)
+    setInterval(() => {
+        const oneMinuteAgo = Date.now() - 60000;
+        requestTimestamps = requestTimestamps.filter(time => time > oneMinuteAgo);
+    }, 60000);
+    
+    // ========================
+    // Funciones de seguridad
+    // ========================
+    
+    // Verificar autenticación al cargar la página
+    function checkAuth() {
+        // Verificar datos de usuario en sessionStorage
+        let userData = sessionStorage.getItem('userData');
+        
+        // Si no está en sessionStorage, verificar cookies
+        if (!userData) {
+            const userDataCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('userData='))
+                ?.split('=')[1];
+                
+            if (userDataCookie) {
+                userData = decodeURIComponent(userDataCookie);
+                // Restaurar en sessionStorage
+                sessionStorage.setItem('userData', userData);
+                const parsedData = JSON.parse(userData);
+                sessionStorage.setItem('userRoles', JSON.stringify(parsedData.roles));
+            }
+        }
+        
+        if (!userData) {
+            redirectToLogin();
+            return false;
+        }
+        
+        try {
+            const parsedUserData = JSON.parse(userData);
+            const roles = parsedUserData.roles || [];
+            
+            // Verificar roles (solo admin y staff pueden acceder)
+            if (!roles.includes('ROLE_ADMIN') && !roles.includes('ROLE_STAFF')) {
+                console.log('Acceso no autorizado - rol incorrecto');
+                redirectToLogin();
+                return false;
+            }
+        } catch (e) {
+            console.error('Error al analizar datos de usuario', e);
+            redirectToLogin();
+            return false;
+        }
+        
+        return true;
+    }
+    
+    // Función para redireccionar al login
+    function redirectToLogin() {
+        sessionStorage.removeItem('userData');
+        sessionStorage.removeItem('userRoles');
+        window.location.href = '../index.html';
+    }
+    
+    // Función para obtener el CSRF token
+    function getCsrfToken() {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('XSRF-TOKEN='))
+            ?.split('=')[1];
+        return cookieValue || '';
+    }
+    
+    // Control de tasa de peticiones
+    function checkRateLimit() {
+        const now = Date.now();
+        requestTimestamps.push(now);
+        
+        // Limpiar timestamps antiguos (más de 1 minuto)
+        const oneMinuteAgo = now - 60000;
+        requestTimestamps = requestTimestamps.filter(time => time > oneMinuteAgo);
+        
+        // Verificar si se excede el límite
+        if (requestTimestamps.length > MAX_REQUESTS_PER_MINUTE) {
+            console.error('Límite de tasa excedido. Espere un momento.');
+            showError('Demasiadas peticiones. Por favor, espere un momento antes de intentar nuevamente.');
+            return false;
+        }
+        
+        return true;
+    }
+    
+    // Verificar datos de entrada para evitar inyección
+    function sanitizeInput(input) {
+        if (typeof input === 'string') {
+            // Eliminar tags HTML y caracteres especiales
+            return input
+                .replace(/[<>]/g, '') // Eliminar < y >
+                .replace(/javascript:/gi, '') // Eliminar javascript:
+                .replace(/on\w+\s*=/gi, '') // Eliminar manejadores de eventos on*
+                .replace(/(\b)(alert|confirm|prompt|console|window|document|eval|setTimeout|setInterval)(\s*\()/gi, '$1x$2$3'); // Funciones peligrosas
+        } else if (typeof input === 'object' && input !== null) {
+            // Recursivamente sanitizar objetos
+            if (Array.isArray(input)) {
+                return input.map(item => sanitizeInput(item));
+            } else {
+                const result = {};
+                for (const key in input) {
+                    if (Object.prototype.hasOwnProperty.call(input, key)) {
+                        result[key] = sanitizeInput(input[key]);
+                    }
+                }
+                return result;
+            }
+        }
+        
+        return input; // Devolver otros tipos sin cambios
+    }
+    
+    // ========================
+    // Funciones de API mejoradas
+    // ========================
+    
+    // Función base para peticiones API con seguridad adicional
+    async function apiRequest(url, method, data = null) {
+        // Verificar autenticación
+        if (!checkAuth()) {
+            return;
+        }
+        
+        // Verificar límite de tasa
+        if (!checkRateLimit()) {
+            throw new Error('Demasiadas peticiones. Por favor, espere un momento.');
+        }
+        
+        try {
+            // Sanitizar datos de entrada
+            if (data) {
+                data = sanitizeInput(data);
+            }
+            
+            // Obtenemos el token CSRF actual
+            csrfToken = getCsrfToken();
+            
+            const headers = {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            };
+            
+            const fetchOptions = {
+                method: method,
+                headers: headers,
+                credentials: 'include' // Incluir cookies
+            };
+            
+            if (data && (method === 'POST' || method === 'PUT')) {
+                fetchOptions.body = JSON.stringify(data);
+            }
+            
+            // Mostrar spinner de carga
+            if (typeof showLoading === 'function') {
+                showLoading();
+            }
+            
+            const response = await fetch(`${API_BASE_URL}${url}`, fetchOptions);
+            
+            // Ocultar spinner de carga
+            if (typeof hideLoading === 'function') {
+                hideLoading();
+            }
+            
+            // Si la respuesta no es exitosa, lanzamos un error
+            if (!response.ok) {
+                if (response.status === 401 || response.status === 403) {
+                    // Error de autenticación o autorización
+                    redirectToLogin();
+                    throw new Error('Sesión expirada o no autorizada. Por favor, inicie sesión nuevamente.');
+                }
+                
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || `Error: ${response.status} ${response.statusText}`);
+            }
+            
+            // Para respuestas sin contenido (204)
+            if (response.status === 204) {
+                return null;
+            }
+            
+            return await response.json();
+        } catch (error) {
+            // Ocultar spinner en caso de error
+            if (typeof hideLoading === 'function') {
+                hideLoading();
+            }
+            
+            console.error('Error en la petición API:', error);
+            if (typeof showError === 'function') {
+                showError(error.message || 'Error en la comunicación con el servidor');
+            }
+            throw error;
+        }
+    }
+    
+    // Expose API request function globally
+    window.secureApiRequest = apiRequest;
+    
+    // Helper functions
+    window.secureShowLoading = function() {
+        if (typeof showLoading === 'function') {
+            showLoading();
+        }
+    };
+    
+    window.secureHideLoading = function() {
+        if (typeof hideLoading === 'function') {
+            hideLoading();
+        }
+    };
+    
+    window.secureShowSuccess = function(message) {
+        if (typeof showSuccess === 'function') {
+            showSuccess(message);
+        }
+    };
+    
+    window.secureShowError = function(message) {
+        if (typeof showError === 'function') {
+            showError(message);
+        }
+    };
+    
+    // Cerrar sesión
+    window.logout = async function() {
+        try {
+            await apiRequest('/auth/signout', 'POST');
+        } catch (error) {
+            console.error('Error al cerrar sesión:', error);
+        } finally {
+            sessionStorage.removeItem('userData');
+            sessionStorage.removeItem('userRoles');
+            window.location.href = '../index.html';
+        }
+    };
+    
+    // ========================
+    // Inicialización
+    // ========================
+    
+    // Verificar autenticación al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verificar autenticación
+        if (!checkAuth()) {
+            return;
+        }
+        
+        // Obtener token CSRF
+        csrfToken = getCsrfToken();
+        
+        // Añadir botón de logout
+        const headerContent = document.querySelector('.header-content');
+        if (headerContent) {
+            const logoutButton = document.createElement('button');
+            logoutButton.className = 'btn btn-danger logout-btn';
+            logoutButton.innerHTML = '<i class="fas fa-sign-out-alt"></i> Cerrar Sesión';
+            logoutButton.addEventListener('click', logout);
+            headerContent.appendChild(logoutButton);
+        }
+        
+        // Protección contra XSS en elementos de entrada
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.type !== 'password' && this.type !== 'number') {
+                    this.value = sanitizeInput(this.value);
+                }
+            });
+        });
+    });
+    
+    // Añadir gestión de errores global
+    window.addEventListener('error', function(event) {
+        console.error('Error global:', event.message);
+        if (typeof showError === 'function') {
+            showError('Se ha producido un error en la aplicación. Por favor, recargue la página o contacte al administrador.');
+        }
+    });
+    
+    // Prevenir ataques de clickjacking
+    if (window.self !== window.top) {
+        // La página está en un iframe
+        window.top.location = window.self.location;
+    }
+    
+})();

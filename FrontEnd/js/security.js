@@ -1,1 +1,675 @@
-function _0x31b2(_0x310900,_0xc3eea3){const _0x2fcb24=_0x2fcb();return _0x31b2=function(_0x31b270,_0x2a41e8){_0x31b270=_0x31b270-0x121;let _0x5a7024=_0x2fcb24[_0x31b270];return _0x5a7024;},_0x31b2(_0x310900,_0xc3eea3);}function _0x2fcb(){const _0x3c8f4e=['Inicializando\x20aplicación\x20de\x20seguridad...','Registro\x20Enviado','active','register-client-btn','Error\x20al\x20registrar\x20usuario.\x20Intente\x20nuevamente.','lowercase-check','password','split','login-tab','text-green-500','cookie','status','startsWith','register-email','last-name','86874YzzXAJ','checked','register-staff-btn','removeItem','Las\x20contraseñas\x20no\x20coinciden','usernameOrEmail','createElement','employee-id','special-check','submit','presente','Aceptar','.error-message','json','querySelector','\x20a\x20','include','../login\x20y\x20register/loginAndRegister.html','ready','Por\x20favor,\x20espera\x20un\x20momento.','appendChild','hidden','219932LoxPSC','reCAPTCHA\x20no\x20está\x20cargado','client','remove','fa-eye','getItem','className','fire','textContent','Inicio\x20de\x20sesión\x20exitoso.\x20Redirigiendo...','addEventListener','register-password','error-message\x20text-red-500\x20text-xs\x20mt-1','role-staff','login-form','terms','input[type=\x22text\x22],\x20input[type=\x22email\x22],\x20input[type=\x22tel\x22],\x20textarea','length','trim','catch','/auth/signin','blur','username','Envío\x20del\x20formulario\x20demasiado\x20rápido.\x20Por\x20favor,\x20espere\x20unos\x20segundos.','register','test','roles','Entendido','setItem','stringify','replace','find','register-form','text-gray-700','preventDefault','parse','261344cDAgyZ','statusText','Enviando\x20solicitud\x20','forEach','../menu/menu.html','2619701sUEjns','includes','Por\x20favor,\x20completa\x20todos\x20los\x20campos\x20obligatorios','X-CSRF-TOKEN','../sistema\x20de\x20gestion/dashboard.html','innerHTML','phone','Iniciando\x20sesión...','role-client','Debes\x20aceptar\x20los\x20términos\x20y\x20condiciones','Registrando\x20usuario...','ausente','parentElement','153CsMacF','undefined','Éxito','userData','331412HpxpfT','&gt;','toggle-password','Registro\x20Exitoso','disabled','staff','error','position','XSRF-TOKEN=','40rwPpVJ','ROLE_CLIENT','recaptchaToken','location','Error\x20al\x20cerrar\x20sesión:','text-red-500','input','&#39;','Intentar\x20de\x20nuevo','POST','log','value','Error\x20en\x20la\x20respuesta\x20de\x20autenticación','add','&quot;','Error\x20en\x20la\x20petición\x20API:','21560XbEXWY','ROLE_ADMIN','number-check','uppercase-check','198PClAXV','button[type=\x22submit\x22]','application/json','toggle-register-password','http://172.30.7.71:8080/api','<i\x20class=\x22fas\x20fa-sign-in-alt\x20mr-2\x22></i>Iniciar\x20Sesión','then','bg-gray-200','contains','PUT','message','login','/auth/signup','Respuesta\x20de\x20login\x20recibida:','href','Su\x20solicitud\x20de\x20cuenta\x20de\x20personal\x20ha\x20sido\x20enviada.\x20Espere\x20la\x20aprobación.','length-check','info','Error:\x20','409840rZzSDW','success','classList','staff-fields','&amp;','ROLE_STAFF','Inicialización\x20de\x20seguridad\x20completada','border-red-500','Bloqueado\x20por\x20','first-name','\x20segundos','logout','Usuario\x20registrado\x20con\x20éxito.\x20Ahora\x20puedes\x20iniciar\x20sesión.','Intentando\x20login\x20con\x20credenciales:','click','fa-eye-slash','Error','userRoles','getElementById'];_0x2fcb=function(){return _0x3c8f4e;};return _0x2fcb();}(function(_0x2aee22,_0x3a9067){const _0x1ebaa0=_0x31b2,_0x23fb3f=_0x2aee22();while(!![]){try{const _0x333953=parseInt(_0x1ebaa0(0x14f))/0x1+parseInt(_0x1ebaa0(0x189))/0x2+-parseInt(_0x1ebaa0(0x1a6))/0x3*(parseInt(_0x1ebaa0(0x1a2))/0x4)+-parseInt(_0x1ebaa0(0x192))/0x5*(parseInt(_0x1ebaa0(0x139))/0x6)+-parseInt(_0x1ebaa0(0x178))/0x7+-parseInt(_0x1ebaa0(0x173))/0x8+-parseInt(_0x1ebaa0(0x185))/0x9*(-parseInt(_0x1ebaa0(0x1b9))/0xa);if(_0x333953===_0x3a9067)break;else _0x23fb3f['push'](_0x23fb3f['shift']());}catch(_0x445f3a){_0x23fb3f['push'](_0x23fb3f['shift']());}}}(_0x2fcb,0x31c6b),(function(){'use strict';const _0x43b646=_0x31b2;const _0x2a225e=_0x43b646(0x1aa),_0x55a8b3='6Lcy8x4rAAAAAKSfqVFXEkhNz_IsFIb_iCn5qOwy';let _0x5af6ed='',_0x2be170=0x0;const _0x4f0085=0x5;let _0x3f0b3e={};function _0x381fc8(){const _0x39fbb7=_0x43b646,_0x1da800=document[_0x39fbb7(0x134)][_0x39fbb7(0x131)](';\x20')[_0x39fbb7(0x16e)](_0x276237=>_0x276237[_0x39fbb7(0x136)](_0x39fbb7(0x191)))?.['split']('=')[0x1];return _0x1da800||'';}function _0x5c45b4(_0x308e67){const _0x34ce3e=_0x43b646;return String(_0x308e67)[_0x34ce3e(0x16d)](/&/g,_0x34ce3e(0x1bd))[_0x34ce3e(0x16d)](/</g,'&lt;')[_0x34ce3e(0x16d)](/>/g,_0x34ce3e(0x18a))[_0x34ce3e(0x16d)](/"/g,_0x34ce3e(0x1a0))['replace'](/'/g,_0x34ce3e(0x199));}function _0x35ab5c(_0x50baa0,_0x12993c,_0x135521){const _0x51448d=_0x43b646;if(!_0x12993c[_0x51448d(0x168)](_0x50baa0[_0x51448d(0x19d)]))return _0xc72fa1(_0x50baa0,_0x135521),![];return _0x4e0176(_0x50baa0),!![];}function _0xc72fa1(_0x2d7626,_0x3110df){const _0x4a8707=_0x43b646,_0x4d9381=_0x2d7626[_0x4a8707(0x184)]['parentElement'];let _0x8e5b18=_0x4d9381['querySelector']('.error-message');!_0x8e5b18&&(_0x8e5b18=document[_0x4a8707(0x13f)]('div'),_0x8e5b18[_0x4a8707(0x155)]=_0x4a8707(0x15b),_0x4d9381[_0x4a8707(0x14d)](_0x8e5b18)),_0x8e5b18[_0x4a8707(0x157)]=_0x3110df,_0x2d7626[_0x4a8707(0x1bb)][_0x4a8707(0x19f)](_0x4a8707(0x1c0));}function _0x4e0176(_0x4b46af){const _0x201878=_0x43b646,_0x573311=_0x4b46af[_0x201878(0x184)][_0x201878(0x184)],_0x1b1013=_0x573311[_0x201878(0x147)](_0x201878(0x145));_0x1b1013&&(_0x1b1013['textContent']=''),_0x4b46af[_0x201878(0x1bb)][_0x201878(0x152)](_0x201878(0x1c0));}function _0x8f45bb(_0x265409,_0x195f99,_0x146ec8=0x7d0){return function(_0x21a2ba){const _0x42bf58=_0x31b2;_0x21a2ba[_0x42bf58(0x171)]();if(_0x3f0b3e[_0x265409]){console[_0x42bf58(0x19c)](_0x42bf58(0x166));return;}_0x195f99(_0x21a2ba),_0x3f0b3e[_0x265409]=setTimeout(()=>{_0x3f0b3e[_0x265409]=null;},_0x146ec8);};}function _0x4032b5(_0x262a72){const _0xd9b1d6=_0x43b646;sessionStorage['setItem'](_0xd9b1d6(0x188),JSON[_0xd9b1d6(0x16c)](_0x262a72)),sessionStorage[_0xd9b1d6(0x16b)](_0xd9b1d6(0x128),JSON[_0xd9b1d6(0x16c)](_0x262a72[_0xd9b1d6(0x169)]));}function _0x1e41db(){const _0x2ec64c=_0x43b646;return sessionStorage[_0x2ec64c(0x154)](_0x2ec64c(0x188))!==null;}function _0x357de7(){const _0x4310b7=_0x43b646;sessionStorage[_0x4310b7(0x13c)](_0x4310b7(0x188)),sessionStorage[_0x4310b7(0x13c)](_0x4310b7(0x128));}function _0x2d2d83(_0x1e2f96){return new Promise((_0x31c995,_0x52e7a7)=>{const _0x513480=_0x31b2;if(typeof grecaptcha===_0x513480(0x186)){_0x52e7a7(new Error(_0x513480(0x150)));return;}grecaptcha[_0x513480(0x14b)](function(){const _0xea004a=_0x513480;grecaptcha['execute'](_0x55a8b3,{'action':_0x1e2f96})[_0xea004a(0x1ac)](function(_0x494c09){_0x31c995(_0x494c09);})[_0xea004a(0x162)](function(_0x51d74){const _0x5e93e0=_0xea004a;console[_0x5e93e0(0x18f)]('Error\x20de\x20reCAPTCHA:',_0x51d74),_0x52e7a7(_0x51d74);});});});}async function _0x163e25(_0x580814,_0x16aa86,_0x3b8620=null){const _0x54825c=_0x43b646;try{_0x5af6ed=_0x381fc8();const _0x22a9a3={'Content-Type':_0x54825c(0x1a8)};_0x5af6ed&&(_0x22a9a3[_0x54825c(0x17b)]=_0x5af6ed);const _0x24257d={'method':_0x16aa86,'headers':_0x22a9a3,'credentials':_0x54825c(0x149)};_0x3b8620&&(_0x16aa86===_0x54825c(0x19b)||_0x16aa86===_0x54825c(0x1af))&&(_0x24257d['body']=JSON[_0x54825c(0x16c)](_0x3b8620));console[_0x54825c(0x19c)](_0x54825c(0x175)+_0x16aa86+_0x54825c(0x148)+_0x2a225e+_0x580814);const _0x96513b=await fetch(''+_0x2a225e+_0x580814,_0x24257d);if(!_0x96513b['ok']){const _0x14d00a=await _0x96513b[_0x54825c(0x146)]()[_0x54825c(0x162)](()=>({'message':_0x54825c(0x1b8)+_0x96513b[_0x54825c(0x135)]+'\x20'+_0x96513b[_0x54825c(0x174)]}));throw new Error(_0x14d00a[_0x54825c(0x1b0)]||'Error:\x20'+_0x96513b[_0x54825c(0x135)]+'\x20'+_0x96513b[_0x54825c(0x174)]);}if(_0x96513b[_0x54825c(0x135)]===0xcc)return null;return await _0x96513b['json']();}catch(_0x5462df){console[_0x54825c(0x18f)](_0x54825c(0x1a1),_0x5462df);throw _0x5462df;}}async function _0x527a8b(_0x2d7653){const _0x49c290=_0x43b646;try{const _0x14e3a4=await _0x2d2d83(_0x49c290(0x1b1));_0x2d7653['recaptchaToken']=_0x14e3a4,console['log'](_0x49c290(0x124),{'usernameOrEmail':_0x2d7653[_0x49c290(0x13e)],'recaptchaToken':_0x14e3a4?_0x49c290(0x143):_0x49c290(0x183)});const _0x14d892=await _0x163e25(_0x49c290(0x163),_0x49c290(0x19b),_0x2d7653);console[_0x49c290(0x19c)](_0x49c290(0x1b3),_0x14d892);if(_0x14d892)return _0x4032b5(_0x14d892),_0x14d892;throw new Error(_0x49c290(0x19e));}catch(_0x52ca8e){_0x2be170++;if(_0x2be170>=_0x4f0085){const _0x215bff=0x3c;_0x3151f5(_0x215bff);}throw _0x52ca8e;}}async function _0x8e36a0(_0x503065){const _0x3914f6=_0x43b646;try{const _0x3728fe=await _0x2d2d83(_0x3914f6(0x167));return _0x503065[_0x3914f6(0x194)]=_0x3728fe,await _0x163e25(_0x3914f6(0x1b2),_0x3914f6(0x19b),_0x503065);}catch(_0x1187bc){throw _0x1187bc;}}async function _0x28fa09(){const _0x205cbe=_0x43b646;try{await _0x163e25('/auth/signout',_0x205cbe(0x19b)),_0x357de7(),window['location'][_0x205cbe(0x1b4)]=_0x205cbe(0x14a);}catch(_0x31775c){console[_0x205cbe(0x18f)](_0x205cbe(0x196),_0x31775c),_0x357de7(),window[_0x205cbe(0x195)][_0x205cbe(0x1b4)]=_0x205cbe(0x14a);}}function _0x3151f5(_0x2ce0b8){const _0x47887a=_0x43b646,_0xdcdf75=document['getElementById']('login-form'),_0x2d5110=_0xdcdf75[_0x47887a(0x147)](_0x47887a(0x1a7));_0x2d5110[_0x47887a(0x18d)]=!![],_0x2d5110['textContent']=_0x47887a(0x1c1)+_0x2ce0b8+_0x47887a(0x121);let _0x42400c=_0x2ce0b8;const _0x790346=setInterval(()=>{const _0x2fa85b=_0x47887a;_0x42400c--,_0x2d5110[_0x2fa85b(0x157)]=_0x2fa85b(0x1c1)+_0x42400c+'\x20segundos',_0x42400c<=0x0&&(clearInterval(_0x790346),_0x2d5110['disabled']=![],_0x2d5110[_0x2fa85b(0x17d)]=_0x2fa85b(0x1ab),_0x2be170=0x0);},0x3e8);}function _0x1d67e6(){const _0x39364b=_0x43b646,_0x129f51=document['getElementById'](_0x39364b(0x15a));if(!_0x129f51)return;_0x129f51[_0x39364b(0x159)](_0x39364b(0x198),function(){const _0x553dd1=_0x39364b,_0x4bb870=this[_0x553dd1(0x19d)],_0x4415c7=document[_0x553dd1(0x129)](_0x553dd1(0x1b6));_0x4415c7&&(_0x4bb870[_0x553dd1(0x160)]>=0x8?_0x4415c7['classList'][_0x553dd1(0x16d)](_0x553dd1(0x197),_0x553dd1(0x133)):_0x4415c7[_0x553dd1(0x1bb)]['replace']('text-green-500',_0x553dd1(0x197)));const _0x26c937=document[_0x553dd1(0x129)](_0x553dd1(0x12f));_0x26c937&&(/[a-z]/['test'](_0x4bb870)?_0x26c937[_0x553dd1(0x1bb)][_0x553dd1(0x16d)](_0x553dd1(0x197),_0x553dd1(0x133)):_0x26c937['classList'][_0x553dd1(0x16d)](_0x553dd1(0x133),_0x553dd1(0x197)));const _0x501281=document[_0x553dd1(0x129)](_0x553dd1(0x1a5));_0x501281&&(/[A-Z]/['test'](_0x4bb870)?_0x501281['classList']['replace'](_0x553dd1(0x197),_0x553dd1(0x133)):_0x501281[_0x553dd1(0x1bb)][_0x553dd1(0x16d)](_0x553dd1(0x133),_0x553dd1(0x197)));const _0x5cf3c6=document[_0x553dd1(0x129)](_0x553dd1(0x1a4));_0x5cf3c6&&(/[0-9]/[_0x553dd1(0x168)](_0x4bb870)?_0x5cf3c6[_0x553dd1(0x1bb)][_0x553dd1(0x16d)]('text-red-500',_0x553dd1(0x133)):_0x5cf3c6[_0x553dd1(0x1bb)]['replace'](_0x553dd1(0x133),_0x553dd1(0x197)));const _0x1e0a64=document[_0x553dd1(0x129)](_0x553dd1(0x141));_0x1e0a64&&(/[@#$%^&+=]/[_0x553dd1(0x168)](_0x4bb870)?_0x1e0a64[_0x553dd1(0x1bb)]['replace']('text-red-500','text-green-500'):_0x1e0a64[_0x553dd1(0x1bb)]['replace']('text-green-500',_0x553dd1(0x197)));});}async function _0x1f9615(_0x1f924d){const _0x1194ca=_0x43b646;_0x1f924d[_0x1194ca(0x171)]();const _0x791cdd=document[_0x1194ca(0x129)](_0x1194ca(0x13e))[_0x1194ca(0x19d)][_0x1194ca(0x161)](),_0x345d0d=document[_0x1194ca(0x129)](_0x1194ca(0x130))[_0x1194ca(0x19d)];if(!_0x791cdd||!_0x345d0d){Swal[_0x1194ca(0x156)]({'title':_0x1194ca(0x127),'text':'Por\x20favor,\x20completa\x20todos\x20los\x20campos','icon':'error','confirmButtonText':'Aceptar'});return;}Swal[_0x1194ca(0x156)]({'title':_0x1194ca(0x17f),'text':_0x1194ca(0x14c),'icon':_0x1194ca(0x1b7),'showConfirmButton':![],'allowOutsideClick':![],'didOpen':()=>{Swal['showLoading']();}});try{const _0xf88913=await _0x527a8b({'usernameOrEmail':_0x791cdd,'password':_0x345d0d}),_0x8c5777=_0xf88913[_0x1194ca(0x169)]||[];let _0x54fa5c=_0x1194ca(0x177);(_0x8c5777[_0x1194ca(0x179)](_0x1194ca(0x1a3))||_0x8c5777[_0x1194ca(0x179)](_0x1194ca(0x1be)))&&(_0x54fa5c=_0x1194ca(0x17c)),Swal[_0x1194ca(0x156)]({'title':_0x1194ca(0x187),'text':_0x1194ca(0x158),'icon':_0x1194ca(0x1ba),'showConfirmButton':![],'timer':0x5dc})[_0x1194ca(0x1ac)](()=>{const _0x5f3534=_0x1194ca;window['location'][_0x5f3534(0x1b4)]=_0x54fa5c;});}catch(_0x381e88){Swal[_0x1194ca(0x156)]({'title':_0x1194ca(0x127),'text':_0x381e88[_0x1194ca(0x1b0)]||'Error\x20al\x20iniciar\x20sesión.\x20Intente\x20nuevamente.','icon':_0x1194ca(0x18f),'confirmButtonText':_0x1194ca(0x144)});}}async function _0x431b9b(_0x1ae6c6){const _0x15f4e2=_0x43b646;_0x1ae6c6[_0x15f4e2(0x171)]();const _0x26380c=document[_0x15f4e2(0x129)](_0x15f4e2(0x1c2))['value'][_0x15f4e2(0x161)](),_0x264601=document[_0x15f4e2(0x129)](_0x15f4e2(0x138))[_0x15f4e2(0x19d)][_0x15f4e2(0x161)](),_0x53509f=document[_0x15f4e2(0x129)](_0x15f4e2(0x165))[_0x15f4e2(0x19d)][_0x15f4e2(0x161)](),_0x2099f0=document[_0x15f4e2(0x129)](_0x15f4e2(0x137))[_0x15f4e2(0x19d)][_0x15f4e2(0x161)](),_0x1cd2ff=document[_0x15f4e2(0x129)](_0x15f4e2(0x17e))[_0x15f4e2(0x19d)][_0x15f4e2(0x161)](),_0xc42436=document[_0x15f4e2(0x129)](_0x15f4e2(0x15a))[_0x15f4e2(0x19d)],_0x3bbae9=document[_0x15f4e2(0x129)]('confirm-password')[_0x15f4e2(0x19d)],_0x46a7a1=document['getElementById'](_0x15f4e2(0x15e))[_0x15f4e2(0x13a)],_0x4b68f4=document['getElementById'](_0x15f4e2(0x15c))[_0x15f4e2(0x1bb)][_0x15f4e2(0x1ae)](_0x15f4e2(0x12c));let _0x37488c=null,_0x11102b=null;_0x4b68f4&&(_0x37488c=document[_0x15f4e2(0x129)](_0x15f4e2(0x190))['value'],_0x11102b=document[_0x15f4e2(0x129)](_0x15f4e2(0x140))[_0x15f4e2(0x19d)][_0x15f4e2(0x161)]());if(!_0x26380c||!_0x264601||!_0x53509f||!_0x2099f0||!_0xc42436||!_0x3bbae9){Swal['fire']({'title':'Error','text':_0x15f4e2(0x17a),'icon':_0x15f4e2(0x18f),'confirmButtonText':'Aceptar'});return;}if(_0xc42436!==_0x3bbae9){Swal[_0x15f4e2(0x156)]({'title':_0x15f4e2(0x127),'text':_0x15f4e2(0x13d),'icon':_0x15f4e2(0x18f),'confirmButtonText':_0x15f4e2(0x19a)});return;}if(!_0x46a7a1){Swal[_0x15f4e2(0x156)]({'title':'Error','text':_0x15f4e2(0x181),'icon':_0x15f4e2(0x18f),'confirmButtonText':'Aceptar'});return;}Swal['fire']({'title':_0x15f4e2(0x182),'text':_0x15f4e2(0x14c),'icon':_0x15f4e2(0x1b7),'showConfirmButton':![],'allowOutsideClick':![],'didOpen':()=>{Swal['showLoading']();}});try{const _0x27ad01={'firstName':_0x26380c,'lastName':_0x264601,'username':_0x53509f,'email':_0x2099f0,'password':_0xc42436,'phone':_0x1cd2ff};_0x4b68f4?(_0x27ad01[_0x15f4e2(0x190)]=_0x37488c,_0x27ad01['employeeId']=_0x11102b,_0x27ad01[_0x15f4e2(0x169)]=[_0x15f4e2(0x18e)]):_0x27ad01[_0x15f4e2(0x169)]=[_0x15f4e2(0x151)],await _0x8e36a0(_0x27ad01),_0x4b68f4?Swal['fire']({'title':_0x15f4e2(0x12b),'text':_0x15f4e2(0x1b5),'icon':_0x15f4e2(0x1b7),'confirmButtonText':_0x15f4e2(0x16a)}):Swal[_0x15f4e2(0x156)]({'title':_0x15f4e2(0x18c),'text':_0x15f4e2(0x123),'icon':_0x15f4e2(0x1ba),'showConfirmButton':![],'timer':0x7d0})['then'](()=>{const _0x83438b=_0x15f4e2;document['getElementById']('login-tab')[_0x83438b(0x125)]();});}catch(_0x6031b2){Swal[_0x15f4e2(0x156)]({'title':_0x15f4e2(0x127),'text':_0x6031b2[_0x15f4e2(0x1b0)]||_0x15f4e2(0x12e),'icon':_0x15f4e2(0x18f),'confirmButtonText':_0x15f4e2(0x144)});}}document[_0x43b646(0x159)]('DOMContentLoaded',function(){const _0x1c8e04=_0x43b646;console['log'](_0x1c8e04(0x12a)),_0x1d67e6();const _0x430112=document[_0x1c8e04(0x129)](_0x1c8e04(0x132)),_0x28f3c5=document['getElementById']('register-tab');_0x430112&&_0x28f3c5&&(_0x430112['addEventListener']('click',function(){const _0x11520f=_0x1c8e04;_0x430112[_0x11520f(0x1bb)][_0x11520f(0x19f)](_0x11520f(0x12c)),_0x430112[_0x11520f(0x1bb)]['remove'](_0x11520f(0x1ad),_0x11520f(0x170)),_0x28f3c5['classList'][_0x11520f(0x152)](_0x11520f(0x12c)),_0x28f3c5[_0x11520f(0x1bb)]['add'](_0x11520f(0x1ad),_0x11520f(0x170)),document[_0x11520f(0x129)]('login-form')['classList'][_0x11520f(0x152)](_0x11520f(0x14e)),document[_0x11520f(0x129)](_0x11520f(0x16f))[_0x11520f(0x1bb)][_0x11520f(0x19f)]('hidden');}),_0x28f3c5[_0x1c8e04(0x159)]('click',function(){const _0x22b786=_0x1c8e04;_0x28f3c5[_0x22b786(0x1bb)]['add']('active'),_0x28f3c5[_0x22b786(0x1bb)][_0x22b786(0x152)](_0x22b786(0x1ad),_0x22b786(0x170)),_0x430112['classList'][_0x22b786(0x152)](_0x22b786(0x12c)),_0x430112[_0x22b786(0x1bb)][_0x22b786(0x19f)](_0x22b786(0x1ad),_0x22b786(0x170)),document['getElementById'](_0x22b786(0x16f))[_0x22b786(0x1bb)]['remove'](_0x22b786(0x14e)),document[_0x22b786(0x129)]('login-form')[_0x22b786(0x1bb)]['add'](_0x22b786(0x14e));}));const _0x329998=document['getElementById'](_0x1c8e04(0x180)),_0x360795=document[_0x1c8e04(0x129)](_0x1c8e04(0x15c));_0x329998&&_0x360795&&(_0x329998[_0x1c8e04(0x159)](_0x1c8e04(0x125),function(){const _0x2d35f2=_0x1c8e04;this['classList'][_0x2d35f2(0x19f)]('active'),_0x360795[_0x2d35f2(0x1bb)][_0x2d35f2(0x152)](_0x2d35f2(0x12c)),document[_0x2d35f2(0x129)](_0x2d35f2(0x1bc))['classList'][_0x2d35f2(0x19f)](_0x2d35f2(0x14e)),document['getElementById'](_0x2d35f2(0x12d))[_0x2d35f2(0x1bb)][_0x2d35f2(0x152)]('hidden'),document[_0x2d35f2(0x129)](_0x2d35f2(0x13b))['classList'][_0x2d35f2(0x19f)](_0x2d35f2(0x14e));}),_0x360795[_0x1c8e04(0x159)](_0x1c8e04(0x125),function(){const _0x3ace2e=_0x1c8e04;this[_0x3ace2e(0x1bb)][_0x3ace2e(0x19f)](_0x3ace2e(0x12c)),_0x329998['classList'][_0x3ace2e(0x152)]('active'),document[_0x3ace2e(0x129)](_0x3ace2e(0x1bc))[_0x3ace2e(0x1bb)]['remove'](_0x3ace2e(0x14e)),document[_0x3ace2e(0x129)](_0x3ace2e(0x12d))[_0x3ace2e(0x1bb)]['add'](_0x3ace2e(0x14e)),document[_0x3ace2e(0x129)](_0x3ace2e(0x13b))[_0x3ace2e(0x1bb)][_0x3ace2e(0x152)](_0x3ace2e(0x14e));}));const _0x24f112=document[_0x1c8e04(0x129)](_0x1c8e04(0x18b));_0x24f112&&_0x24f112[_0x1c8e04(0x159)]('click',function(){_0x5ed3aa('password',this);});const _0x4587c6=document['getElementById'](_0x1c8e04(0x1a9));_0x4587c6&&_0x4587c6['addEventListener'](_0x1c8e04(0x125),function(){const _0xf63eee=_0x1c8e04;_0x5ed3aa(_0xf63eee(0x15a),this);});function _0x5ed3aa(_0x382758,_0x55987d){const _0x4eb676=_0x1c8e04,_0x430ec7=document[_0x4eb676(0x129)](_0x382758);if(!_0x430ec7)return;const _0x428049=_0x55987d[_0x4eb676(0x147)]('i');_0x430ec7['type']===_0x4eb676(0x130)?(_0x430ec7['type']='text',_0x428049[_0x4eb676(0x1bb)][_0x4eb676(0x152)](_0x4eb676(0x153)),_0x428049['classList']['add'](_0x4eb676(0x126))):(_0x430ec7['type']='password',_0x428049[_0x4eb676(0x1bb)][_0x4eb676(0x152)](_0x4eb676(0x126)),_0x428049['classList'][_0x4eb676(0x19f)](_0x4eb676(0x153)));}const _0x58e452=document[_0x1c8e04(0x129)]('login-form');_0x58e452&&_0x58e452['addEventListener'](_0x1c8e04(0x142),_0x8f45bb(_0x1c8e04(0x15d),_0x1f9615,0x7d0));const _0x586499=document['getElementById'](_0x1c8e04(0x16f));_0x586499&&_0x586499[_0x1c8e04(0x159)](_0x1c8e04(0x142),_0x8f45bb(_0x1c8e04(0x16f),_0x431b9b,0x7d0));const _0x59dae5=document['querySelectorAll'](_0x1c8e04(0x15f));_0x59dae5[_0x1c8e04(0x176)](_0x2a2f16=>{const _0x356c28=_0x1c8e04;_0x2a2f16[_0x356c28(0x159)](_0x356c28(0x164),function(){this['value']=_0x5c45b4(this['value']);});});if(_0x1e41db()){const _0x416585=JSON[_0x1c8e04(0x172)](sessionStorage['getItem']('userRoles')||'[]');if(_0x416585['includes'](_0x1c8e04(0x1a3))||_0x416585[_0x1c8e04(0x179)](_0x1c8e04(0x1be)))window[_0x1c8e04(0x195)][_0x1c8e04(0x1b4)]=_0x1c8e04(0x17c);else _0x416585['includes'](_0x1c8e04(0x193))&&(window[_0x1c8e04(0x195)][_0x1c8e04(0x1b4)]=_0x1c8e04(0x177));}window[_0x1c8e04(0x122)]=_0x28fa09,console[_0x1c8e04(0x19c)](_0x1c8e04(0x1bf));});}()));
+// security.js
+(function() {
+    'use strict';
+    
+    // Constantes de configuración
+    const API_BASE_URL = 'http://localhost:8080/api';
+    const RECAPTCHA_SITE_KEY = '6Lcy8x4rAAAAAKSfqVFXEkhNz_IsFIb_iCn5qOwy'; // Tu clave de sitio real
+    
+    // Variables globales
+    let csrfToken = '';
+    let loginAttempts = 0;
+    const MAX_LOGIN_ATTEMPTS = 5;
+    let formSubmitTimers = {};
+    
+    // ========================
+    // Funciones de utilidad
+    // ========================
+    
+    // Función para obtener el CSRF token
+    function getCsrfToken() {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('XSRF-TOKEN='))
+            ?.split('=')[1];
+        return cookieValue || '';
+    }
+    
+    // Función para codificar datos contra XSS
+    function encodeHTML(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+    
+    // Validación de entrada
+    function validateInput(input, pattern, errorMessage) {
+        if (!pattern.test(input.value)) {
+            showInputError(input, errorMessage);
+            return false;
+        }
+        clearInputError(input);
+        return true;
+    }
+    
+    function showInputError(input, message) {
+        const parent = input.parentElement.parentElement;
+        let errorDiv = parent.querySelector('.error-message');
+        
+        if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message text-red-500 text-xs mt-1';
+            parent.appendChild(errorDiv);
+        }
+        
+        errorDiv.textContent = message;
+        input.classList.add('border-red-500');
+    }
+    
+    function clearInputError(input) {
+        const parent = input.parentElement.parentElement;
+        const errorDiv = parent.querySelector('.error-message');
+        
+        if (errorDiv) {
+            errorDiv.textContent = '';
+        }
+        
+        input.classList.remove('border-red-500');
+    }
+    
+    // Throttling para evitar múltiples envíos
+    function throttleFormSubmit(formId, handler, delay = 2000) {
+        return function(event) {
+            event.preventDefault();
+            
+            // Si ya hay un temporizador activo, cancelamos el envío
+            if (formSubmitTimers[formId]) {
+                console.log('Envío del formulario demasiado rápido. Por favor, espere unos segundos.');
+                return;
+            }
+            
+            // Procesamos el evento
+            handler(event);
+            
+            // Configuramos el temporizador
+            formSubmitTimers[formId] = setTimeout(() => {
+                formSubmitTimers[formId] = null;
+            }, delay);
+        };
+    }
+    
+    // Función para guardar datos del usuario (sin token)
+    function saveUserData(userData) {
+        sessionStorage.setItem('userData', JSON.stringify(userData));
+        sessionStorage.setItem('userRoles', JSON.stringify(userData.roles));
+    }
+    
+    // Función para verificar si el usuario está autenticado
+    function isAuthenticated() {
+        return sessionStorage.getItem('userData') !== null;
+    }
+    
+    // Función para eliminar datos del usuario
+    function removeUserData() {
+        sessionStorage.removeItem('userData');
+        sessionStorage.removeItem('userRoles');
+    }
+    
+    // ========================
+    // Funciones de reCAPTCHA
+    // ========================
+    
+    // Obtener token de reCAPTCHA
+    function generateRecaptchaToken(action) {
+        return new Promise((resolve, reject) => {
+            if (typeof grecaptcha === 'undefined') {
+                reject(new Error('reCAPTCHA no está cargado'));
+                return;
+            }
+            
+            grecaptcha.ready(function() {
+                grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: action})
+                    .then(function(token) {
+                        resolve(token);
+                    })
+                    .catch(function(error) {
+                        console.error('Error de reCAPTCHA:', error);
+                        reject(error);
+                    });
+            });
+        });
+    }
+    
+    // ========================
+    // Funciones de API
+    // ========================
+    
+    // Función base para peticiones API con protección CSRF
+    async function apiRequest(url, method, data = null) {
+        try {
+            // Obtenemos el token CSRF actual
+            csrfToken = getCsrfToken();
+            
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            
+            // Añadir CSRF token si existe
+            if (csrfToken) {
+                headers['X-CSRF-TOKEN'] = csrfToken;
+            }
+            
+            const fetchOptions = {
+                method: method,
+                headers: headers,
+                credentials: 'include' // Incluir cookies
+            };
+            
+            if (data && (method === 'POST' || method === 'PUT')) {
+                fetchOptions.body = JSON.stringify(data);
+            }
+            
+            console.log(`Enviando solicitud ${method} a ${API_BASE_URL}${url}`);
+            
+            const response = await fetch(`${API_BASE_URL}${url}`, fetchOptions);
+            
+            // Si la respuesta no es exitosa, lanzamos un error
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({ message: `Error: ${response.status} ${response.statusText}` }));
+                throw new Error(errorData.message || `Error: ${response.status} ${response.statusText}`);
+            }
+            
+            // Para respuestas sin contenido (204)
+            if (response.status === 204) {
+                return null;
+            }
+            
+            return await response.json();
+        } catch (error) {
+            console.error('Error en la petición API:', error);
+            throw error;
+        }
+    }
+    
+    // Función específica para login
+    async function loginUser(credentials) {
+        try {
+            const recaptchaToken = await generateRecaptchaToken('login');
+            credentials.recaptchaToken = recaptchaToken;
+            
+            console.log('Intentando login con credenciales:', {
+                usernameOrEmail: credentials.usernameOrEmail,
+                recaptchaToken: recaptchaToken ? 'presente' : 'ausente'
+            });
+            
+            const response = await apiRequest('/auth/signin', 'POST', credentials);
+            
+            console.log('Respuesta de login recibida:', response);
+            
+            // Ya no necesitamos guardar el token, está en la cookie
+            // Solo guardamos la información del usuario
+            if (response) {
+                saveUserData(response);
+                return response;
+            }
+            
+            throw new Error('Error en la respuesta de autenticación');
+        } catch (error) {
+            loginAttempts++;
+            
+            // Si excede intentos, bloquear temporalmente
+            if (loginAttempts >= MAX_LOGIN_ATTEMPTS) {
+                const waitTime = 60; // segundos
+                blockLoginForm(waitTime);
+            }
+            
+            throw error;
+        }
+    }
+    
+    // Función específica para registro
+    async function registerUser(userData) {
+        try {
+            const recaptchaToken = await generateRecaptchaToken('register');
+            userData.recaptchaToken = recaptchaToken;
+            
+            return await apiRequest('/auth/signup', 'POST', userData);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    // Función para cerrar sesión
+    async function logout() {
+        try {
+            await apiRequest('/auth/signout', 'POST');
+            removeUserData();
+            window.location.href = '../index.html';
+        } catch (error) {
+            console.error('Error al cerrar sesión:', error);
+            // Aún así, limpiamos los datos locales
+            removeUserData();
+            window.location.href = '../index.html';
+        }
+    }
+    
+    // ========================
+    // Manipulación del DOM
+    // ========================
+    
+    // Función para bloquear el formulario de login temporalmente
+    function blockLoginForm(seconds) {
+        const loginForm = document.getElementById('login-form');
+        const loginButton = loginForm.querySelector('button[type="submit"]');
+        
+        loginButton.disabled = true;
+        loginButton.textContent = `Bloqueado por ${seconds} segundos`;
+        
+        let timeLeft = seconds;
+        const interval = setInterval(() => {
+            timeLeft--;
+            loginButton.textContent = `Bloqueado por ${timeLeft} segundos`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+                loginButton.disabled = false;
+                loginButton.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>Iniciar Sesión';
+                loginAttempts = 0;
+            }
+        }, 1000);
+    }
+    
+    // Validación de seguridad de contraseña en tiempo real
+    function setupPasswordValidation() {
+        const passwordInput = document.getElementById('register-password');
+        if (!passwordInput) return;
+        
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            
+            // Validar longitud
+            const lengthCheck = document.getElementById('length-check');
+            if (lengthCheck) {
+                if (password.length >= 8) {
+                    lengthCheck.classList.replace('text-red-500', 'text-green-500');
+                } else {
+                    lengthCheck.classList.replace('text-green-500', 'text-red-500');
+                }
+            }
+            
+            // Validar minúscula
+            const lowercaseCheck = document.getElementById('lowercase-check');
+            if (lowercaseCheck) {
+                if (/[a-z]/.test(password)) {
+                    lowercaseCheck.classList.replace('text-red-500', 'text-green-500');
+                } else {
+                    lowercaseCheck.classList.replace('text-green-500', 'text-red-500');
+                }
+            }
+            
+            // Validar mayúscula
+            const uppercaseCheck = document.getElementById('uppercase-check');
+            if (uppercaseCheck) {
+                if (/[A-Z]/.test(password)) {
+                    uppercaseCheck.classList.replace('text-red-500', 'text-green-500');
+                } else {
+                    uppercaseCheck.classList.replace('text-green-500', 'text-red-500');
+                }
+            }
+            
+            // Validar número
+            const numberCheck = document.getElementById('number-check');
+            if (numberCheck) {
+                if (/[0-9]/.test(password)) {
+                    numberCheck.classList.replace('text-red-500', 'text-green-500');
+                } else {
+                    numberCheck.classList.replace('text-green-500', 'text-red-500');
+                }
+            }
+            
+            // Validar carácter especial
+            const specialCheck = document.getElementById('special-check');
+            if (specialCheck) {
+                if (/[@#$%^&+=]/.test(password)) {
+                    specialCheck.classList.replace('text-red-500', 'text-green-500');
+                } else {
+                    specialCheck.classList.replace('text-green-500', 'text-red-500');
+                }
+            }
+        });
+    }
+    
+    // ========================
+    // Manejadores de eventos
+    // ========================
+    
+    // Manejar envío del formulario de login
+    async function handleLoginSubmit(event) {
+        event.preventDefault();
+        
+        const usernameOrEmail = document.getElementById('usernameOrEmail').value.trim();
+        const password = document.getElementById('password').value;
+        
+        // Validación básica en cliente
+        if (!usernameOrEmail || !password) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, completa todos los campos',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
+        
+        // Mostrar cargando
+        Swal.fire({
+            title: 'Iniciando sesión...',
+            text: 'Por favor, espera un momento.',
+            icon: 'info',
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+        
+        try {
+            // Llamar a la función de login
+            const response = await loginUser({
+                usernameOrEmail: usernameOrEmail,
+                password: password
+            });
+            
+            // Éxito - redireccionamos según el rol
+            const roles = response.roles || [];
+            let redirectUrl = '../menu/menu.html'; // URL predeterminada para clientes
+            
+            if (roles.includes('ROLE_ADMIN') || roles.includes('ROLE_STAFF')) {
+                redirectUrl = '../sistema de gestion/dashboard.html'; // URL para staff/admin
+            }
+            
+            Swal.fire({
+                title: 'Éxito',
+                text: 'Inicio de sesión exitoso. Redirigiendo...',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                window.location.href = redirectUrl;
+            });
+        } catch (error) {
+            // Error - mostramos mensaje
+            Swal.fire({
+                title: 'Error',
+                text: error.message || 'Error al iniciar sesión. Intente nuevamente.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    }
+
+    function handleOAuth2Response() {
+        // Verificar si hay un parámetro que indique login social exitoso
+        const urlParams = new URLSearchParams(window.location.search);
+        const loginSuccess = urlParams.get('login_success');
+        
+        if (loginSuccess === 'true') {
+            // Mostrar mensaje de éxito
+            Swal.fire({
+                title: 'Éxito',
+                text: 'Inicio de sesión con red social exitoso',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                // Redirigir a la página principal o dashboard
+                window.location.href = '../index.html';
+            });
+        }
+    }
+    
+    // Manejar envío del formulario de registro
+    async function handleRegisterSubmit(event) {
+        event.preventDefault();
+        
+        const firstName = document.getElementById('first-name').value.trim();
+        const lastName = document.getElementById('last-name').value.trim();
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('register-email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const password = document.getElementById('register-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        const terms = document.getElementById('terms').checked;
+        
+        // Validación del rol y campos específicos
+        const isStaff = document.getElementById('role-staff').classList.contains('active');
+        let position = null;
+        let employeeId = null;
+        
+        if (isStaff) {
+            position = document.getElementById('position').value;
+            employeeId = document.getElementById('employee-id').value.trim();
+        }
+        
+        // Validaciones básicas en cliente
+        if (!firstName || !lastName || !username || !email || !password || !confirmPassword) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, completa todos los campos obligatorios',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
+        
+        if (password !== confirmPassword) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Las contraseñas no coinciden',
+                icon: 'error',
+                confirmButtonText: 'Intentar de nuevo'
+            });
+            return;
+        }
+        
+        if (!terms) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Debes aceptar los términos y condiciones',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
+        
+        // Mostrar cargando
+        Swal.fire({
+            title: 'Registrando usuario...',
+            text: 'Por favor, espera un momento.',
+            icon: 'info',
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+        
+        try {
+            // Preparar datos para envío
+            const userData = {
+                firstName,
+                lastName,
+                username,
+                email,
+                password,
+                phone
+            };
+            
+            // Agregar campos de staff si corresponde
+            if (isStaff) {
+                userData.position = position;
+                userData.employeeId = employeeId;
+                userData.roles = ['staff'];
+            } else {
+                userData.roles = ['client'];
+            }
+            
+            // Llamar a la función de registro
+            await registerUser(userData);
+            
+            if (isStaff) {
+                // Para personal, mostramos mensaje de espera de aprobación
+                Swal.fire({
+                    title: 'Registro Enviado',
+                    text: 'Su solicitud de cuenta de personal ha sido enviada. Espere la aprobación.',
+                    icon: 'info',
+                    confirmButtonText: 'Entendido'
+                });
+            } else {
+                // Para clientes, redirigimos al login
+                Swal.fire({
+                    title: 'Registro Exitoso',
+                    text: 'Usuario registrado con éxito. Ahora puedes iniciar sesión.',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(() => {
+                    // Cambiar a la pestaña de login
+                    document.getElementById('login-tab').click();
+                });
+            }
+        } catch (error) {
+            // Error - mostramos mensaje
+            Swal.fire({
+                title: 'Error',
+                text: error.message || 'Error al registrar usuario. Intente nuevamente.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    }
+    
+    // ========================
+    // Inicialización de la aplicación
+    // ========================
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        handleOAuth2Response();
+        console.log('Inicializando aplicación de seguridad...');
+        
+        // Configurar validación de contraseña
+        setupPasswordValidation();
+        
+        // ✅ Tab switching (Login & Register)
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        
+        if (loginTab && registerTab) {
+            loginTab.addEventListener('click', function() {
+                loginTab.classList.add('active');
+                loginTab.classList.remove('bg-gray-200', 'text-gray-700');
+                registerTab.classList.remove('active');
+                registerTab.classList.add('bg-gray-200', 'text-gray-700');
+                document.getElementById('login-form').classList.remove('hidden');
+                document.getElementById('register-form').classList.add('hidden');
+            });
+        
+            registerTab.addEventListener('click', function() {
+                registerTab.classList.add('active');
+                registerTab.classList.remove('bg-gray-200', 'text-gray-700');
+                loginTab.classList.remove('active');
+                loginTab.classList.add('bg-gray-200', 'text-gray-700');
+                document.getElementById('register-form').classList.remove('hidden');
+                document.getElementById('login-form').classList.add('hidden');
+            });
+        }
+    
+        // ✅ Role selection (Client & Staff)
+        const roleClient = document.getElementById('role-client');
+        const roleStaff = document.getElementById('role-staff');
+        
+        if (roleClient && roleStaff) {
+            roleClient.addEventListener('click', function() {
+                this.classList.add('active');
+                roleStaff.classList.remove('active');
+                document.getElementById('staff-fields').classList.add('hidden');
+                document.getElementById('register-client-btn').classList.remove('hidden');
+                document.getElementById('register-staff-btn').classList.add('hidden');
+            });
+        
+            roleStaff.addEventListener('click', function() {
+                this.classList.add('active');
+                roleClient.classList.remove('active');
+                document.getElementById('staff-fields').classList.remove('hidden');
+                document.getElementById('register-client-btn').classList.add('hidden');
+                document.getElementById('register-staff-btn').classList.remove('hidden');
+            });
+        }
+    
+        // ✅ Password visibility toggle
+        const togglePassword = document.getElementById('toggle-password');
+        if (togglePassword) {
+            togglePassword.addEventListener('click', function() {
+                togglePasswordVisibility('password', this);
+            });
+        }
+    
+        const toggleRegisterPassword = document.getElementById('toggle-register-password');
+        if (toggleRegisterPassword) {
+            toggleRegisterPassword.addEventListener('click', function() {
+                togglePasswordVisibility('register-password', this);
+            });
+        }
+    
+        function togglePasswordVisibility(inputId, toggleButton) {
+            const passwordInput = document.getElementById(inputId);
+            if (!passwordInput) return;
+            
+            const icon = toggleButton.querySelector('i');
+    
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    
+        // ✅ Login Form Submission with throttling
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', 
+                throttleFormSubmit('login-form', handleLoginSubmit, 2000)
+            );
+        }
+    
+        // ✅ Register Form Submission with throttling
+        const registerForm = document.getElementById('register-form');
+        if (registerForm) {
+            registerForm.addEventListener('submit', 
+                throttleFormSubmit('register-form', handleRegisterSubmit, 2000)
+            );
+        }
+        
+        // Protección contra ataques XSS en campos de texto
+        const textInputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
+        textInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                // Sanitizar valores
+                this.value = encodeHTML(this.value);
+            });
+        });
+        
+        // Verificar si hay sesión activa (ahora verificamos sessionStorage)
+        if (isAuthenticated()) {
+            const userRoles = JSON.parse(sessionStorage.getItem('userRoles') || '[]');
+            
+            if (userRoles.includes('ROLE_ADMIN') || userRoles.includes('ROLE_STAFF')) {
+                window.location.href = '../sistema de gestion/dashboard.html';
+            } else if (userRoles.includes('ROLE_CLIENT')) {
+                window.location.href = '../menu/menu.html';
+            }
+        }
+        
+        // Exponer las funciones necesarias globalmente
+        window.logout = logout;
+        
+        console.log('Inicialización de seguridad completada');
+    });
+})();

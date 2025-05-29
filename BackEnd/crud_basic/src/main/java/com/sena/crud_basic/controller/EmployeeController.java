@@ -15,7 +15,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", 
              maxAge = 3600, 
              allowCredentials = "false")  // Cambiar a false para permitir cualquier origen
-@PreAuthorize("hasRole('ADMIN')")
+
 public class EmployeeController {
 
     @Autowired

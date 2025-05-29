@@ -1,1 +1,321 @@
-const _0x1636df=_0x391d;(function(_0x2059d5,_0x37599f){const _0x885360=_0x391d,_0x53fa0c=_0x2059d5();while(!![]){try{const _0x1f4fa9=parseInt(_0x885360(0x1bc))/0x1+parseInt(_0x885360(0x1ef))/0x2+-parseInt(_0x885360(0x1b4))/0x3*(parseInt(_0x885360(0x1f3))/0x4)+parseInt(_0x885360(0x1b3))/0x5+-parseInt(_0x885360(0x1ae))/0x6*(parseInt(_0x885360(0x1e5))/0x7)+parseInt(_0x885360(0x1df))/0x8*(parseInt(_0x885360(0x19a))/0x9)+parseInt(_0x885360(0x1f5))/0xa*(-parseInt(_0x885360(0x1dc))/0xb);if(_0x1f4fa9===_0x37599f)break;else _0x53fa0c['push'](_0x53fa0c['shift']());}catch(_0x14a277){_0x53fa0c['push'](_0x53fa0c['shift']());}}}(_0x17e7,0xa229b));const dishTableBody=document['getElementById']('dishTableBody'),dishGrid=document[_0x1636df(0x1c2)](_0x1636df(0x1ba)),dishModal=document[_0x1636df(0x1c2)](_0x1636df(0x183)),dishForm=document[_0x1636df(0x1c2)](_0x1636df(0x1ab)),dishSearchInput=document[_0x1636df(0x1c2)]('dishSearchInput'),dishSearchBtn=document[_0x1636df(0x1c2)](_0x1636df(0x18d)),tableViewBtn=document[_0x1636df(0x1c2)](_0x1636df(0x1d2)),gridViewBtn=document['getElementById'](_0x1636df(0x1de)),dishTableView=document[_0x1636df(0x1c2)](_0x1636df(0x1f7)),dishGridView=document['getElementById']('dishGridView');function _0x17e7(){const _0x10d1ec=['Minimum\x20price','\x20dish','json','menu-item-price','message','cancelDishBtn','step','tableViewBtn','style','block','btn\x20btn-sm\x20btn-warning\x20edit-dish-btn','precio','stringify','innerHTML','filter-name','form-control\x20dish-filter-field','toFixed','11lcfrYZ','priceMax','gridViewBtn','3272UmTDFV','Apply\x20Filters','appendChild','validateMaxLength','parentNode','border-red-500','180929zBnGGo','Failed\x20to\x20fetch\x20dish\x20details','placeholder','input,\x20select,\x20textarea','button','flex\x20justify-end\x20space-x-2','application/json','filter-price-min','includes','Failed\x20to\x20','1227302aZOpeZ','form-group','create','price','216juRGxq','div','10010410QLOxPO','text','dishTableView','input','.dish-filter-field','dishId','truncate\x20max-w-xs','filter-id','finally','number','title','menu-item-name','values','forEach','Advanced\x20Filters','filter-description','none','#menu','menu-item-content','dishModal','some','Failed\x20to\x20fetch\x20dishes','toLowerCase','Description','addEventListener','dish','nombre','menu-item','reset','dishSearchBtn','update','name','fas\x20fa-edit','Maximum\x20price','priceMin','.search-box','form-label','/menu','/menu/','length','PUT','querySelector','24831LFYpHt','preventDefault','then','querySelectorAll','nextSibling','fas\x20fa-trash','filter-price-max','value','type','text-lg\x20font-semibold\x20mb-3','/menu/search?term=','classList','Failed\x20to\x20search\x20dishes','insertBefore','Dish\x20name','closeDishModal','min','dishForm','trim','catch','36KEDbDo','addDishBtn','active','Agregar\x20Nuevo\x20Plato','validateRequired','3543775miTkJN','42753nTqXHP','include','Name','remove','htmlFor','className','dishGrid','idDish','139059bdjzCF','label','textContent','btn\x20btn-sm\x20btn-danger\x20delete-dish-btn','add','dishName','getElementById','click','dishDescription','descripción','description','display','dishModalTitle','createElement','dishPrice'];_0x17e7=function(){return _0x10d1ec;};return _0x17e7();}document['addEventListener']('DOMContentLoaded',()=>{const _0x5017fe=_0x1636df;fetchDishes(),document['getElementById'](_0x5017fe(0x1af))[_0x5017fe(0x188)](_0x5017fe(0x1c3),showAddDishModal),document[_0x5017fe(0x1c2)](_0x5017fe(0x1a9))['addEventListener'](_0x5017fe(0x1c3),closeDishModal),document['getElementById'](_0x5017fe(0x1d0))[_0x5017fe(0x188)](_0x5017fe(0x1c3),closeDishModal),dishForm[_0x5017fe(0x188)]('submit',handleDishFormSubmit),tableViewBtn['addEventListener'](_0x5017fe(0x1c3),showTableView),gridViewBtn[_0x5017fe(0x188)](_0x5017fe(0x1c3),showGridView),setupAdvancedFilters();});const dishValidations={'dishName':[{'validator':FormValidation[_0x1636df(0x1b2)],'params':[_0x1636df(0x18a)]},{'validator':FormValidation[_0x1636df(0x1e2)],'params':[0x32,_0x1636df(0x18a)]}],'dishDescription':[{'validator':FormValidation[_0x1636df(0x1b2)],'params':[_0x1636df(0x1c5)]},{'validator':FormValidation[_0x1636df(0x1e2)],'params':[0xff,_0x1636df(0x1c5)]}],'dishPrice':[{'validator':FormValidation['validateRequired'],'params':['precio']},{'validator':FormValidation['validateNumber'],'params':[_0x1636df(0x1d6)]}]};function setupAdvancedFilters(){const _0x5f32ab=_0x1636df;let _0x30c98a=document['querySelector']('.advanced-filter-container');if(!_0x30c98a){const _0x521b4f=document[_0x5f32ab(0x199)](_0x5f32ab(0x181));if(!_0x521b4f)return;const _0xb738fe=_0x521b4f[_0x5f32ab(0x199)](_0x5f32ab(0x193));if(!_0xb738fe)return;_0x30c98a=document[_0x5f32ab(0x1c9)]('div'),_0x30c98a['className']='advanced-filter-container\x20bg-white\x20p-4\x20rounded-lg\x20mb-4\x20border\x20border-gray-200';const _0x3c3b59=document[_0x5f32ab(0x1c9)]('h4');_0x3c3b59[_0x5f32ab(0x1b9)]=_0x5f32ab(0x1a3),_0x3c3b59[_0x5f32ab(0x1be)]=_0x5f32ab(0x17e),_0x30c98a[_0x5f32ab(0x1e1)](_0x3c3b59);const _0x3981dd=document['createElement'](_0x5f32ab(0x1f4));_0x3981dd[_0x5f32ab(0x1b9)]='grid\x20grid-cols-1\x20md:grid-cols-4\x20gap-4\x20mb-3';const _0x1a1b41=[{'id':'filter-id','label':'ID','type':_0x5f32ab(0x1fe),'placeholder':'plate\x20ID'},{'id':'filter-name','label':_0x5f32ab(0x1b6),'type':_0x5f32ab(0x1f6),'placeholder':_0x5f32ab(0x1a8)},{'id':_0x5f32ab(0x17f),'label':_0x5f32ab(0x187),'type':_0x5f32ab(0x1f6),'placeholder':_0x5f32ab(0x187)},{'id':_0x5f32ab(0x1ec),'label':_0x5f32ab(0x1cb),'type':_0x5f32ab(0x1fe),'placeholder':'Minimum\x20price'},{'id':_0x5f32ab(0x1a0),'label':_0x5f32ab(0x191),'type':'number','placeholder':_0x5f32ab(0x191)}];_0x1a1b41[_0x5f32ab(0x202)](_0x57dcb4=>{const _0x3e1679=_0x5f32ab,_0x1f8d7a=document[_0x3e1679(0x1c9)](_0x3e1679(0x1f4));_0x1f8d7a[_0x3e1679(0x1b9)]=_0x3e1679(0x1f0);const _0x49f557=document[_0x3e1679(0x1c9)](_0x3e1679(0x1bd));_0x49f557[_0x3e1679(0x1b9)]=_0x3e1679(0x194),_0x49f557[_0x3e1679(0x1b8)]=_0x57dcb4['id'],_0x49f557[_0x3e1679(0x1be)]=_0x57dcb4[_0x3e1679(0x1bd)];const _0x36f969=document['createElement'](_0x3e1679(0x1f8));_0x36f969[_0x3e1679(0x1b9)]=_0x3e1679(0x1da),_0x36f969[_0x3e1679(0x1a2)]=_0x57dcb4[_0x3e1679(0x1a2)],_0x36f969['id']=_0x57dcb4['id'],_0x36f969[_0x3e1679(0x1e7)]=_0x57dcb4['placeholder'],_0x57dcb4[_0x3e1679(0x1a2)]===_0x3e1679(0x1fe)&&(_0x36f969[_0x3e1679(0x1aa)]='0',_0x36f969[_0x3e1679(0x1d1)]=_0x57dcb4['id'][_0x3e1679(0x1ed)]('price')?'0.01':'1'),_0x1f8d7a['appendChild'](_0x49f557),_0x1f8d7a[_0x3e1679(0x1e1)](_0x36f969),_0x3981dd[_0x3e1679(0x1e1)](_0x1f8d7a);}),_0x30c98a[_0x5f32ab(0x1e1)](_0x3981dd);const _0x2773b6=document[_0x5f32ab(0x1c9)]('div');_0x2773b6[_0x5f32ab(0x1b9)]=_0x5f32ab(0x1ea);const _0x366ab2=document[_0x5f32ab(0x1c9)](_0x5f32ab(0x1e9));_0x366ab2[_0x5f32ab(0x1a2)]=_0x5f32ab(0x1e9),_0x366ab2[_0x5f32ab(0x1b9)]='btn\x20btn-light',_0x366ab2[_0x5f32ab(0x1be)]='Clear',_0x366ab2['addEventListener'](_0x5f32ab(0x1c3),resetFilters);const _0x1af3cf=document[_0x5f32ab(0x1c9)]('button');_0x1af3cf['type']=_0x5f32ab(0x1e9),_0x1af3cf[_0x5f32ab(0x1b9)]='btn\x20btn-primary',_0x1af3cf[_0x5f32ab(0x1be)]=_0x5f32ab(0x1e0),_0x1af3cf['addEventListener']('click',applyAdvancedFilters),_0x2773b6[_0x5f32ab(0x1e1)](_0x366ab2),_0x2773b6['appendChild'](_0x1af3cf),_0x30c98a[_0x5f32ab(0x1e1)](_0x2773b6),_0xb738fe[_0x5f32ab(0x1e3)][_0x5f32ab(0x1a7)](_0x30c98a,_0xb738fe[_0x5f32ab(0x19e)]);}}function resetFilters(){const _0x28116d=_0x1636df;document[_0x28116d(0x19d)](_0x28116d(0x1f9))[_0x28116d(0x202)](_0x23c50f=>{const _0x2945a4=_0x28116d;_0x23c50f[_0x2945a4(0x1a1)]='';}),fetchDishes();}function applyAdvancedFilters(){const _0x2bf014=_0x1636df,_0x253476={'id':document['getElementById'](_0x2bf014(0x1fc))?.[_0x2bf014(0x1a1)]||'','name':document['getElementById'](_0x2bf014(0x1d9))?.[_0x2bf014(0x1a1)]||'','description':document['getElementById'](_0x2bf014(0x17f))?.[_0x2bf014(0x1a1)]||'','priceMin':document[_0x2bf014(0x1c2)](_0x2bf014(0x1ec))?.['value']||'','priceMax':document[_0x2bf014(0x1c2)](_0x2bf014(0x1a0))?.['value']||''},_0x40d503=Object[_0x2bf014(0x201)](_0x253476)[_0x2bf014(0x184)](_0x4aa3af=>_0x4aa3af!=='');if(!_0x40d503){fetchDishes();return;}showLoading(),fetch(API_BASE_URL+'/menu',{'credentials':_0x2bf014(0x1b5),'headers':{'Content-Type':_0x2bf014(0x1eb)}})[_0x2bf014(0x19c)](_0xd1061=>{const _0x4924bc=_0x2bf014;if(!_0xd1061['ok'])throw new Error(_0x4924bc(0x185));return _0xd1061[_0x4924bc(0x1cd)]();})[_0x2bf014(0x19c)](_0x305860=>{const _0x532732=_0x305860['filter'](_0x5a48d0=>{const _0x3aa2e6=_0x391d;if(_0x253476['id']&&_0x5a48d0['idDish']!=_0x253476['id'])return![];if(_0x253476[_0x3aa2e6(0x18f)]&&_0x5a48d0[_0x3aa2e6(0x18f)]&&!_0x5a48d0[_0x3aa2e6(0x18f)][_0x3aa2e6(0x186)]()[_0x3aa2e6(0x1ed)](_0x253476['name'][_0x3aa2e6(0x186)]()))return![];if(_0x253476['description']&&_0x5a48d0['description']&&!_0x5a48d0[_0x3aa2e6(0x1c6)][_0x3aa2e6(0x186)]()[_0x3aa2e6(0x1ed)](_0x253476[_0x3aa2e6(0x1c6)][_0x3aa2e6(0x186)]()))return![];if(_0x253476[_0x3aa2e6(0x192)]&&_0x5a48d0['price']<parseFloat(_0x253476['priceMin']))return![];if(_0x253476['priceMax']&&_0x5a48d0['price']>parseFloat(_0x253476[_0x3aa2e6(0x1dd)]))return![];return!![];});displayDishes(_0x532732);})[_0x2bf014(0x1ad)](_0xe9f582=>{showError(_0xe9f582['message']);})[_0x2bf014(0x1fd)](()=>{hideLoading();});}async function fetchDishes(){const _0x4780ff=_0x1636df;showLoading();try{const _0x123a1e=await fetch(API_BASE_URL+'/menu',{'credentials':_0x4780ff(0x1b5),'headers':{'Content-Type':_0x4780ff(0x1eb)}});if(!_0x123a1e['ok'])throw new Error(_0x4780ff(0x185));const _0x5f412c=await _0x123a1e[_0x4780ff(0x1cd)]();displayDishes(_0x5f412c);}catch(_0x43434b){showError(_0x43434b[_0x4780ff(0x1cf)]);}finally{hideLoading();}}function displayDishes(_0x1d7883){const _0x4c61e2=_0x1636df;dishTableBody[_0x4c61e2(0x1d8)]='',dishGrid[_0x4c61e2(0x1d8)]='';if(_0x1d7883[_0x4c61e2(0x197)]===0x0){dishTableBody[_0x4c61e2(0x1e1)](createNoDataRow('No\x20se\x20encontraron\x20platos',0x5));const _0x47bdde=document['createElement'](_0x4c61e2(0x1f4));_0x47bdde[_0x4c61e2(0x1b9)]='col-span-full\x20text-center\x20p-4\x20text-gray-500',_0x47bdde[_0x4c61e2(0x1be)]='No\x20se\x20encontraron\x20platos',dishGrid[_0x4c61e2(0x1e1)](_0x47bdde);return;}_0x1d7883[_0x4c61e2(0x202)](_0x2a28c9=>{const _0x3181fe=_0x4c61e2,_0x5107c6=createDishTableRow(_0x2a28c9);dishTableBody[_0x3181fe(0x1e1)](_0x5107c6);}),_0x1d7883[_0x4c61e2(0x202)](_0x78455b=>{const _0x1830d4=createDishGridItem(_0x78455b);dishGrid['appendChild'](_0x1830d4);});}function createDishTableRow(_0x386911){const _0x5035c8=_0x1636df,_0x4f7620=document[_0x5035c8(0x1c9)]('tr');_0x4f7620[_0x5035c8(0x1e1)](createTableCell('#'+_0x386911[_0x5035c8(0x1bb)])),_0x4f7620[_0x5035c8(0x1e1)](createTableCell(_0x386911[_0x5035c8(0x18f)]));const _0x30b1a4=createTableCell(''),_0x28ca48=document['createElement'](_0x5035c8(0x1f4));_0x28ca48[_0x5035c8(0x1b9)]=_0x5035c8(0x1fb),_0x28ca48[_0x5035c8(0x1ff)]=_0x386911[_0x5035c8(0x1c6)],_0x28ca48[_0x5035c8(0x1be)]=_0x386911[_0x5035c8(0x1c6)],_0x30b1a4[_0x5035c8(0x1e1)](_0x28ca48),_0x4f7620[_0x5035c8(0x1e1)](_0x30b1a4),_0x4f7620['appendChild'](createTableCell('$'+_0x386911['price'][_0x5035c8(0x1db)](0x2)));const _0x3e769d=createTableCell('','table-actions'),_0x8df320=createButton(_0x5035c8(0x190),_0x5035c8(0x1d5),()=>showEditDishModal(_0x386911[_0x5035c8(0x1bb)]),{'id':_0x386911[_0x5035c8(0x1bb)]}),_0x5889ea=createButton(_0x5035c8(0x19f),_0x5035c8(0x1bf),()=>showDeleteConfirmation('dish',_0x386911[_0x5035c8(0x1bb)]),{'id':_0x386911[_0x5035c8(0x1bb)]});return _0x3e769d[_0x5035c8(0x1e1)](_0x8df320),_0x3e769d[_0x5035c8(0x1e1)](_0x5889ea),_0x4f7620[_0x5035c8(0x1e1)](_0x3e769d),_0x4f7620;}function createDishGridItem(_0x490b53){const _0xd2e8c9=_0x1636df,_0x34713c=createElement(_0xd2e8c9(0x1f4),{'className':_0xd2e8c9(0x18b)}),_0x55a937=createElement('div',{'className':'menu-item-header'}),_0x11c30c=createElement('h3',{'className':_0xd2e8c9(0x200),'textContent':_0x490b53[_0xd2e8c9(0x18f)]});_0x55a937[_0xd2e8c9(0x1e1)](_0x11c30c),_0x34713c[_0xd2e8c9(0x1e1)](_0x55a937);const _0x412a4c=createElement('div',{'className':_0xd2e8c9(0x182)}),_0x195759=createElement('p',{'className':'menu-item-description','textContent':_0x490b53[_0xd2e8c9(0x1c6)],'attributes':{'title':_0x490b53['description']}}),_0x28b82d=createElement('p',{'className':_0xd2e8c9(0x1ce),'textContent':'$'+_0x490b53[_0xd2e8c9(0x1f2)][_0xd2e8c9(0x1db)](0x2)}),_0xd619ad=createElement(_0xd2e8c9(0x1f4),{'className':'menu-item-actions'}),_0x5464c2=createElement(_0xd2e8c9(0x1e9),{'className':'btn\x20btn-sm\x20btn-warning\x20edit-dish-btn','dataset':{'id':_0x490b53[_0xd2e8c9(0x1bb)]},'events':{'click':()=>showEditDishModal(_0x490b53[_0xd2e8c9(0x1bb)])}});_0x5464c2[_0xd2e8c9(0x1d8)]='<i\x20class=\x22fas\x20fa-edit\x22></i>\x20Editar';const _0x335fbb=createElement('button',{'className':_0xd2e8c9(0x1bf),'dataset':{'id':_0x490b53['idDish']},'events':{'click':()=>showDeleteConfirmation(_0xd2e8c9(0x189),_0x490b53['idDish'])}});return _0x335fbb[_0xd2e8c9(0x1d8)]='<i\x20class=\x22fas\x20fa-trash\x22></i>\x20Eliminar',_0xd619ad['appendChild'](_0x5464c2),_0xd619ad[_0xd2e8c9(0x1e1)](_0x335fbb),_0x412a4c['appendChild'](_0x195759),_0x412a4c[_0xd2e8c9(0x1e1)](_0x28b82d),_0x412a4c[_0xd2e8c9(0x1e1)](_0xd619ad),_0x34713c[_0xd2e8c9(0x1e1)](_0x412a4c),_0x34713c;}function showTableView(){const _0x5e06a9=_0x1636df;tableViewBtn[_0x5e06a9(0x1a5)]['add'](_0x5e06a9(0x1b0)),gridViewBtn[_0x5e06a9(0x1a5)][_0x5e06a9(0x1b7)](_0x5e06a9(0x1b0)),dishTableView[_0x5e06a9(0x1d3)]['display']=_0x5e06a9(0x1d4),dishGridView[_0x5e06a9(0x1d3)][_0x5e06a9(0x1c7)]='none';}function showGridView(){const _0x273d1a=_0x1636df;gridViewBtn[_0x273d1a(0x1a5)][_0x273d1a(0x1c0)]('active'),tableViewBtn[_0x273d1a(0x1a5)]['remove']('active'),dishGridView[_0x273d1a(0x1d3)][_0x273d1a(0x1c7)]=_0x273d1a(0x1d4),dishTableView['style'][_0x273d1a(0x1c7)]=_0x273d1a(0x180);}function showAddDishModal(){const _0x1d2c5e=_0x1636df;document['getElementById'](_0x1d2c5e(0x1c8))[_0x1d2c5e(0x1be)]=_0x1d2c5e(0x1b1),dishForm[_0x1d2c5e(0x18c)](),document[_0x1d2c5e(0x1c2)](_0x1d2c5e(0x1fa))[_0x1d2c5e(0x1a1)]='',clearAllFormErrors(dishForm),dishModal[_0x1d2c5e(0x1a5)]['add'](_0x1d2c5e(0x1b0));}function _0x391d(_0xcab1c2,_0x1585db){const _0x17e708=_0x17e7();return _0x391d=function(_0x391d5f,_0x16f5f2){_0x391d5f=_0x391d5f-0x17e;let _0x289d9a=_0x17e708[_0x391d5f];return _0x289d9a;},_0x391d(_0xcab1c2,_0x1585db);}async function showEditDishModal(_0x21615b){const _0x154934=_0x1636df;showLoading();try{const _0x1286b8=await fetch(API_BASE_URL+_0x154934(0x196)+_0x21615b,{'credentials':_0x154934(0x1b5),'headers':{'Content-Type':'application/json'}});if(!_0x1286b8['ok'])throw new Error(_0x154934(0x1e6));const _0x136b3b=await _0x1286b8['json']();document[_0x154934(0x1c2)](_0x154934(0x1c8))[_0x154934(0x1be)]='Editar\x20Plato',document[_0x154934(0x1c2)](_0x154934(0x1fa))['value']=_0x136b3b[_0x154934(0x1bb)],document[_0x154934(0x1c2)](_0x154934(0x1c1))[_0x154934(0x1a1)]=_0x136b3b[_0x154934(0x18f)],document[_0x154934(0x1c2)](_0x154934(0x1c4))[_0x154934(0x1a1)]=_0x136b3b[_0x154934(0x1c6)],document['getElementById']('dishPrice')[_0x154934(0x1a1)]=_0x136b3b['price']['toFixed'](0x2),clearAllFormErrors(dishForm),dishModal[_0x154934(0x1a5)][_0x154934(0x1c0)](_0x154934(0x1b0));}catch(_0x5a42d6){showError(_0x5a42d6['message']);}finally{hideLoading();}}function closeDishModal(){const _0x296729=_0x1636df;dishModal[_0x296729(0x1a5)][_0x296729(0x1b7)](_0x296729(0x1b0));}function clearAllFormErrors(_0x3eed5e){const _0xce49fa=_0x1636df,_0x465aeb=_0x3eed5e[_0xce49fa(0x19d)]('.error-message');_0x465aeb[_0xce49fa(0x202)](_0x46b011=>{const _0x5b3559=_0xce49fa;_0x46b011[_0x5b3559(0x1be)]='';});const _0x4740ae=_0x3eed5e[_0xce49fa(0x19d)](_0xce49fa(0x1e8));_0x4740ae[_0xce49fa(0x202)](_0x48a1f8=>{const _0x1558d9=_0xce49fa;_0x48a1f8[_0x1558d9(0x1a5)][_0x1558d9(0x1b7)](_0x1558d9(0x1e4));});}async function handleDishFormSubmit(_0x288490){const _0x4be9b2=_0x1636df;_0x288490[_0x4be9b2(0x19b)]();if(!FormValidation['validateForm'](dishForm,dishValidations))return;const _0x50896a={'name':document['getElementById']('dishName')[_0x4be9b2(0x1a1)][_0x4be9b2(0x1ac)](),'description':document[_0x4be9b2(0x1c2)](_0x4be9b2(0x1c4))[_0x4be9b2(0x1a1)]['trim'](),'price':parseFloat(document[_0x4be9b2(0x1c2)](_0x4be9b2(0x1ca))['value'])},_0x22fc71=document['getElementById']('dishId')['value'],_0x2aede1=_0x22fc71!=='';showLoading();try{let _0x62314b;_0x2aede1?(_0x50896a[_0x4be9b2(0x1bb)]=parseInt(_0x22fc71),_0x62314b=await fetch(API_BASE_URL+_0x4be9b2(0x196)+_0x22fc71,{'method':_0x4be9b2(0x198),'credentials':_0x4be9b2(0x1b5),'headers':{'Content-Type':_0x4be9b2(0x1eb)},'body':JSON[_0x4be9b2(0x1d7)](_0x50896a)})):_0x62314b=await fetch(API_BASE_URL+_0x4be9b2(0x195),{'method':'POST','credentials':_0x4be9b2(0x1b5),'headers':{'Content-Type':_0x4be9b2(0x1eb)},'body':JSON[_0x4be9b2(0x1d7)](_0x50896a)});if(!_0x62314b['ok'])throw new Error(_0x4be9b2(0x1ee)+(_0x2aede1?_0x4be9b2(0x18e):_0x4be9b2(0x1f1))+_0x4be9b2(0x1cc));const _0x53b67b=await _0x62314b[_0x4be9b2(0x1f6)]();showSuccess(_0x53b67b),closeDishModal(),fetchDishes();}catch(_0x26855a){showError(_0x26855a[_0x4be9b2(0x1cf)]);}finally{hideLoading();}}async function handleDishSearch(){const _0x57845a=_0x1636df,_0x46e806=dishSearchInput[_0x57845a(0x1a1)][_0x57845a(0x1ac)]();if(_0x46e806===''){fetchDishes();return;}showLoading();try{const _0x3df14f=await fetch(API_BASE_URL+_0x57845a(0x1a4)+encodeURIComponent(_0x46e806),{'credentials':'include','headers':{'Content-Type':_0x57845a(0x1eb)}});if(!_0x3df14f['ok'])throw new Error(_0x57845a(0x1a6));const _0x5c2cd4=await _0x3df14f[_0x57845a(0x1cd)]();displayDishes(_0x5c2cd4);}catch(_0x342713){showError(_0x342713[_0x57845a(0x1cf)]);}finally{hideLoading();}}
+// DOM Elements
+const dishTableBody = document.getElementById('dishTableBody');
+const dishGrid = document.getElementById('dishGrid');
+const dishModal = document.getElementById('dishModal');
+const dishForm = document.getElementById('dishForm');
+const dishSearchInput = document.getElementById('dishSearchInput');
+const dishSearchBtn = document.getElementById('dishSearchBtn');
+const tableViewBtn = document.getElementById('tableViewBtn');
+const gridViewBtn = document.getElementById('gridViewBtn');
+const dishTableView = document.getElementById('dishTableView');
+const dishGridView = document.getElementById('dishGridView');
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', () => {
+    // Load dishes data
+    fetchDishes();
+    
+    // Add Dish Button
+    document.getElementById('addDishBtn').addEventListener('click', showAddDishModal);
+    
+    // Close Dish Modal
+    document.getElementById('closeDishModal').addEventListener('click', closeDishModal);
+    document.getElementById('cancelDishBtn').addEventListener('click', closeDishModal);
+    
+    // Form Submission
+    dishForm.addEventListener('submit', handleDishFormSubmit);
+    
+    // Search Functionality
+    dishSearchBtn.addEventListener('click', handleDishSearch);
+    dishSearchInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            handleDishSearch();
+        }
+    });
+    
+    // View Toggles
+    tableViewBtn.addEventListener('click', showTableView);
+    gridViewBtn.addEventListener('click', showGridView);
+});
+
+// Functions - Dishes
+async function fetchDishes() {
+    showLoading();
+    try {
+        const response = await fetch(`${API_BASE_URL}/menu`, {
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        if (!response.ok) {
+            throw new Error('Failed to fetch dishes');
+        }
+        const dishes = await response.json();
+        displayDishes(dishes);
+    } catch (error) {
+        showError(error.message);
+    } finally {
+        hideLoading();
+    }
+}
+
+function displayDishes(dishes) {
+    // Clear previous data
+    dishTableBody.innerHTML = '';
+    dishGrid.innerHTML = '';
+    
+    if (dishes.length === 0) {
+        dishTableBody.appendChild(createNoDataRow('No dishes found', 5));
+        return;
+    }
+    
+    // Populate table view
+    dishes.forEach(dish => {
+        const row = createDishTableRow(dish);
+        dishTableBody.appendChild(row);
+    });
+    
+    // Populate grid view
+    dishes.forEach(dish => {
+        const gridItem = createDishGridItem(dish);
+        dishGrid.appendChild(gridItem);
+    });
+}
+
+function createDishTableRow(dish) {
+    const row = document.createElement('tr');
+    
+    // Dish ID column
+    row.appendChild(createTableCell(`#${dish.idDish}`));
+    
+    // Name column
+    row.appendChild(createTableCell(dish.name));
+    
+    // Description column
+    row.appendChild(createTableCell(dish.description));
+    
+    // Price column
+    row.appendChild(createTableCell(dish.price.toFixed(2)));
+    
+    // Actions column
+    const actionsCell = createTableCell('', 'table-actions');
+    
+    const editButton = createButton('fas fa-edit', 'btn btn-sm btn-warning edit-dish-btn', 
+        () => showEditDishModal(dish.idDish), { id: dish.idDish });
+    
+    const deleteButton = createButton('fas fa-trash', 'btn btn-sm btn-danger delete-dish-btn', 
+        () => showDeleteConfirmation('dish', dish.idDish), { id: dish.idDish });
+    
+    actionsCell.appendChild(editButton);
+    actionsCell.appendChild(deleteButton);
+    row.appendChild(actionsCell);
+    
+    return row;
+}
+
+function createDishGridItem(dish) {
+    const gridItem = createElement('div', {
+        className: 'menu-item'
+    });
+    
+    // Header with dish name
+    const headerDiv = createElement('div', {
+        className: 'menu-item-header'
+    });
+    
+    const nameHeading = createElement('h3', {
+        className: 'menu-item-name',
+        textContent: dish.name
+    });
+    
+    headerDiv.appendChild(nameHeading);
+    gridItem.appendChild(headerDiv);
+    
+    // Content with description, price, and actions
+    const contentDiv = createElement('div', {
+        className: 'menu-item-content'
+    });
+    
+    const descriptionPara = createElement('p', {
+        className: 'menu-item-description',
+        textContent: dish.description
+    });
+    
+    const pricePara = createElement('p', {
+        className: 'menu-item-price',
+        textContent: dish.price.toFixed(2)
+    });
+    
+    const actionsDiv = createElement('div', {
+        className: 'menu-item-actions'
+    });
+    
+    // Edit button with text
+    const editButton = createElement('button', {
+        className: 'btn btn-sm btn-warning edit-dish-btn',
+        dataset: { id: dish.idDish },
+        events: {
+            click: () => showEditDishModal(dish.idDish)
+        }
+    });
+    
+    editButton.innerHTML = '<i class="fas fa-edit"></i> Edit';
+    
+    // Delete button with text
+    const deleteButton = createElement('button', {
+        className: 'btn btn-sm btn-danger delete-dish-btn',
+        dataset: { id: dish.idDish },
+        events: {
+            click: () => showDeleteConfirmation('dish', dish.idDish)
+        }
+    });
+    
+    deleteButton.innerHTML = '<i class="fas fa-trash"></i> Delete';
+    
+    actionsDiv.appendChild(editButton);
+    actionsDiv.appendChild(deleteButton);
+    
+    contentDiv.appendChild(descriptionPara);
+    contentDiv.appendChild(pricePara);
+    contentDiv.appendChild(actionsDiv);
+    
+    gridItem.appendChild(contentDiv);
+    
+    return gridItem;
+}
+
+function showTableView() {
+    tableViewBtn.classList.add('active');
+    gridViewBtn.classList.remove('active');
+    dishTableView.style.display = 'block';
+    dishGridView.style.display = 'none';
+}
+
+function showGridView() {
+    gridViewBtn.classList.add('active');
+    tableViewBtn.classList.remove('active');
+    dishGridView.style.display = 'block';
+    dishTableView.style.display = 'none';
+}
+
+function showAddDishModal() {
+    document.getElementById('dishModalTitle').textContent = 'Add New Dish';
+    dishForm.reset();
+    document.getElementById('dishId').value = '';
+    dishModal.classList.add('active');
+}
+
+async function showEditDishModal(id) {
+    showLoading();
+    try {
+        const response = await fetch(`${API_BASE_URL}/menu/${id}`, {
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        if (!response.ok) {
+            throw new Error('Failed to fetch dish details');
+        }
+        const dish = await response.json();
+        
+        document.getElementById('dishModalTitle').textContent = 'Edit Dish';
+        document.getElementById('dishId').value = dish.idDish;
+        document.getElementById('dishName').value = dish.name;
+        document.getElementById('dishDescription').value = dish.description;
+        document.getElementById('dishPrice').value = dish.price;
+        
+        dishModal.classList.add('active');
+    } catch (error) {
+        showError(error.message);
+    } finally {
+        hideLoading();
+    }
+}
+
+function closeDishModal() {
+    dishModal.classList.remove('active');
+}
+
+async function handleDishFormSubmit(event) {
+    event.preventDefault();
+    
+    const dishData = {
+        name: document.getElementById('dishName').value,
+        description: document.getElementById('dishDescription').value,
+        price: parseFloat(document.getElementById('dishPrice').value)
+    };
+    
+    const id = document.getElementById('dishId').value;
+    const isEditing = id !== '';
+    
+    showLoading();
+    try {
+        let response;
+        
+        if (isEditing) {
+            // Update existing dish
+            dishData.idDish = parseInt(id);
+            response = await fetch(`${API_BASE_URL}/menu/${id}`, {
+                method: 'PUT',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dishData)
+            });
+        } else {
+            // Create new dish
+            response = await fetch(`${API_BASE_URL}/menu`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dishData)
+            });
+        }
+        
+        if (!response.ok) {
+            throw new Error(`Failed to ${isEditing ? 'update' : 'create'} dish`);
+        }
+        
+        const result = await response.text();
+        showSuccess(result);
+        closeDishModal();
+        fetchDishes();
+    } catch (error) {
+        showError(error.message);
+    } finally {
+        hideLoading();
+    }
+}
+
+async function handleDishSearch() {
+    const searchTerm = dishSearchInput.value.trim();
+    
+    if (searchTerm === '') {
+        fetchDishes();
+        return;
+    }
+    
+    showLoading();
+    try {
+        const response = await fetch(`${API_BASE_URL}/menu/search?term=${encodeURIComponent(searchTerm)}`, {
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        if (!response.ok) {
+            throw new Error('Failed to search dishes');
+        }
+        const dishes = await response.json();
+        displayDishes(dishes);
+    } catch (error) {
+        showError(error.message);
+    } finally {
+        hideLoading();
+    }
+}

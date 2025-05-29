@@ -412,6 +412,33 @@
         .form-group.error .error-message {
             display: block;
         }
+
+        .add-client-form {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .add-client-form h5 {
+            color: #333;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .add-client-form input {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        .add-client-form input:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -561,14 +588,39 @@
                 </div>
 
                 <!-- API Test Section -->
-                <div class="api-test" id="apiTestSection" style="display: none;">
+<div class="api-test" id="apiTestSection" style="display: none;">
                     <h4>Probar Endpoints de la API</h4>
                     <div class="api-buttons">
                         <button class="api-btn" onclick="testApi('/api/menu')">Obtener Menú</button>
                         <button class="api-btn" onclick="testApi('/api/clients')">Obtener Clientes</button>
+                        <button class="api-btn" onclick="showAddClientForm()">Agregar Cliente</button>
                         <button class="api-btn" onclick="testApi('/api/orders')">Obtener Órdenes</button>
                         <button class="api-btn" onclick="testApi('/api/employees')">Obtener Empleados</button>
                     </div>
+                    
+                    <!-- Formulario para agregar cliente -->
+                    <div class="add-client-form" id="addClientForm" style="display: none;">
+                        <h5 style="margin: 1rem 0 0.5rem;">Agregar Nuevo Cliente</h5>
+                        <div class="form-row" style="margin-bottom: 0.5rem;">
+                            <div class="form-group" style="margin-bottom: 0.5rem;">
+                                <input type="text" id="clientFirstName" placeholder="Nombre" style="padding: 8px 12px; font-size: 0.8rem;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0.5rem;">
+                                <input type="text" id="clientLastName" placeholder="Apellido" style="padding: 8px 12px; font-size: 0.8rem;">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0.5rem;">
+                            <input type="email" id="clientEmail" placeholder="Correo electrónico" style="padding: 8px 12px; font-size: 0.8rem;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <input type="tel" id="clientPhone" placeholder="Teléfono" style="padding: 8px 12px; font-size: 0.8rem;">
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="api-btn" onclick="addClient()" style="background: #28a745; color: white;">Guardar Cliente</button>
+                            <button class="api-btn" onclick="hideAddClientForm()">Cancelar</button>
+                        </div>
+                    </div>
+                    
                     <div class="api-response" id="apiResponse"></div>
                 </div>
             </div>
@@ -620,9 +672,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Aplicación iniciada');
             
-            // Verificar si el usuario ya está autenticado
-            checkExistingAuth();
-            
             // Configurar navegación
             setupNavigation();
             
@@ -638,41 +687,6 @@
             // Verificar si hay un token en la URL (después de OAuth2)
             checkForTokenInUrl();
         });
-
-        // Verificar si el usuario ya está autenticado
-        function checkExistingAuth() {
-            const existingToken = localStorage.getItem('authToken');
-            const existingUser = localStorage.getItem('currentUser');
-            
-            if (existingToken && existingUser) {
-                try {
-                    // Verificar si el token aún es válido (no expirado)
-                    const payload = existingToken.split('.')[1];
-                    const decoded = JSON.parse(atob(payload));
-                    const currentTime = Date.now() / 1000;
-                    
-                    if (decoded.exp > currentTime) {
-                        // Token válido, redirigir al dashboard
-                        console.log('Usuario ya autenticado, redirigiendo al dashboard...');
-                        showSuccess('Ya tienes una sesión activa. Redirigiendo...');
-                        setTimeout(() => {
-                            window.location.href = 'html/sistema de gestion/dashboard.html';
-                        }, 1000);
-                        return;
-                    } else {
-                        // Token expirado, limpiar localStorage
-                        localStorage.removeItem('authToken');
-                        localStorage.removeItem('currentUser');
-                        console.log('Token expirado, se requiere nueva autenticación');
-                    }
-                } catch (error) {
-                    // Token inválido, limpiar localStorage
-                    localStorage.removeItem('authToken');
-                    localStorage.removeItem('currentUser');
-                    console.error('Token inválido en localStorage:', error);
-                }
-            }
-        }
 
         // Navegación entre secciones
         function setupNavigation() {
@@ -847,20 +861,6 @@
             }
         }
 
-        // Función para obtener token reCAPTCHA
-        async function getRecaptchaToken(action) {
-            try {
-                // Usar la site key de tu configuración
-                const token = await grecaptcha.execute('6Lcy8x4rAAAAAKSfqVFXEkhNz_IsFIb_iCn5qOwy', {
-                    action: action
-                });
-                console.log('Token reCAPTCHA obtenido:', token.substring(0, 20) + '...');
-                return token;
-            } catch (error) {
-                console.error('Error obteniendo token reCAPTCHA:', error);
-                throw new Error('Error de verificación de seguridad');
-            }
-        }
         function validateLoginForm(email, password) {
             let isValid = true;
 
@@ -1016,18 +1016,8 @@
                 
                 if (userInfo) {
                     currentUser = userInfo;
-                    
-                    // Guardar token y usuario en localStorage para el dashboard
-                    localStorage.setItem('authToken', token);
-                    localStorage.setItem('currentUser', JSON.stringify(userInfo));
-                    
-                    // Mostrar mensaje de éxito
-                    showSuccess('¡Autenticación exitosa! Redirigiendo al dashboard...');
-                    
-                    // Redirigir al dashboard después de un breve delay
-                    setTimeout(() => {
-                        window.location.href = 'html/sistema de gestion/dashboard.html';
-                    }, 1500);
+                    displayUserInfo(userInfo);
+                    showSuccess('¡Autenticación exitosa!');
                 } else {
                     throw new Error('No se pudo obtener la información del usuario');
                 }
@@ -1162,13 +1152,9 @@
         function handleLogout() {
             console.log('Cerrando sesión...');
             
-            // Limpiar datos de memoria
+            // Limpiar datos
             currentToken = null;
             currentUser = null;
-            
-            // Limpiar localStorage
-            localStorage.removeItem('authToken');
-            localStorage.removeItem('currentUser');
             
             // Ocultar sección de API test
             apiTestSection.style.display = 'none';
@@ -1179,9 +1165,107 @@
         }
 
         // Probar API
+// Probar API (reemplazar la función existente)
         function toggleApiTest() {
             const isVisible = apiTestSection.style.display !== 'none';
             apiTestSection.style.display = isVisible ? 'none' : 'block';
+            
+            // Ocultar formulario de agregar cliente al cerrar
+            if (isVisible) {
+                hideAddClientForm();
+            }
+        }
+
+        // Mostrar formulario de agregar cliente
+        function showAddClientForm() {
+            const form = document.getElementById('addClientForm');
+            const response = document.getElementById('apiResponse');
+            
+            form.style.display = 'block';
+            response.style.display = 'none';
+            
+            // Limpiar campos
+            document.getElementById('clientFirstName').value = '';
+            document.getElementById('clientLastName').value = '';
+            document.getElementById('clientEmail').value = '';
+            document.getElementById('clientPhone').value = '';
+        }
+
+        // Ocultar formulario de agregar cliente
+        function hideAddClientForm() {
+            document.getElementById('addClientForm').style.display = 'none';
+        }
+
+        // Agregar cliente
+        async function addClient() {
+            if (!currentToken) {
+                showError('No hay token disponible para agregar cliente');
+                return;
+            }
+
+            const firstName = document.getElementById('clientFirstName').value.trim();
+            const lastName = document.getElementById('clientLastName').value.trim();
+            const email = document.getElementById('clientEmail').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+
+            // Validación básica
+            if (!firstName || !lastName || !email) {
+                showError('Por favor completa todos los campos obligatorios (Nombre, Apellido, Email)');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showError('Por favor ingresa un email válido');
+                return;
+            }
+
+            const responseDiv = document.getElementById('apiResponse');
+            responseDiv.style.display = 'block';
+            responseDiv.textContent = 'Agregando cliente...';
+
+            try {
+                console.log('Agregando cliente:', { firstName, lastName, email, phone });
+                
+                const clientData = {
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    phone: phone
+                };
+
+                const response = await fetch(`${API_BASE_URL}/api/clients`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${currentToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(clientData)
+                });
+
+                const data = await response.text();
+                
+                if (response.ok) {
+                    try {
+                        const jsonData = JSON.parse(data);
+                        responseDiv.textContent = `✅ Cliente agregado exitosamente!\n\nStatus: ${response.status}\nResponse:\n${JSON.stringify(jsonData, null, 2)}`;
+                        
+                        // Limpiar formulario y ocultarlo
+                        hideAddClientForm();
+                        showSuccess('Cliente agregado exitosamente');
+                        
+                    } catch {
+                        responseDiv.textContent = `✅ Cliente agregado!\n\nStatus: ${response.status}\nResponse:\n${data}`;
+                        hideAddClientForm();
+                        showSuccess('Cliente agregado exitosamente');
+                    }
+                } else {
+                    responseDiv.textContent = `❌ Error al agregar cliente\n\nStatus: ${response.status}\nError:\n${data}`;
+                }
+                
+            } catch (error) {
+                console.error('Error al agregar cliente:', error);
+                responseDiv.textContent = `❌ Error de conexión: ${error.message}`;
+            }
         }
 
         async function testApi(endpoint) {

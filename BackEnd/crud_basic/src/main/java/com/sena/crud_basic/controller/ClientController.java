@@ -21,14 +21,13 @@ public class ClientController {
     private ClientService clientService;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF')")
+
     public ResponseEntity<String> createClient(@Valid @RequestBody ClientDTO client) {
         String result = clientService.saveClient(client);
         return ResponseEntity.ok(result);
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF')")
     public ResponseEntity<List<ClientDTO>> getAllClients() {
         return ResponseEntity.ok(clientService.getAllClients());
     }

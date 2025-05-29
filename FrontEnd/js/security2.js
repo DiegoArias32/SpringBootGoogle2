@@ -1,1 +1,428 @@
-(function(_0x597ff4,_0x4310b6){const _0x5aa77a=_0x49b7,_0x4878f3=_0x597ff4();while(!![]){try{const _0x5c4e7=parseInt(_0x5aa77a(0x1eb))/0x1+-parseInt(_0x5aa77a(0x1b8))/0x2*(parseInt(_0x5aa77a(0x1a2))/0x3)+parseInt(_0x5aa77a(0x1ac))/0x4*(parseInt(_0x5aa77a(0x1fd))/0x5)+parseInt(_0x5aa77a(0x19c))/0x6+-parseInt(_0x5aa77a(0x1dd))/0x7*(parseInt(_0x5aa77a(0x1a9))/0x8)+-parseInt(_0x5aa77a(0x19f))/0x9+-parseInt(_0x5aa77a(0x1c5))/0xa;if(_0x5c4e7===_0x4310b6)break;else _0x4878f3['push'](_0x4878f3['shift']());}catch(_0x5d34da){_0x4878f3['push'](_0x4878f3['shift']());}}}(_0x59da,0x22b08),(function(){'use strict';const _0x7b58d2=_0x49b7;const _0x19bf73=_0x7b58d2(0x1a7),_0x4a81d0=!![],_0x5578c2=0x8;let _0x1ee26a=![],_0x416c57={};function _0x35e22a(){const _0x3d4895=_0x7b58d2;_0x4a81d0&&_0x3f42c2(),document[_0x3d4895(0x1d5)](_0x3d4895(0x1e0),_0x52b88e),_0x1b6a58(),_0x3d4f33(),_0x47fc19();}function _0x3f42c2(){const _0x13f8d5=_0x7b58d2;if(window[_0x13f8d5(0x1e4)]||document['querySelector'](_0x13f8d5(0x1bc))){_0x1ee26a=!![],console[_0x13f8d5(0x1ca)](_0x13f8d5(0x1c4));return;}const _0x2f55a1=document['createElement'](_0x13f8d5(0x1cb));_0x2f55a1['src']=_0x13f8d5(0x1c2),_0x2f55a1[_0x13f8d5(0x1d3)]=!![],_0x2f55a1['defer']=!![],document[_0x13f8d5(0x1da)][_0x13f8d5(0x1b0)](_0x2f55a1),window['recaptchaCallback']=function(){const _0x4dc75e=_0x13f8d5;_0x1ee26a=!![],console['log'](_0x4dc75e(0x1de)),setTimeout(()=>{_0x33aa4e();},0x3e8);};}function _0x33aa4e(){const _0x2744da=_0x7b58d2;if(!_0x1ee26a||!window['grecaptcha']){console['warn'](_0x2744da(0x1be)),setTimeout(_0x33aa4e,0x1f4);return;}console[_0x2744da(0x1ca)](_0x2744da(0x1db));const _0x30559a=document['querySelectorAll'](_0x2744da(0x1e1));_0x30559a[_0x2744da(0x1ec)]((_0x3c946b,_0x27d26a)=>{const _0x4d4e2e=_0x2744da;let _0x31bf6e=_0x3c946b[_0x4d4e2e(0x1d8)]('.recaptcha-container');if(!_0x31bf6e){_0x31bf6e=document['createElement'](_0x4d4e2e(0x1f4)),_0x31bf6e['className']=_0x4d4e2e(0x19e);const _0x340335=_0x3c946b['querySelector'](_0x4d4e2e(0x1c9));_0x340335?_0x340335[_0x4d4e2e(0x1c0)]['insertBefore'](_0x31bf6e,_0x340335):_0x3c946b[_0x4d4e2e(0x1b0)](_0x31bf6e);}const _0x1157f5='recaptcha-'+_0x27d26a;_0x31bf6e['id']=_0x1157f5,_0x416c57[_0x3c946b['id']||_0x1157f5]=grecaptcha[_0x4d4e2e(0x1e3)](_0x1157f5,{'sitekey':_0x19bf73,'size':_0x4d4e2e(0x1ad),'badge':_0x4d4e2e(0x1e6),'callback':_0x174c37=>{const _0x3e58b1=_0x4d4e2e;let _0x48b235=_0x3c946b[_0x3e58b1(0x1d8)]('input[name=\x22g-recaptcha-response\x22]');!_0x48b235&&(_0x48b235=document[_0x3e58b1(0x1e9)](_0x3e58b1(0x1d2)),_0x48b235[_0x3e58b1(0x1ba)]=_0x3e58b1(0x1cf),_0x48b235[_0x3e58b1(0x200)]=_0x3e58b1(0x1c1),_0x3c946b[_0x3e58b1(0x1b0)](_0x48b235)),_0x48b235[_0x3e58b1(0x1bb)]=_0x174c37,_0x1c3498(_0x3c946b);}});}),console[_0x2744da(0x1ca)](_0x2744da(0x1f1));}function _0x58bb3e(_0x45bcb3){const _0x4f6e10=_0x7b58d2;if(!_0x4a81d0||!_0x1ee26a)return _0x1c3498(_0x45bcb3);const _0x31c4c3=_0x45bcb3['id']||Array[_0x4f6e10(0x1fb)](document['querySelectorAll'](_0x4f6e10(0x1ab)))[_0x4f6e10(0x1b7)](_0x45bcb3);_0x416c57[_0x31c4c3]?grecaptcha[_0x4f6e10(0x1aa)](_0x416c57[_0x31c4c3]):(console[_0x4f6e10(0x1e8)](_0x4f6e10(0x1b3)),_0x1c3498(_0x45bcb3));}function _0x1c3498(_0x36a926){const _0x122816=_0x7b58d2,_0x435991=_0x36a926['id']||'',_0x1cf9bc=_0x36a926[_0x122816(0x19b)]('action')||'';typeof submitForm===_0x122816(0x1a1)?submitForm(_0x36a926):(console[_0x122816(0x1ca)]('Enviando\x20formulario\x20directamente'),_0x36a926[_0x122816(0x1e0)]());}function _0x52b88e(_0x5804c2){const _0x38ee89=_0x7b58d2;if(!_0x5804c2[_0x38ee89(0x1a3)][_0x38ee89(0x1a8)]||_0x5804c2[_0x38ee89(0x1a3)][_0x38ee89(0x1a8)][_0x38ee89(0x1b5)]()!=='form')return;const _0x2cd72e=_0x5804c2['target'];if(_0x2cd72e[_0x38ee89(0x1b4)](_0x38ee89(0x1c7)))return;_0x5804c2[_0x38ee89(0x1ce)]();if(!_0x58d514(_0x2cd72e))return;_0x58bb3e(_0x2cd72e);}function _0x1b6a58(){const _0x153ac3=_0x7b58d2;document[_0x153ac3(0x1d5)]('blur',function(_0x5377d1){const _0x36fc9d=_0x153ac3,_0x56f923=_0x5377d1[_0x36fc9d(0x1a3)];if(![_0x36fc9d(0x1dc),_0x36fc9d(0x1a4),_0x36fc9d(0x1f6)][_0x36fc9d(0x1bd)](_0x56f923[_0x36fc9d(0x1a8)]))return;_0x43d824(_0x56f923);},!![]),document[_0x153ac3(0x1d5)](_0x153ac3(0x1d2),function(_0x22077d){const _0x271221=_0x153ac3,_0x276910=_0x22077d[_0x271221(0x1a3)];if(![_0x271221(0x1dc),_0x271221(0x1a4)][_0x271221(0x1bd)](_0x276910[_0x271221(0x1a8)]))return;if(_0x276910[_0x271221(0x1ba)]===_0x271221(0x204))return;const _0x3a2fd9=_0x276910[_0x271221(0x1bb)],_0x1ad850=_0x15eb35(_0x3a2fd9);_0x3a2fd9!==_0x1ad850&&(_0x276910[_0x271221(0x1bb)]=_0x1ad850);});}function _0x15eb35(_0x2c4687){const _0x11054a=_0x7b58d2;if(typeof _0x2c4687!=='string')return _0x2c4687;return _0x2c4687[_0x11054a(0x1d4)](/</g,_0x11054a(0x1ef))[_0x11054a(0x1d4)](/>/g,_0x11054a(0x1fa))[_0x11054a(0x1d4)](/"/g,_0x11054a(0x1ae))[_0x11054a(0x1d4)](/'/g,_0x11054a(0x1e5))[_0x11054a(0x1d4)](/javascript:/gi,'')[_0x11054a(0x1d4)](/on\w+\s*=/gi,'')[_0x11054a(0x1d4)](/data:/gi,'');}function _0x43d824(_0x375e83){const _0x32cdc8=_0x7b58d2,_0x316d92=_0x375e83[_0x32cdc8(0x1d0)][_0x32cdc8(0x1c8)];if(!_0x316d92)return!![];let _0x180d4e=!![];const _0x332254=_0x375e83[_0x32cdc8(0x1bb)]['trim']();_0x266b69(_0x375e83);switch(_0x316d92){case _0x32cdc8(0x1e2):_0x180d4e=_0x332254[_0x32cdc8(0x1b2)]>0x0;!_0x180d4e&&_0x5791f7(_0x375e83,_0x32cdc8(0x1df));break;case'email':const _0x11522c=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;_0x180d4e=_0x11522c['test'](_0x332254);!_0x180d4e&&_0x332254['length']>0x0&&_0x5791f7(_0x375e83,_0x32cdc8(0x1f7));break;case _0x32cdc8(0x204):_0x180d4e=_0x332254['length']>=_0x5578c2;!_0x180d4e&&_0x332254[_0x32cdc8(0x1b2)]>0x0&&_0x5791f7(_0x375e83,_0x32cdc8(0x1b9)+_0x5578c2+_0x32cdc8(0x1a6));break;case'number':_0x180d4e=!isNaN(parseFloat(_0x332254))&&isFinite(_0x332254);!_0x180d4e&&_0x332254[_0x32cdc8(0x1b2)]>0x0&&_0x5791f7(_0x375e83,_0x32cdc8(0x19d));break;}return _0x180d4e;}function _0x58d514(_0x9b5591){const _0x2245be=_0x7b58d2;let _0x3f86fa=!![];const _0x1d5a0a=_0x9b5591[_0x2245be(0x1fe)]('input,\x20textarea,\x20select');return _0x1d5a0a[_0x2245be(0x1ec)](_0x2cacce=>{!_0x43d824(_0x2cacce)&&(_0x3f86fa=![]);}),_0x3f86fa;}function _0x5791f7(_0x194d7d,_0x52bfd9){const _0x1e6e2e=_0x7b58d2,_0x47b1eb=_0x194d7d[_0x1e6e2e(0x1ff)](_0x1e6e2e(0x1a5))||_0x194d7d[_0x1e6e2e(0x1c0)];let _0x3a39ef=_0x47b1eb[_0x1e6e2e(0x1d8)](_0x1e6e2e(0x1d7));!_0x3a39ef&&(_0x3a39ef=document[_0x1e6e2e(0x1e9)](_0x1e6e2e(0x1f4)),_0x3a39ef['className']='input-error',_0x47b1eb['appendChild'](_0x3a39ef)),_0x3a39ef[_0x1e6e2e(0x1d1)]=_0x52bfd9,_0x194d7d[_0x1e6e2e(0x203)][_0x1e6e2e(0x1c3)](_0x1e6e2e(0x1d6));}function _0x266b69(_0x528d9d){const _0x58e004=_0x7b58d2,_0x58d716=_0x528d9d[_0x58e004(0x1ff)]('.form-group')||_0x528d9d[_0x58e004(0x1c0)],_0x1296b1=_0x58d716['querySelector']('.input-error');_0x1296b1&&(_0x1296b1[_0x58e004(0x1d1)]=''),_0x528d9d[_0x58e004(0x203)][_0x58e004(0x1ed)](_0x58e004(0x1d6));}function _0x3d4f33(){const _0x1e7b9f=_0x7b58d2;window[_0x1e7b9f(0x1af)]!==window['top']&&(window[_0x1e7b9f(0x1cc)][_0x1e7b9f(0x1ee)]=window[_0x1e7b9f(0x1af)][_0x1e7b9f(0x1ee)]);}function _0x47fc19(){const _0x1d5b8d=_0x7b58d2;function _0xfc0168(){const _0x563b1e=_0x49b7,_0x253f64=document[_0x563b1e(0x1fc)]['split'](';\x20')['find'](_0x40194e=>_0x40194e[_0x563b1e(0x1bf)]('XSRF-TOKEN='))?.[_0x563b1e(0x1e7)]('=')[0x1];return _0x253f64||'';}const _0x28999a=window[_0x1d5b8d(0x1b6)];window['fetch']=function(_0x3a88a9,_0x153ef1={}){const _0x2b1869=_0x1d5b8d;if(typeof _0x3a88a9===_0x2b1869(0x202)&&_0x3a88a9['includes'](_0x2b1869(0x1f0))){_0x153ef1=_0x153ef1||{},_0x153ef1['headers']=_0x153ef1['headers']||{};const _0x392b26=_0xfc0168();_0x392b26&&(_0x153ef1['headers']['X-CSRF-TOKEN']=_0x392b26),_0x153ef1[_0x2b1869(0x1c6)]=_0x153ef1[_0x2b1869(0x1c6)]||_0x2b1869(0x1f8);}return _0x28999a[_0x2b1869(0x1f9)](this,_0x3a88a9,_0x153ef1);};const _0x5a4451=XMLHttpRequest[_0x1d5b8d(0x201)][_0x1d5b8d(0x1f5)];XMLHttpRequest[_0x1d5b8d(0x201)][_0x1d5b8d(0x1f5)]=function(_0x21b4fc,_0x318335,_0x51b873,_0x131ea4,_0x1c45b9){const _0x2995fb=_0x1d5b8d;this[_0x2995fb(0x1f3)]=_0x318335,_0x5a4451[_0x2995fb(0x1f9)](this,_0x21b4fc,_0x318335,_0x51b873,_0x131ea4,_0x1c45b9);};const _0x166721=XMLHttpRequest['prototype'][_0x1d5b8d(0x1b1)];XMLHttpRequest['prototype'][_0x1d5b8d(0x1b1)]=function(_0x3e08fa){const _0x7cdd7=_0x1d5b8d;if(typeof this[_0x7cdd7(0x1f3)]===_0x7cdd7(0x202)&&this[_0x7cdd7(0x1f3)]['includes'](_0x7cdd7(0x1f0))){const _0xd71d72=_0xfc0168();_0xd71d72&&this[_0x7cdd7(0x1cd)]('X-CSRF-TOKEN',_0xd71d72),this[_0x7cdd7(0x1a0)]=!![];}_0x166721['call'](this,_0x3e08fa);};}document[_0x7b58d2(0x1f2)]===_0x7b58d2(0x1ea)?document[_0x7b58d2(0x1d5)](_0x7b58d2(0x1d9),_0x35e22a):_0x35e22a();}()));function _0x49b7(_0x377b8e,_0x2b1d60){const _0x59da4b=_0x59da();return _0x49b7=function(_0x49b787,_0x285d67){_0x49b787=_0x49b787-0x19b;let _0x5e2e8f=_0x59da4b[_0x49b787];return _0x5e2e8f;},_0x49b7(_0x377b8e,_0x2b1d60);}function _0x59da(){const _0x3ddb4d=['dataset','textContent','input','async','replace','addEventListener','is-invalid','.input-error','querySelector','DOMContentLoaded','head','reCAPTCHA\x20está\x20listo','INPUT','47194isEwEO','reCAPTCHA\x20cargado\x20correctamente','Este\x20campo\x20es\x20obligatorio','submit','form:not([data-no-recaptcha])','required','render','grecaptcha','&#039;','bottomright','split','warn','createElement','loading','180131IZcUhQ','forEach','remove','location','&lt;','/api','Verificación\x20reCAPTCHA\x20aplicada\x20a\x20los\x20formularios','readyState','_url','div','open','SELECT','Por\x20favor,\x20introduce\x20un\x20email\x20válido','include','call','&gt;','from','cookie','265955Clmbrc','querySelectorAll','closest','name','prototype','string','classList','password','getAttribute','1651566CVAWcJ','Por\x20favor,\x20introduce\x20un\x20número\x20válido','recaptcha-container','163431AkHUhx','withCredentials','function','18726YuIbkf','target','TEXTAREA','.form-group','\x20caracteres','6LeDFJ8UAAAAAKeLGLV7-5yGkcRXkPuqMyBnIz8K','tagName','88BOOuak','execute','form','4WsSOAG','invisible','&quot;','self','appendChild','send','length','Formulario\x20sin\x20widget\x20de\x20reCAPTCHA,\x20se\x20procede\x20sin\x20verificación','hasAttribute','toLowerCase','fetch','indexOf','46PwQjYA','La\x20contraseña\x20debe\x20tener\x20al\x20menos\x20','type','value','script[src*=\x22recaptcha\x22]','includes','reCAPTCHA\x20no\x20está\x20listo\x20todavía.\x20Esperando...','startsWith','parentNode','g-recaptcha-response','https://www.google.com/recaptcha/api.js?render=explicit&onload=recaptchaCallback','add','reCAPTCHA\x20ya\x20cargado','1306080lMYiLT','credentials','data-no-recaptcha','validate','button[type=\x22submit\x22],\x20input[type=\x22submit\x22]','log','script','top','setRequestHeader','preventDefault','hidden'];_0x59da=function(){return _0x3ddb4d;};return _0x59da();}
+// Módulo de seguridad adicional para verificaciones de reCAPTCHA y otras protecciones
+(function() {
+    'use strict';
+    
+    // Configuración
+    const RECAPTCHA_SITE_KEY = '6LeDFJ8UAAAAAKeLGLV7-5yGkcRXkPuqMyBnIz8K'; // Clave pública de reCAPTCHA
+    const USE_RECAPTCHA = true; // Establecer a false para desactivar reCAPTCHA en desarrollo
+    const MIN_PASSWORD_LENGTH = 8;
+    
+    // Variables de reCAPTCHA
+    let recaptchaLoaded = false;
+    let recaptchaWidgets = {};
+    
+    // ==========================
+    // Funciones de inicialización
+    // ==========================
+    
+    // Inicializar el módulo de seguridad
+    function initSecurity() {
+        // Cargar reCAPTCHA si está habilitado
+        if (USE_RECAPTCHA) {
+            loadRecaptcha();
+        }
+        
+        // Eventos de formularios
+        document.addEventListener('submit', handleFormSubmit);
+        
+        // Validación de datos de entrada en tiempo real
+        setupInputValidation();
+        
+        // Prevenir ataque de clickjacking
+        preventClickjacking();
+        
+        // Configurar CSP dinámico (si es necesario)
+        // setupDynamicCSP();
+        
+        // Añadir protección anti-CSRF a llamadas fetch y XMLHttpRequest
+        protectAgainstCSRF();
+    }
+    
+    // ==========================
+    // reCAPTCHA
+    // ==========================
+    
+    // Cargar el script de reCAPTCHA
+    function loadRecaptcha() {
+        // Evitar cargar reCAPTCHA varias veces
+        if (window.grecaptcha || document.querySelector('script[src*="recaptcha"]')) {
+            recaptchaLoaded = true;
+            console.log('reCAPTCHA ya cargado');
+            return;
+        }
+        
+        const script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=explicit&onload=recaptchaCallback`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+        
+        // Definir la función de callback global
+        window.recaptchaCallback = function() {
+            recaptchaLoaded = true;
+            console.log('reCAPTCHA cargado correctamente');
+            
+            // Aplicar a todos los formularios después de que reCAPTCHA esté listo
+            setTimeout(() => {
+                applyRecaptchaToForms();
+            }, 1000); // Esperar a que los formularios estén completamente cargados
+        };
+    }
+    
+    // Aplicar reCAPTCHA a todos los formularios
+    function applyRecaptchaToForms() {
+        // Comprobar si reCAPTCHA está cargado
+        if (!recaptchaLoaded || !window.grecaptcha) {
+            console.warn('reCAPTCHA no está listo todavía. Esperando...');
+            setTimeout(applyRecaptchaToForms, 500);
+            return;
+        }
+        
+        console.log('reCAPTCHA está listo');
+        
+        // Buscar formularios que necesiten protección (excluir búsquedas o formas de solo lectura)
+        const forms = document.querySelectorAll('form:not([data-no-recaptcha])');
+        
+        forms.forEach((form, index) => {
+            // Crear contenedor para reCAPTCHA si no existe
+            let recaptchaContainer = form.querySelector('.recaptcha-container');
+            if (!recaptchaContainer) {
+                recaptchaContainer = document.createElement('div');
+                recaptchaContainer.className = 'recaptcha-container';
+                // Insertar antes del botón de envío
+                const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+                if (submitButton) {
+                    submitButton.parentNode.insertBefore(recaptchaContainer, submitButton);
+                } else {
+                    form.appendChild(recaptchaContainer);
+                }
+            }
+            
+            // ID único para este widget
+            const widgetId = `recaptcha-${index}`;
+            recaptchaContainer.id = widgetId;
+            
+            // Renderizar el widget de reCAPTCHA (invisible)
+            recaptchaWidgets[form.id || widgetId] = grecaptcha.render(widgetId, {
+                'sitekey': RECAPTCHA_SITE_KEY,
+                'size': 'invisible',
+                'badge': 'bottomright',
+                'callback': (token) => {
+                    // Guardar el token en un campo oculto
+                    let tokenInput = form.querySelector('input[name="g-recaptcha-response"]');
+                    if (!tokenInput) {
+                        tokenInput = document.createElement('input');
+                        tokenInput.type = 'hidden';
+                        tokenInput.name = 'g-recaptcha-response';
+                        form.appendChild(tokenInput);
+                    }
+                    tokenInput.value = token;
+                    
+                    // Continuar con el envío del formulario
+                    completeFormSubmission(form);
+                }
+            });
+        });
+        
+        console.log('Verificación reCAPTCHA aplicada a los formularios');
+    }
+    
+    // Aplicar verificación de reCAPTCHA a un formulario específico
+    function applyRecaptchaVerification(form) {
+        // Si reCAPTCHA está desactivado, simplemente continuar
+        if (!USE_RECAPTCHA || !recaptchaLoaded) {
+            return completeFormSubmission(form);
+        }
+        
+        const formId = form.id || Array.from(document.querySelectorAll('form')).indexOf(form);
+        
+        // Verificar si ya tiene un widget de reCAPTCHA
+        if (recaptchaWidgets[formId]) {
+            grecaptcha.execute(recaptchaWidgets[formId]);
+        } else {
+            // Si no tiene widget, continuar sin verificación (como fallback)
+            console.warn('Formulario sin widget de reCAPTCHA, se procede sin verificación');
+            completeFormSubmission(form);
+        }
+    }
+    
+    // Completar el envío del formulario después de la verificación
+    function completeFormSubmission(form) {
+        // Aquí procesamos el formulario según su tipo
+        // Esta es una versión simplificada, ajústate a tus necesidades
+        
+        const formId = form.id || '';
+        const formAction = form.getAttribute('action') || '';
+        
+        if (typeof submitForm === 'function') {
+            // Función general de envío si existe
+            submitForm(form);
+        } else {
+            // Envío directo del formulario (si no hay manejo específico)
+            console.log('Enviando formulario directamente');
+            form.submit();
+        }
+    }
+    
+    // ==========================
+    // Manejo de Eventos
+    // ==========================
+    
+    // Interceptar envíos de formularios para aplicar reCAPTCHA
+    function handleFormSubmit(event) {
+        // Ignorar si no viene de un formulario
+        if (!event.target.tagName || event.target.tagName.toLowerCase() !== 'form') {
+            return;
+        }
+        
+        const form = event.target;
+        
+        // Ignorar formularios que indican no usar reCAPTCHA
+        if (form.hasAttribute('data-no-recaptcha')) {
+            return;
+        }
+        
+        // Evitar el envío directo
+        event.preventDefault();
+        
+        // Validar el formulario primero
+        if (!validateForm(form)) {
+            return;
+        }
+        
+        // Aplicar reCAPTCHA y continuar
+        applyRecaptchaVerification(form);
+    }
+    
+    // ==========================
+    // Validación de Datos
+    // ==========================
+    
+    // Configurar validación de entradas en tiempo real
+    function setupInputValidation() {
+        // Validar entradas cuando pierden el foco
+        document.addEventListener('blur', function(event) {
+            const target = event.target;
+            
+            // Solo procesar inputs, textareas y selects
+            if (!['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) {
+                return;
+            }
+            
+            validateInput(target);
+        }, true); // Usar fase de captura
+        
+        // Sanitizar entradas para prevenir XSS
+        document.addEventListener('input', function(event) {
+            const target = event.target;
+            
+            // Solo procesar inputs de texto y textareas
+            if (!['INPUT', 'TEXTAREA'].includes(target.tagName)) {
+                return;
+            }
+            
+            // No sanitizar campos de contraseña
+            if (target.type === 'password') {
+                return;
+            }
+            
+            // Sanitizar en tiempo real
+            const originalValue = target.value;
+            const sanitizedValue = sanitizeUserInput(originalValue);
+            
+            // Solo actualizar si cambia, para evitar problemas con el cursor
+            if (originalValue !== sanitizedValue) {
+                target.value = sanitizedValue;
+            }
+        });
+    }
+    
+    // Sanitizar entrada del usuario contra XSS
+    function sanitizeUserInput(input) {
+        if (typeof input !== 'string') {
+            return input;
+        }
+        
+        // Reemplazar caracteres especiales de HTML
+        return input
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;')
+            .replace(/javascript:/gi, '')
+            .replace(/on\w+\s*=/gi, '')
+            .replace(/data:/gi, '');
+    }
+    
+    // Validar un campo individual
+    function validateInput(input) {
+        // Obtener el tipo de validación requerida
+        const validationType = input.dataset.validate;
+        if (!validationType) {
+            return true; // No se requiere validación específica
+        }
+        
+        let isValid = true;
+        const value = input.value.trim();
+        
+        // Limpiar errores anteriores
+        clearInputError(input);
+        
+        // Validar según el tipo
+        switch (validationType) {
+            case 'required':
+                isValid = value.length > 0;
+                if (!isValid) {
+                    showInputError(input, 'Este campo es obligatorio');
+                }
+                break;
+                
+            case 'email':
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                isValid = emailRegex.test(value);
+                if (!isValid && value.length > 0) {
+                    showInputError(input, 'Por favor, introduce un email válido');
+                }
+                break;
+                
+            case 'password':
+                isValid = value.length >= MIN_PASSWORD_LENGTH;
+                if (!isValid && value.length > 0) {
+                    showInputError(input, `La contraseña debe tener al menos ${MIN_PASSWORD_LENGTH} caracteres`);
+                }
+                break;
+                
+            case 'number':
+                isValid = !isNaN(parseFloat(value)) && isFinite(value);
+                if (!isValid && value.length > 0) {
+                    showInputError(input, 'Por favor, introduce un número válido');
+                }
+                break;
+                
+            // Añadir más tipos de validación según sea necesario
+        }
+        
+        return isValid;
+    }
+    
+    // Validar un formulario completo
+    function validateForm(form) {
+        let isValid = true;
+        
+        // Validar todos los campos con requisitos
+        const inputs = form.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            // Si un campo no es válido, marcar todo el formulario como inválido
+            if (!validateInput(input)) {
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
+    
+    // Mostrar error de validación
+    function showInputError(input, message) {
+        // Buscar contenedor padre para mostrar el error
+        const formGroup = input.closest('.form-group') || input.parentNode;
+        
+        // Crear elemento de error si no existe
+        let errorElement = formGroup.querySelector('.input-error');
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.className = 'input-error';
+            formGroup.appendChild(errorElement);
+        }
+        
+        // Mostrar mensaje
+        errorElement.textContent = message;
+        input.classList.add('is-invalid');
+    }
+    
+    // Limpiar error de validación
+    function clearInputError(input) {
+        const formGroup = input.closest('.form-group') || input.parentNode;
+        const errorElement = formGroup.querySelector('.input-error');
+        
+        if (errorElement) {
+            errorElement.textContent = '';
+        }
+        
+        input.classList.remove('is-invalid');
+    }
+    
+    // ==========================
+    // Protecciones adicionales
+    // ==========================
+    
+    // Prevenir clickjacking
+    function preventClickjacking() {
+        if (window.self !== window.top) {
+            // La página está en un iframe
+            window.top.location = window.self.location;
+        }
+    }
+    
+    // Protección contra CSRF
+    function protectAgainstCSRF() {
+        // Obtener token CSRF de cookies
+        function getCsrfToken() {
+            const token = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('XSRF-TOKEN='))
+                ?.split('=')[1];
+            return token || '';
+        }
+        
+        // Interceptar fetch para añadir token CSRF
+        const originalFetch = window.fetch;
+        window.fetch = function(url, options = {}) {
+            // Solo modificar peticiones a nuestra API
+            if (typeof url === 'string' && url.includes('/api')) {
+                options = options || {};
+                options.headers = options.headers || {};
+                
+                // Añadir token CSRF
+                const csrfToken = getCsrfToken();
+                if (csrfToken) {
+                    options.headers['X-CSRF-TOKEN'] = csrfToken;
+                }
+                
+                // Asegurar que se envían cookies
+                options.credentials = options.credentials || 'include';
+            }
+            
+            return originalFetch.call(this, url, options);
+        };
+        
+        // Interceptar XMLHttpRequest
+        const originalOpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
+            this._url = url;
+            originalOpen.call(this, method, url, async, user, password);
+        };
+        
+        const originalSend = XMLHttpRequest.prototype.send;
+        XMLHttpRequest.prototype.send = function(body) {
+            if (typeof this._url === 'string' && this._url.includes('/api')) {
+                const csrfToken = getCsrfToken();
+                if (csrfToken) {
+                    this.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                }
+                this.withCredentials = true;
+            }
+            originalSend.call(this, body);
+        };
+    }
+    
+    // ==========================
+    // Inicializar el módulo
+    // ==========================
+    
+    // Ejecutar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSecurity);
+    } else {
+        initSecurity();
+    }
+})();

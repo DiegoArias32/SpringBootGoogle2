@@ -118,7 +118,8 @@ public class WebSecurityConfig {
                 .requestMatchers("/", "/index.html", "/login", "/register").permitAll()
                 
                 // Endpoints específicos
-                .requestMatchers("/api/employees/**").hasRole("ADMIN")
+                .requestMatchers("/api/employees/**").permitAll()
+                .requestMatchers("/api/clients/**").permitAll() // Permitir acceso al menú para pruebas
                 .requestMatchers("/api/menu/**").permitAll() // Permitir acceso al menú para pruebas
                 
                 // Cualquier otra request necesita autenticación
